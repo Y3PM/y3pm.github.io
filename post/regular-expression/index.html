@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>开发人员不得不知的正则表达式 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="在使用Python进行数据采集的时候，经常需要用到正则表达式。合理使用可以极大的提高效率。
+
+基本用法
+.	匹配除换行符以外的任意字符
+\w	匹配字母或数字或下划线或汉字
+\s	匹配任意的空白符
+\d	匹配数字
+\b	匹配单词的开始或结束
+..." />
+    <meta name="keywords" content="开发" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">开发人员不得不知的正则表达式</h2>
+            <div class="post-date">2018-05-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/regular-expression.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>在使用Python进行数据采集的时候，经常需要用到正则表达式。合理使用可以极大的提高效率。</p>
+<!-- more -->
+<h2 id="基本用法">基本用法</h2>
+<p>.	匹配除换行符以外的任意字符<br>
+\w	匹配字母或数字或下划线或汉字<br>
+\s	匹配任意的空白符<br>
+\d	匹配数字<br>
+\b	匹配单词的开始或结束<br>
+^	匹配字符串的开始<br>
+$	匹配字符串的结束</p>
+<p>*	重复零次或更多次<br>
++	重复一次或更多次<br>
+?	重复零次或一次<br>
+{n}	重复n次<br>
+{n,}	重复n次或更多次<br>
+{n,m}  重复n到m次</p>
+<p>\W	匹配任意不是字母，数字，下划线，汉字的字符<br>
+\S	匹配任意不是空白符的字+<br>
+\D	匹配任意非数字的字符<br>
+\B	匹配不是单词开头或结束的位置<br>
+[^x]	匹配除了x以外的任意字符<br>
+[^aeiou]	匹配除了aeiou这几个字母以外的任意字符</p>
+<p>| 把不同的规则分隔开<br>
+- 不是元字符，只匹配它本身</p>
+<h2 id="例子">例子</h2>
+<p>0\d\d-\d\d\d\d\d\d\d\d匹配这样的字符串：以0开头，然后是两个数字，然后是一个连字号“-”，最后是8个数字。我们也可以这样写这个表达式：0\d{2}-\d{8}</p>
+<p>\b\w{6}\b 匹配刚好6个字符的单词。</p>
+<p>hi后面不远处跟着一个Lucy，你应该用\bhi\b.*\bLucy\b。</p>
+<p>\d+匹配1个或更多连续的数字。这里的+是和*类似的元字符，不同的是*匹配重复任意次(可能是0次)，而+则匹配重复1次或更多次。</p>
+<p>\ba\w*\b匹配以字母a开头的单词——先是某个单词开始处(\b)，然后是字母a,然后是任意数量的字母或数字(\w*)，最后是单词结束处(\b)。</p>
+<p>^匹配你要用来查找的字符串的开头，$匹配结尾。这两个代码在验证输入的内容时非常有用，比如一个网站如果要求你填写的QQ号必须为5位到12位数字时，可以使用：^\d{5,12}$</p>
+<p>Windows\d+匹配Windows后面跟1个或更多数字</p>
+<p>^\w+匹配一行的第一个单词(或整个字符串的第一个单词，具体匹配哪个意思得看选项设置)</p>
+<p>[aeiou]就匹配任何一个英文元音字母</p>
+<p>[.?!]匹配标点符号(.或?或!)。</p>
+<p>[0-9]代表的含意与\d就是完全一致的：一位数字；</p>
+<p>[a-z0-9A-Z_]也完全等同于\w（如果只考虑英文的话）</p>
+<p>(?0\d{2}[) -]?\d{8} 这个表达式可以匹配几种格式的电话号码，像(010)88886666，或022-22334455，或02912345678等。我们对它进行一些分析吧：首先是一个转义字符(,它能出现0次或1次(?),然后是一个0，后面跟着2个数字(\d{2})，然后是)或-或空格中的一个，它出现1次或不出现(?)，最后是8个数字(\d{8})。</p>
+<p>0\d{2}-\d{8}|0\d{3}-\d{7}这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)。</p>
+<p>(?0\d{2})?[- ]?\d{8}|0\d{2}[- ]?\d{8}这个表达式匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔。你可以试试用分枝条件把这个表达式扩展成也支持4位区号的。</p>
+<p>\d{5}-\d{4}|\d{5}这个表达式用于匹配美国的邮政编码。美国邮编的规则是5位数字，或者用连字号间隔的9位数字。之所以要给出这个例子是因为它能说明一个问题：使用分枝条件时，要注意各个条件的顺序。如果你把它改成\d{5}|\d{5}-\d{4}的话，那么就只会匹配5位的邮编(以及9位邮编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
+<p>(\d{1,3}.){3}\d{1,3}是一个简单的IP地址匹配表达式。要理解这个表达式，请按下列顺序分析它：\d{1,3}匹配1到3位的数字，(\d{1,3}.){3}匹配三位数字加上一个英文句号(这个整体也就是这个分组)重复3次，最后再加上一个一到三位的数字(\d{1,3})。不幸的是，它也将匹配256.300.888.999这种不可能存在的IP地址。如果能使用算术比较的话，或许能简单地解决这个问题，但是正则表达式中并不提供关于数学的任何功能，所以只能使用冗长的分组，选择，字符类来描述一个正确的IP地址：((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)。</p>
+<p>\S+匹配不包含空白符的字符串。</p>
+<p>&lt;\a[^&gt;]+&gt;匹配用尖括号括起来的以a开头的字符串。</p>
+<h2 id="先行断言和后行断言">先行断言和后行断言</h2>
+<p>正则表达式的先行断言和后行断言一共有4种形式：<br>
+(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion) ，如：re(?=gular)，限定了re右边的位置，这个位置之后是gular<br>
+(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion) ，如：re(?!g)，限定了re右边的位置，这个位置后面不是字符g<br>
+(?&lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion) ，如：(?&lt;=\w)re，匹配单词内部的re，在re前面应该是一个单词字符。<br>
+(?&lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion) ，如：(?&lt;!\w)re，re前面不是单词字符<br>
+这里面的pattern是一个正则表达式。</p>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.github.io/post-images/1622881798240.jpg" alt="" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/NwQziEaLqu/" class="tag">
+                    开发
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/web-moniter/">
+                  <h3 class="post-title">
+                    两个方案监控网页变化，不错过任何更新。
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

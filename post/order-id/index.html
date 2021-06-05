@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>餐饮点餐订餐小程序订单号规则设计 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="近期在做一套餐饮订餐和外卖系统，对订单号系统进行了特别设计。跟商城类的订单系统不同，餐饮订餐需要有两套订单号规则：一个是普通的订单号，一个是易于服务员叫号的订单号。
+
+订单号常见的几种方式：
+利用数据库主键值产生一个自增长的订单号（订单号即..." />
+    <meta name="keywords" content="产品设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">餐饮点餐订餐小程序订单号规则设计</h2>
+            <div class="post-date">2019-03-03</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/order-id.jpeg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>近期在做一套餐饮订餐和外卖系统，对订单号系统进行了特别设计。跟商城类的订单系统不同，餐饮订餐需要有两套订单号规则：一个是普通的订单号，一个是易于服务员叫号的订单号。</p>
+<!-- more -->
+<h2 id="订单号常见的几种方式">订单号常见的几种方式：</h2>
+<p>利用数据库主键值产生一个自增长的订单号（订单号即数据表的主键）<br>
+日期+自增长数字的订单号（比如：2012040110235662）<br>
+产生随机的订单号(65865325365966)<br>
+字母+数字字符串式，字母有包含特别意义，C02356652</p>
+<h2 id="订单命名的几种规则">订单命名的几种规则：</h2>
+<p>不能出现重复；<br>
+要足够安全，不能通过订单号推测出公司的运营信息；<br>
+不能大量使用随机数，订单量较大检测订单号重复时容易出现问题；<br>
+防止并发，过度依赖时间的话，高并发时容易重复。<br>
+位数不能过长，有时候客服介入的话，报订单很麻烦。<br>
+尽量使用纯数字的订单号，类似上面，容易出现发音问题。<br>
+规则加上基于我们的业务形式，制定了一套订单号规则，仅供参考：</p>
+<h2 id="餐饮管理系统订单号规则">餐饮管理系统订单号规则</h2>
+<h3 id="店面id规则">店面ID规则：</h3>
+<p>区号（去首0，补全3位，逆序）+ 品牌ID（2位）+3位数字（自增）。</p>
+<p>示例：120 12 345 说明：略</p>
+<h3 id="订单号规则">订单号规则：</h3>
+<p>业务类型（堂食1，外卖2，外带3）+ 店面ID（8位）+ Unix时间戳（去掉前2位，8位）+用户ID（取后4位），共21位。 示例：1120 1234 5516 8567 64444，缺点是有点长了。</p>
+<p>说明： 时间戳：2019/3/4 15:47:56 &gt; 1551685676，取后8位：51685676，时间戳约每3.2年重复一次。</p>
+<h3 id="易于每日使用的简化定单号">易于每日使用的简化定单号：</h3>
+<p>堂食单号： T+翻台次数+桌台ID（1-3位）。 示例：T2002 说明：略</p>
+<p>外带单号： D+小时一+小时自增+小时二。 示例：D028 说明：略</p>
+<p>外卖单号： W+小时一+小时自增+小时二。 示例：W139 说明：略</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/RMhdZjZP8/" class="tag">
+                    产品设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/shortcut-jinan-bus/">
+                  <h3 class="post-title">
+                    《济南实时公交》捷径开发记录
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

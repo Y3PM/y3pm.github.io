@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>没网没服务器，在多台电脑上实现视频同步播放 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="这个问题，是我们在处理数据大屏时遇到的一个技术问题。跟相关的负责人和工程师沟通多次，一直没能解决这个问题。 作为产品经理，做产品的时候也应该想一下如何实现自己想要的东西，并在关键时刻协助完成项目。
+
+问题背景
+两台不同的电脑，偶尔联网，大部..." />
+    <meta name="keywords" content="Python,开发" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">没网没服务器，在多台电脑上实现视频同步播放</h2>
+            <div class="post-date">2018-01-17</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/video-sync.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>这个问题，是我们在处理数据大屏时遇到的一个技术问题。跟相关的负责人和工程师沟通多次，一直没能解决这个问题。 作为产品经理，做产品的时候也应该想一下如何实现自己想要的东西，并在关键时刻协助完成项目。</p>
+<!-- more -->
+<p>问题背景<br>
+两台不同的电脑，偶尔联网，大部分时间不能联网；<br>
+大屏共6X2个屏幕，以2X2的方式组成三个大屏，其中1、2由A电脑控制，3由B电脑控制；<br>
+三个大屏分别展示三个不同的网页，每个网页都加载了一个相同的视频作为背景动效；<br>
+三个网页由人工打开，打开时间不固定；<br>
+解决方案<br>
+由问题4可以知道每次打开网页时需要自动设定视频进度。<br>
+视频的时长是固定的，共80s；<br>
+只要保证两台电脑上，在同一个时间能获取或生成同一个数值即可；<br>
+跟时间关联的，就用时间来解决就可以了。<br>
+具体方法<br>
+本来用Python写了一个示例的，不知扔哪儿了……</p>
+<p>两台电脑联网，自动更新时间，确保时间是同步的；<br>
+打开页面时，获取计算机当前时间，输出单位为秒；<br>
+对总时间进行进行取余计算，“总时间%视频时长”；<br>
+将得到的余数，设置为视频的当前播放进度。</p>
+<p>在肉眼可见的范围，消除了视频不同步的问题。 附上一张不相干的产品原型，跨部门要数据真的是很难……<br>
+<img src="https://y3pm.github.io/post-images/1622881241554.png" alt="" loading="lazy"></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/KLFeJMwU4/" class="tag">
+                    Python
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/NwQziEaLqu/" class="tag">
+                    开发
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/protype-nav/">
+                  <h3 class="post-title">
+                    产品原型太多，版本更新太快的解决方案
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

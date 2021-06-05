@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>某个项目的研发全流程总结会 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="一个网站项目阶段性任务结束，简单做了个PPT，总结了下项目中遇到的各种问题。虽不是项目的主要负责人，但还是希望团队成员能从中总结经验、吸取教训，不断的提升自己的能力。
+
+项目背景：某网站改版项目，阶段任务是对网站进行改版和升级。项目周期37..." />
+    <meta name="keywords" content="杂记,开发,交互设计,UX,UI,视觉设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">某个项目的研发全流程总结会</h2>
+            <div class="post-date">2019-05-24</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/develop-summary.jpeg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>一个网站项目阶段性任务结束，简单做了个PPT，总结了下项目中遇到的各种问题。虽不是项目的主要负责人，但还是希望团队成员能从中总结经验、吸取教训，不断的提升自己的能力。</p>
+<!-- more -->
+<p>项目背景：某网站改版项目，阶段任务是对网站进行改版和升级。项目周期37天，其中设计7天，研发25天，测试优化5天。 人员投入：设计师2人，研发2人，测试1人（产品代测）</p>
+<p>主要是负责测试这部分的工作，以下就从测试开展，首先是Bug统计：<br>
+<img src="https://y3pm.github.io/post-images/1622886144564.png" alt="" loading="lazy"></p>
+<p>项目的所有bug都提交到了Trello上。简单写了个Python脚本，可以在每个月以及项目结束的时候进行数据统计分析。有了数据支撑，下面就需求管理、视觉设计、技术研发、测试、验收五部分进行总结。</p>
+<h2 id="以下是重点总结部分">以下是重点总结部分：</h2>
+<h3 id="需求对接管理">需求对接管理</h3>
+<p>需求清单（需求对接人形成文档）；<br>
+域名，是否备案，SSL、服务器情况；<br>
+微信账号及经营范围、认证情况；<br>
+是否对接外部接口，地址；<br>
+是否需要SEO；<br>
+要展示的联系信息，如微信、微博；</p>
+<blockquote>
+<p>由项目对接人，收集相关的基本信息，然后整理成文档，在团队内进行共享。</p>
+</blockquote>
+<h3 id="视觉设计">视觉设计</h3>
+<p>全内容设计 VS 基础组件设计<br>
+多状态设计：默认、当前、鼠标经过、禁用、已点击状态等<br>
+特殊情况设计：内容超区域、内容为空、404<br>
+适配：多端适配，PC上适配80%的分辨率；<br>
+输出物：Svg、iconFont、尺寸标准、切图、压缩等<br>
+字体：减少额外的字体调用</p>
+<blockquote>
+<p>对设计的输出物高标准、严要求。同时要求设计师了解交互知识及各平台规范。</p>
+</blockquote>
+<h3 id="技术研发">技术研发</h3>
+<p>高保真，像素级还原设计稿<br>
+多状态处理：默认、鼠标经过、禁用、当前状态<br>
+特殊情况处理：内容超长、内容为空<br>
+Html规范：Logo加链接、合理使用H5标签、title等meta合理填充<br>
+内容还原：行高、段间距、列表间距、引用等<br>
+代码同步及代码审核实施方案</p>
+<blockquote>
+<p>严格要求代码质量，同时要了解交互和SEO等相关知识，而不是功能完成导向。</p>
+</blockquote>
+<h3 id="项目测试">项目测试</h3>
+<p>浏览器兼容性测试；<br>
+多分辨率兼容性测试；<br>
+全功能流程测试；<br>
+设计还原对比测试；</p>
+<blockquote>
+<p>多角度对代码进行质量测试，这部分属于研发自测的部分。未测试不得交付。</p>
+</blockquote>
+<h3 id="分阶段验收">分阶段验收</h3>
+<p>每周迭代，提早发现问题；（分阶段，按里程碑迭代）<br>
+设计验收，严格还原设计稿；<br>
+产品验收，全功能流程验收；<br>
+甲方验收，项目交付验收；</p>
+<blockquote>
+<p>验收流程：阶段验收》设计验收》测试验收》产品验收》需求方验收</p>
+</blockquote>
+<h2 id="问题与思考">问题与思考</h2>
+<p>我能为下一步流程提供更好的输出物吗？<br>
+我需要学习和提升哪些东西，来提升团队效率？<br>
+在下一个项目中，有哪些常见问题是需要注意的？</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/hiVAaNL03/" class="tag">
+                    杂记
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/NwQziEaLqu/" class="tag">
+                    开发
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/jXbkzb_DA/" class="tag">
+                    交互设计
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/o5ZqGIdgeM/" class="tag">
+                    UX
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/d6EN5ajgd/" class="tag">
+                    UI
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/u5AngSBqkr/" class="tag">
+                    视觉设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/use-emoji/">
+                  <h3 class="post-title">
+                    一个提升用户体验的新方法：Emoji 🤣
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

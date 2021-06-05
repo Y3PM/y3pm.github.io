@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>手机上的抓包神器 Thor 使用教程 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="为了搞点数据，有时候需要通过多种方式进行数据采集和抓包。Mac上的抓包神器是Charles，有时候电脑不在身边就比较麻烦。这时候就该手机抓包工具上场了。
+
+手机上的抓包工具除了Thor还有一个就是Stream。相对Stream来说Thor的..." />
+    <meta name="keywords" content="开发" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">手机上的抓包神器 Thor 使用教程</h2>
+            <div class="post-date">2019-01-06</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/Thor.jpeg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>为了搞点数据，有时候需要通过多种方式进行数据采集和抓包。Mac上的抓包神器是Charles，有时候电脑不在身边就比较麻烦。这时候就该手机抓包工具上场了。</p>
+<!-- more -->
+<p>手机上的抓包工具除了Thor还有一个就是Stream。相对Stream来说Thor的功能更加强大，价格也是更高。APP售价一路从18到了68元。不想购买的话，可以从网上找找TestFlight，也有一些共享账号提供，不过最近作者对共享账号的行为开始封杀。</p>
+<p>一 Thor的界面<br>
+Thor比较简洁。首页只有一个开关和抓包过滤器。下方菜单也只有三个，过滤器，抓包记录，和更多。<br>
+首页过滤器，可以选择抓包过滤设置，开始和停止抓包。所有成功抓取的记录都会保存在抓包记录里面。更多则是使用帮助，里面的HTTPS 解析设置，可以查看证书安装情况。<br>
+也可以在通知中心添加Thor 的Widget ，可以快速开始抓包和显示抓包记录。<br>
+二 使用前的设置<br>
+首次使用Thor ，需要先进行一些设置。</p>
+<p>1 安装及信任证书<br>
+由于Thor 默认的过滤器为全局抓包，包含HTTPS解析，所以首次使用需要安装及信任证书。<br>
+Thor 实现对HTTPS的数据解密，使用的是MITM（中间人攻击）的方式，这个和Surge 或者小火箭屏蔽广告使用的是一样的原理，所以需要将Thor 生成的Thor SSL CA 证书安装并信任，以此来实现HTTPS 的解析。<br>
+如下图所示，首次使用，点击开始按钮，就会弹出“HTTPS解析设置”，我们选择现在开启，按照指引，安装证书到系统。<br>
+这个时候会跳转到手机系统设置内的描述文件与设备管理界面，安装Thor SSL CA 证书 ，期间需要输入锁屏密码来确认。每个人证书是不同的，只会存放在设备本地，不会上传。<br>
+安装完毕，可以在设置——通用——描述文件与设备管理看到证书已经验证。在Thor 内的更多——HTTPS 证书管理也可以看到。<br>
+注意：iOS 10.2+ 系统需要到设置——通用——关于本机——证书信任设置——选择刚刚生成的证书，并信任。<br>
+如果你无需抓取HPPTS数据，也可以选择忽略此步骤，无需安装证书。<br>
+2 允许创建VPN配置<br>
+首次使用Thor 会询问是否允许创建VPN配置，点击允许。<br>
+这个是必要步骤。因为Thor需要占用VPN通道，来全盘接管你的所有网络连接，从而抓取网络数据。<br>
+Thor创建的VPN配置可以在设置——VPN内看到。<br>
+三 如何进行抓包<br>
+在进行抓包前，先清理一下后台，把不需要的应用或者网页退出，仅仅保存你想抓取数据的应用。<br>
+打开Thor “开始”按钮，Thor 进入抓包状态，这个时候状态栏会有VPN标志，点击“停止”就可以停止抓包。<br>
+也可以通知中心Thor 的Widget 快速打开开关，进行抓包，非常方便。<br>
+然后，使用想抓取数据的软件或者网页进行网络连接操作，如打开视频，收听音乐，安装软件等等。Thor 便会自动抓取所有网络连接。<br>
+在这过程中，你可以随时进入Thor 的抓包记录中查看，是否已经抓取到合适数据，也可以关闭Thor 暂停工作，在抓包数据中慢慢查看，以免过多数据增加挑选的工作量。<br>
+四 抓包数据分析<br>
+抓包后，我们进入抓包记录中查看，所有成功抓包的数据都在这里。对抓包数据进行分析，挑选，才能找到我们所要的内容。<br>
+在抓包记录界面，可以对抓包的历史记录进行分类，或者删除。点击就可以看到该次抓包的全部记录了。<br>
+由于我们默认的过滤器为全局抓包，所以抓包记录会包含所有抓取的数据。<br>
+链接：抓取的链接地址最直观的显示出来。<br>
+POST或者GET：属于HTTP响应方式。HTTP响应方式有多种，例如POST、GET、HEAD、PUT、DELETE等等，假如我们需要抓包下载资源，需要从GET当中寻找。<br>
+Weibo 7402：这一栏为User-Agent ，用户代理标识，用来显示用户通过何种方式来进行网络连接<br>
+[200]：为响应状态码，在Thor内便于识别。<br>
+↓多少KB↑多少kb ：为接收和发送的数据<br>
+五 如何保存抓取到的内容呢？<br>
+点击单条抓取的数据，可以查看详细信息，包括概览，请求，响应，时间。其中响应接收的数据大小，可以帮助你判断该链接是否想要抓取的文件内容。<br>
+点击连接，弹出菜单，可以复制链接地址，或者用Safari 打开进行预览。<br>
+在响应一栏——消息体，可以看到抓到的链接文件，部分文件点击可以进行观看或者保存。<br>
+点击消息体——video/mp4/jpg等等，可以对抓取到的东西进行预览，点击右上角分享按钮，可以将文件保存至相册等地方<br>
+值得注意的是，并不是抓取到的所有视频等文件都能用这种方式保存。<br>
+六 更方便找到所需数据的方法<br>
+Thor 的过滤器，可以帮助您更快的找到所需数据<br>
+在抓包数据内点击右上角的筛选器，可以按条件筛选抓包数据，分类也很丰富，图片、音频、视频、文本、压缩包、安装包等等，还以自定义。<br>
+筛选器选择视频，视频相关的抓包记录就一下子出来了<br>
+通过对抓包数据分析，筛选，从而找到我们想要的数据，这个也是我们使用Thor进行抓包的目的所在<br>
+七 自定义过滤器提高抓包效率<br>
+Thor 默认是全局抓包，抓取的数据比较多，我们可以自定义过滤器，有选择的抓取数据，从而减少筛选数据的繁琐，提高效率。<br>
+首页点击过滤器配置，可以进入过滤器界面。点击右上角“+”号，选择新建自己的过滤器，过滤器用于设置哪一些包你能抓取到。<br>
+过滤器名称：必填，便于自己识别<br>
+抓包支持协议：可以选择 HTTP或者HTTPS 解析方式<br>
+包括域名：填写域名后，只会在所填域名内的包才会抓取。填写正确的域名格式，不支持IP地址<br>
+排除域名：可以设置无需抓包记录的域名，请注意参看说明的正确格式<br>
+匹配HTTP方法：目前有多种方式。下载资源，一般选取GET方式，视频选择mp4格式等<br>
+排除HTTP的方法：与前面的“匹配HTTP方法”相反。<br>
+包含关键词：可以只抓取含有关键词的的数据。<br>
+排除关键词：不记录排除关键词的数据。<br>
+按需启动抓包域名：可以设置域名，当我们在任意地方访问这些域名的时候，Thor会自动开启抓包。<br>
+DNS服务器：添加自己的DNS服务器，用于抓取一些特定环境的包，例如国外数据。<br>
+通过建立Thor过滤器配置，可以缩小抓包范围，减少筛选数据的繁琐，帮你最快的抓取到你所需的数据。<br>
+注意：过滤器配置的规则，只在包的“请求行”，“请求头”中匹配。<br>
+▍抓取秒拍教程<br>
+例如你想抓取秒拍视频，过滤器可以这样设置：<br>
+【抓包支持协议】：可以选择 HTTP<br>
+【匹配HTTP方法】：选择“GET”<br>
+【包含关键词】：填写“mp4”</p>
+<p>开启Thor ，打开想要抓取的秒拍视频，点击播放，返回Thor ，查看抓包记录，你会发现，只有“GET”的包，而且只有包含关键词“mp4”的，这样就可以快速查看是否可以抓取到该视频了。 其余的包同上方法选择的。<br>
+▍抓取音乐教程<br>
+通过设置好过滤器，我们也能很快捷的抓取音乐，包含免费、收费音乐哦。<br>
+首先新建一个过滤器：<br>
+【匹配HTTP方法】：选择“GET”<br>
+【包含关键词】：填写“mp3”</p>
+<p>然后，打开收费音乐，试听你想下载的音乐。返回Thor ，停止抓包，查看数据。<br>
+可以看到抓取的全部为包含“mp3”关键词的数据，点开查看就可以抓取到你想下载的音乐啦。<br>
+下载好的音乐可以概况里面通过在Safari打开的方式试听，复制链接可以使用其他方式下载。或者在响应一栏——消息体打开来试听，点击右上角分享按钮来导出到其他App<br>
+▍破解验证教程<br>
+通过设置好过滤器，我们也能很快捷的抓取破解验证得文件。<br>
+首先新建一个过滤器：<br>
+【匹配HTTP方法】：选择“GET”<br>
+【包含关键词】：填写“josn”</p>
+<p>然后，打开软件，输入账号密码登录成功后。返回Thor ，停止抓包，查看数据。<br>
+可以看到抓取的全部为包含“josn”关键词的数据，点开查看就可以抓取到你想要的那个文件，找到账号密码处修改对应数字账号密码的随意数值跟时间限制，下次登录用你设置的账号密码即可。<br>
+在响应一栏——消息体打开来查看修改。<br>
+▍抓取ipa安装包教程<br>
+Thor 如何抓取装ipa安装包呢？同理，可以新建一个过滤器，关键词填写ipa，或者默认全局抓包，抓包记录查看的时候，筛选“安装包”就可以了。<br>
+说一下如何抓取迅雷。开启Thor，打开迅雷安装页面，安装迅雷。等待安装完毕，返回Thor，停止Thor。<br>
+查看抓包记录，筛选器选择安装包，可以看到所以安装包相关记录。点击查看抓包详情，可以看到一个大小为65MB的包就是抓取到的迅雷ipa安装包啦，复制链接，可以使用其他方式下载保存。<br>
+为什么要抓取安装包呢？<br>
+对于一些第三方分发应用，每日有下载次数限制，或者随时会被上传者取消分享，通过这个办法，可以把安装包保存起来，方便随时安装。当然，该应用证书没有失效前，都是可以使用的。越狱设备可以随时安装，未越狱设备，可以将ipa上传到类似的第三方分发平台，自己就可以随时安装啦。<br>
+这样的方法，同样可以抓取App Store的应用。注意，抓取App Store，需新建一个过滤器，将需要将排除域名内的“apple”相关地址，等待安装完毕才可以抓取到正确下载链接。<em>从App Store抓取到的ipa安装包，无法导入iTunes进行安装的。仅仅适合越狱设备临时备份安装包，以免下架。<br>
+▍抓取一些更直接的链接<br>
+Thor 还可以抓取一些直接一点的链接。<br>
+示例为我们平时所看的电视直播，点开界面，选择电视观看，难免看到广告，是否可以直接打开收看呢？我们用Thor试试看看否抓取直接观看的地址？<br>
+新建一个过滤，关键词“m3u8”，开启Thor，在Safari打开直播观看，可以观看，返回Thor，停止抓包。<br>
+点击查看抓包记录，可以响应一栏—消息体查看包的格式，在概况内，打开抓取到的链接，就可以直接观看该直播频道了。<br>
+同理，可以想办法抓取一些API接口，VIP视频解析接口，一些下载的直链等等。<br>
+▍HTTP常见问题<br>
+在Thor 设置自己的过滤器配置的时候，在匹配HTTP方法一栏，常见的HTTP方法都可以看到，具体是什么意思呢？下面做下简单的介绍。<br>
+常用的HTTP方法<br>
+GET： 用于请求访问已经被URI（统一资源标识符）识别的资源，可以通过URL传参给服务器。<br>
+POST：用于传输信息给服务器，主要功能与GET方法类似。<br>
+PUT： 传输文件，报文主体中包含文件内容，保存到对应URI位置。<br>
+HEAD： 获得报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URI是否有效。<br>
+DELETE：删除文件，与PUT方法相反，删除对应URI位置的文件。<br>
+OPTIONS：查询相应URI支持的HTTP方法。<br>
+PATCH：是对PUT方法的补充，用来对已知资源进行局部更新<br>
+GET方法与POST方法的区别<br>
+get重点在从服务器上获取资源，post重点在向服务器发送数据；<br>
+get传输数据是通过URL请求，以field（字段）= value的形式，置于URL后，并用&quot;?&quot;连接，多个请求数据间用&quot;&amp;&quot;连接，这个过程用户是可见的；post传输数据通过Http的post机制，将字段与对应值封存在请求实体中发送给服务器，这个过程对用户是不可见的；<br>
+Get传输的数据量小，因为受URL长度限制，但效率较高；Post可以传输大量数据，所以上传文件时只能用Post方式；<br>
+get是不安全的，因为URL是可见的，可能会泄露私密信息，如密码等；post较get安全性较高；<br>
+get方式只能支持ASCII字符，向服务器传的中文字符可能会乱码。post支持标准字符集，可以正确传递中文字符。<br>
+常见的HTTP相应状态码<br>
+200：请求被正常处理。可以正常播放的音视频，常见于网页直接播放或者下载。<br>
+204：请求被受理但没有资源可以返回<br>
+206：客户端只是请求资源的一部分，服务器只对请求的部分资源执行GET方法，相应报文中通过Content-Range指定范围的资源。完整的音视频被拆成了很多段，每一个206都是其中一段，且不能直接播放（首段除外），常见于播放器播放产生。<br>
+301：永久性重定向<br>
+302：临时重定向。301和302表示请求的音视频url地址变更为其他URL，新的URL在响应—请求头—Location中可以找到。<br>
+303：与302状态码有相似功能，只是它希望客户端在请求一个URI的时候，能通过GET方法重定向到另一个URI上<br>
+304：发送附带条件的请求时，条件不满足时返回，与重定向无关。向服务器询问url 指向资源是否更新，无更新则服务器返回</em> * 304。所以不会有资源被抓到，但是请求的url 可以单独去下载。<br>
+307：临时重定向，与302类似，只是强制要求使用POST方法<br>
+400：请求报文语法有误，服务器无法识别<br>
+401：请求需要认证<br>
+403：请求的对应资源禁止被访问<br>
+404：服务器无法找到对应资源<br>
+500：服务器内部错误<br>
+503：服务器正忙<br>
+HTTP的缺点与HTTPS<br>
+通信使用明文不加密，内容可能被窃听<br>
+不验证通信方身份，可能遭到伪装<br>
+无法验证报文完整性，可能被篡改<br>
+HTTPS就是HTTP加上加密处理（一般是SSL安全通信线路）+认证+完整性保护。所以我们解析HTTPS，需要安装和信任证书。</p>
+<p>▍Thor 的特点及抓包套路<br>
+有可能你会这样想，可以抓包的软件有Surge， Take等，Thor 有什么优势呢？<br>
+抓包工具很多，Thor 做为专业抓包，还是拥有自己的众多特点。<br>
+实时抓包，可以边抓边看，无需暂停，就可以看到抓取的所有网络连接。<br>
+通知中心的 widget 可随时查看最新抓包情况。<br>
+HTTPS 实时解析，可以记录成千上万个 HTTP 请求。<br>
+自动解析 HTTP 消息为常见媒体形式。<br>
+支持保存到相册，导出到其他App，也支持导出原始数据。<br>
+支持按域名，关键字等配置过滤的包。<br>
+抓包结果支持各种条件筛选，减少分析数据的繁琐。<br>
+支持解码的图片格式* jpg, png, gif, webp, apng, jp2, tiff, bmp, ico, icns, svg, psd。<br>
+支持解压缩 (含密码）* zip, rar, 7z, tgz, tar, bz, tbz, gz。现已经支持查看和解压第三方App中的文件<br>
+PS:<br>
+Thor 支持抓取 TCP，UDP 流量<br>
+优势：专业抓包，抓取更加给力，筛选方便，使用起来也简单<br>
+不足：无法抓取外网数据。但是可以配合特定的DNS服务器来尝试<br>
+HTTPS的解析方式MITM不是万能的，也会有抓取失败的时候<br>
+▍Thor 断点过滤器使用讲解<br>
+断点过滤器是Thor的另外一项核心技术，在过滤器的技术上增加了断点功能<br>
+它的使用方法和过滤器使用方法一样<br>
+断点过滤器的功能是破解一些软件等<br>
+如何学习制作断点过滤器，首先你要学习正则表达式</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/NwQziEaLqu/" class="tag">
+                    开发
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/check-list/">
+                  <h3 class="post-title">
+                    给交互设计、视觉设计和前端开发的自查表
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

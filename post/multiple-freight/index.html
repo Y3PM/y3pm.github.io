@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>如何设计一个可用的运费模板？ | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="近期在做一套商城系统，要开放给不同的商户使用。表面上看起来，运费模板是个很简单的功能，而实际上这涉及到了一个极为复杂的运费逻辑。
+
+先看下有赞上是如何给商户描述运费模板的逻辑的：
+一.商品关联运费模板
+商品关联设置：每件商品，仅可设置一种运..." />
+    <meta name="keywords" content="UX,产品设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">如何设计一个可用的运费模板？</h2>
+            <div class="post-date">2019-04-03</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/multiple-freight.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>近期在做一套商城系统，要开放给不同的商户使用。表面上看起来，运费模板是个很简单的功能，而实际上这涉及到了一个极为复杂的运费逻辑。</p>
+<!-- more -->
+<p>先看下有赞上是如何给商户描述运费模板的逻辑的：</p>
+<p>一.商品关联运费模板<br>
+商品关联设置：每件商品，仅可设置一种运费收取方式，即：统一运费，或指定运费模板；<br>
+统一运费：按商品一次计收运费；如，统一运费10元，买家单笔订单购买n件，均只收取10元运费；<br>
+运费模板：选择相应的运费模板，即可指定该商品，可配送至相应区域，并按规则收取相应运费；</p>
+<p>二.运费计算方式<br>
+支持商家选择【按商品累加运费】和【组合运费】，默认使用组合运费。</p>
+<p>1.按商品累加运费<br>
+规则：分别计算出来商品使用模板的运费，和统一运费的最大值，再进行累加。</p>
+<p>不同或相同的商品，设置同一运费模板：按该模板设置的规则计算。不足续件或者续重的数目的时候，仍然按照续件或者续重的数目进行计算。 例如商品A，B都是用模板M（首件10块，续2件5块），如果购买商品A和B，各一件，则一共购买两件，运费=10+5=15元。</p>
+<p>多种商品，分别设置不同金额的统一运费：以最高运费金额收取。 更新：例如 商品A，B，C的统一运费分别为1元，2元和3元，一期购买这三个商品，则运费为3元。</p>
+<p>不同的商品，设置不同的运费模板：分别计算每个运费模板规则应收运费，再累加计算合计运费； 例如： 商品A（1kg）使用用模板M（首1kg，10块，续2kg，5块），商品B（1kg）使用模板N（首2kg，12块，续1kg，5块），如果购买商品A和B，各2件，则运费=模板M的运费+模板N的运费=（10+5）+（12）=27元。</p>
+<p>统一运费商品，和运费模板商品一同结算：单独计算统一运费商品应收运费，再累加运费模板应收运费； 例如：商品A（1kg）使用模板M（首1件，10块，续2件，5块），商品B（1kg）使用模板N（首2kg，12块，续1kg，5块），商品C和D用统一运费，分别为2元和10元，购买A，B，C和D各两件。 此时运费模板运费（商品A和B）=模板M的运费+模板N的运费=（10+5）+（12）=27元。统一运费（商品A和B）=10元； 则总运费=统一运费+运费模板运费=（10）+（27）=37元。</p>
+<p>2.组合运费<br>
+规则：先将使用统一运费和运费模板的商品分开计算，再取二者较大的值，作为最终运费。</p>
+<p>计算使用运费模板的运费价格x： 取所有商品中，首件/首重金额最大的运费模板，计算使用该模板的所有商品运费； 使用其他模板的所有商品都按照该商品所试用的续件/续费金额来计算； 最后再求和。</p>
+<p>计算使用统一运费的商品运费y：取最大的统一运费。</p>
+<p>比较x和y，运费=x和y的较大值。</p>
+<p>例如</p>
+<p>不同或相同的商品，设置同一运费模板：同按商品累加运费的计算方式，按该模板设置的规则计算。 例如商品A，B都是用模板M（首件10块，续2件5块），如果购买商品A和B，各一件，则一共购买两件，运费=10+5=15元。</p>
+<p>多种商品，分别设置不同金额的统一运费：同按商品累加运费的计算方式，以最高运费金额收取。 例如 商品A，B，C的统一运费分别为1元，2元和3元，一期购买这三个商品，则运费为3元。</p>
+<p>不同的商品，设置不同的运费模板：不同于按照商品累加的计算方式。 例如： 例如商品A（1件）使用用模板M（首1件，10块，续1件，5块），商品B（1kg）使用模板N（首2kg，12块，续1kg，5块），如果购买商品A和B，各2件，则运费=模板N的运费（首费为12，大于模板M的10）+模板M的运费（按照续费计算）=（12）+（5*2）=22元。 如果按商品累加计费，则运费=模板M的运费+模板N的运费=（10+5）+（12）=27元。</p>
+<p>统一运费商品，和运费模板商品一同结算：单独计算统一运费和运费模板，再取较大的数值作为最终运费； 例如：商品A和B使用统一运费，分别为2元和10元，商品C使用模板M（首1件，10块，续2件，5块），商品D（1kg）使用模板N（首2kg，12块，续1kg，5块），购买A，B，C和D各两件。 此时统一运费（商品A和B）=10元；运费模板运费（商品C和D）=模板N的运费（首费为12，大于模板M的10）+模板M的运费（按照续费计算）=（12）+（5*2）=22元。总运费=统一运费和运费模板运费的较大值=22元。 如果按商品累加计费，运费按照之前的计算=统一运费+运费模板运费=（10）+（27）=37元。</p>
+<p>看似很严密的一套逻辑，在用户看来问题也是不少：</p>
+<p>客户A：这么复杂，我就想设置个满38免邮，怎么都设置不出来。<br>
+客户B：商品怎么不支持 设置重量呢？<br>
+客户C：改了半天，连单件设置运费，多件免邮的功能都没有。<br>
+<img src="https://y3pm.github.io/post-images/1622885084517.png" alt="" loading="lazy"></p>
+<p>基于此，对整个流程进行了梳理，以方便开发时使用。具体流程如下：这世界上，本就没有完美的系统。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/o5ZqGIdgeM/" class="tag">
+                    UX
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/RMhdZjZP8/" class="tag">
+                    产品设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/order-id/">
+                  <h3 class="post-title">
+                    餐饮点餐订餐小程序订单号规则设计
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

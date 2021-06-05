@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>杂记 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887229386">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="温故而知新">
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1622887229386" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 杂记</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/wechat-changelog/">
+                  <h2 class="post-title">微信更新日志RSS订阅源</h2>
+                </a>
+                <div class="post-date">
+                  2019-05-28
+                </div>
+                <div class="post-abstract">
+                  <p>用来了解最新的微信技术，包含三个RSS：微信基础库更新 + 微信开发者工具更新 + 微信云开发更新。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/wechat-changelog/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/wechat-changelog.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/develop-summary/">
+                  <h2 class="post-title">某个项目的研发全流程总结会</h2>
+                </a>
+                <div class="post-date">
+                  2019-05-24
+                </div>
+                <div class="post-abstract">
+                  <p>一个网站项目阶段性任务结束，简单做了个PPT，总结了下项目中遇到的各种问题。虽不是项目的主要负责人，但还是希望团队成员能从中总结经验、吸取教训，不断的提升自己的能力。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/develop-summary/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/develop-summary.jpeg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/web-moniter/">
+                  <h2 class="post-title">两个方案监控网页变化，不错过任何更新。</h2>
+                </a>
+                <div class="post-date">
+                  2018-03-25
+                </div>
+                <div class="post-abstract">
+                  <p>前段时间研究了一下自动化工具Huginn，在本地进行了部署，一直没能跑通。但监控网页变化的方式不止一种。今天就来介绍下Chrome插件Web Monitor，还有一个RSS制作的工具Feed43。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/web-moniter/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/web-moniter.jpeg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

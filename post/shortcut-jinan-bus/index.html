@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1622887363624">
-<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+<link rel="shortcut icon" href="https://www.y3pm.com/favicon.ico?v=1623029026434">
+<link rel="stylesheet" href="https://www.y3pm.com/styles/main.css">
 
 
 
@@ -31,8 +31,8 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="https://y3pm.github.io">
-        <img src="https://y3pm.github.io/images/avatar.png?v=1622887363624" class="site-logo">
+      <a class="site-title-container" href="https://www.y3pm.com">
+        <img src="https://www.y3pm.com/images/avatar.png?v=1623029026434" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -85,7 +85,7 @@
       温故而知新
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://www.y3pm.com/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -97,7 +97,7 @@
             <h2 class="post-title">《济南实时公交》捷径开发记录</h2>
             <div class="post-date">2019-01-20</div>
             
-              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/shortcut-jinan-bus.jpg')">
+              <div class="feature-container" style="background-image: url('https://www.y3pm.com/post-images/shortcut-jinan-bus.jpg')">
               </div>
             
             <div class="post-content" v-pre>
@@ -106,7 +106,7 @@
 <h2 id="原始需求">原始需求</h2>
 <p>经常乘坐公交车的人，有一个普遍的需求：有车吗？车到哪儿了？车到上车站还要多长时间？现在出门来得及吗？还是等一会再出门？</p>
 <p>有各种APP可以满足需求，但是数据并不是很准确，比如百度地图、车来了。 大部分城市都有自己的公交APP，能够提供更加精准的数据。比如济南的公交APP369出行：369出行<br>
-<img src="https://y3pm.github.io/post-images/1622884580133.jpg" alt="" loading="lazy"></p>
+<img src="https://www.y3pm.com/post-images/1622884580133.jpg" alt="" loading="lazy"></p>
 <p>APP使用流程很繁琐：打开APP，等待广告，找到线路，等待加载……一脸懵B的看懂公交位置。。。有没有更快更便捷更精准的办法？iOS12新增的《捷径》功能，可以用可视化的方式，构建一个工作流。同时可以集成到手机负一屏，还能使用Siri进行调用，是实施公交快捷查询的最佳方案。</p>
 <h2 id="开发过程">开发过程</h2>
 <p>具体的实施流程：</p>
@@ -126,7 +126,7 @@
 默认直接请求iCloud上的数据。<br>
 还可以更好吗？经过上面的操作，已经知道公交车行驶的位置，所以在第三版中加入了点击车辆信息，进入高德地图查看位置的功能。同时对线路上的车辆进行先后排序。</p>
 <p>基本上经过两次迭代，基础版就可以使用了。数据有时候会太过枯燥，用emoji可以提升一些体验。🐌代表车速很慢很慢，🛸则代表公交司机在放飞自我……<br>
-<img src="https://y3pm.github.io/post-images/1622884650178.PNG" alt="" loading="lazy"><br>
+<img src="https://www.y3pm.com/post-images/1622884650178.PNG" alt="" loading="lazy"><br>
 下载地址：<a href="https://jiejinghe.com/shortcuts/7680573317" target="_blank">济南实时公交下载</a></p>
 <h2 id="使用体验">使用体验</h2>
 <ul>
@@ -151,18 +151,18 @@
 <p>基本上做到点击一次即可获取到最新详细车辆信息的功能了，并且在3-5秒内即可获得数据，添加到负一屏，在手机上使用超级方便。手机上的问题解决了。</p>
 <h2 id="智能提醒">智能提醒</h2>
 <p>有些特殊线路，班次少，间隔长，如果电脑上在下班之后能按照规则提醒就更好了。这个实现起来也很简单。使用Python脚本，设定好提醒规则，比如：距离在3-4公里内，时间在下午6点后。在电脑端设定好自动执行时间和执行次数。每天固定时间，系统会自动启动脚本，当有发现合适车辆的时候进行弹窗提醒。如图所示：<br>
-<img src="https://y3pm.github.io/post-images/1622884720381.jpg" alt="" loading="lazy"><br>
+<img src="https://www.y3pm.com/post-images/1622884720381.jpg" alt="" loading="lazy"><br>
 只要一提醒，就可以下班喽~</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://y3pm.github.io/tag/NwQziEaLqu/" class="tag">
+                  <a href="https://www.y3pm.com/tag/NwQziEaLqu/" class="tag">
                     开发
                   </a>
                 
-                  <a href="https://y3pm.github.io/tag/RMhdZjZP8/" class="tag">
+                  <a href="https://www.y3pm.com/tag/RMhdZjZP8/" class="tag">
                     产品设计
                   </a>
                 
@@ -171,7 +171,7 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://y3pm.github.io/post/Thor/">
+                <a href="https://www.y3pm.com/post/Thor/">
                   <h3 class="post-title">
                     手机上的抓包神器 Thor 使用教程
                   </h3>

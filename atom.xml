@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.y3pm.com</id>
     <title>Y3.PM</title>
-    <updated>2021-06-07T01:48:34.181Z</updated>
+    <updated>2021-06-08T06:21:21.727Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.y3pm.com"/>
     <link rel="self" href="https://www.y3pm.com/atom.xml"/>
@@ -10,6 +10,42 @@
     <logo>https://www.y3pm.com/images/avatar.png</logo>
     <icon>https://www.y3pm.com/favicon.ico</icon>
     <rights>All rights reserved 2021, Y3.PM</rights>
+    <entry>
+        <title type="html"><![CDATA[回来了]]></title>
+        <id>https://www.y3pm.com/post/github-bak/</id>
+        <link href="https://www.y3pm.com/post/github-bak/">
+        </link>
+        <updated>2021-06-08T05:33:41.000Z</updated>
+        <summary type="html"><![CDATA[<p>折腾了一个月，虽然丢失了未发布的几篇文章，但终于恢复了个人网页。小博客通过 Gridea 撰写，然后发布到 Github Page 上。事情的开始是这样的……</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>折腾了一个月，虽然丢失了未发布的几篇文章，但终于恢复了个人网页。小博客通过 Gridea 撰写，然后发布到 Github Page 上。事情的开始是这样的……</p>
+<!-- more -->
+<h2 id="️-折腾-macos">🍎️ 折腾 MacOS</h2>
+<p>自从 MacOS Big Sur 发布，就按耐不住想要试用的想法。在一番考察之后，“果断”的升级到了 Beta 版。一般来说，新发布的系统多少都有一些问题。作为产品经理常用的 Axure 出现缩放异常。。。计划使用虚拟机来进行这部分的工作，而虚拟机发现无法正常联网。。用了一段时间发现太难受了，但还是忍到了正式版发布。</p>
+<p>我的“桌面和文档”文件，是一直存储于 iCloud 的。但 Gridea 的文件夹是放在下载文件夹的（因为 iCloud 同步时会出现重复文件问题）。于是就用时光机备份了系统，顺手就在线重装了正式发布的 Big Sur。</p>
+<h2 id="️-时光机穿越而去">🚀️ 时光机穿越而去</h2>
+<p>小白认为：无论怎么折腾电脑，Github 的文件是不会变的，而且有时光机兜底，不会出问题。<br>
+现实情况是，在新系统重装之后，并没有第一时间恢复“下载”文件夹，毕竟里面大部分是临时文件。<br>
+终于有一天，要去开会，顺手拔了 Mac 的外接 Hub，系统弹出硬盘推出的提示，心里咯噔一下。。。果然，因为没有安全推出硬盘，又碰巧时光机正在备份系统，硬盘挂了。。备份无。</p>
+<h2 id="github-小白之全丢了">🦴 Github 小白之……全丢了</h2>
+<p>小白认为：多大点事儿，不是还有 Github 嘛。<br>
+重新下载安装了 Gridea，根据以往使用 Github 的经验，通过 Tower 把 Github 的文件下载到了文档文件夹。重新配置 Gridea，将文件目录设置到刚下好的文件下。<br>
+有个小异常，Gridea 显示只有两篇默认文章。。。小白觉得，因为没有同步嘛，同步一下就好了！<br>
+然后……同步完成之后，站点就只剩下两篇默认文章，所有内容全丢了。。。好吧，这是 Gridea 的同步机制有问题。</p>
+<h2 id="️️-淡定淡定">❄️️ 淡定淡定</h2>
+<p>小白认为：Github 有记录的，再恢复下就好了。<br>
+按照经验，通过 Tower 还原一下。可能是因为换了个人密钥的原因……只有最新的提交记录。两年前的记录已经无法找到并恢复。一定是我经验太少……求运维的大神给看看，大神说救不了了。。。</p>
+<h2 id="柳暗花明">🌸 柳暗花明</h2>
+<p>没有时光机的备份，没有 iCloud 的备份，没有 Github 的历史保存，Git 大神没辙，Gridea 大神没辙……大概率死翘翘了。就这样无解搁置了一个月……<br>
+再研究研究 Git 吧，这位名叫 NineCreek 的 G 友，我真是太谢谢你了……<br>
+<img src="https://www.y3pm.com/post-images/1623132669550.png" alt="" loading="lazy"></p>
+<p>竟然在某个时间 Fork 了整个站点！！！果断追过去，下载了下来。<br>
+对比之后，原来 Gridea 只能将生成的 Html 文件放 Github，源文件是没有的。好在文章图片都在，可以一篇一篇的补回来。细想一下，当年 Gridea 刚刚推出时，我这个小博客上过官网的首页推荐，同时也是 G 友们投票最多的站点，应该是这个原因，才被 Fork 的吧。<br>
+<img src="https://www.y3pm.com/post-images/1623133097633.png" alt="" loading="lazy"></p>
+<h2 id="未来计划">未来计划</h2>
+<p>站点回来了，之前写的一些文章也得慢慢补回来，关于品牌命名，关于酒店行业……</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[品牌H5交互视频，清爽一夏]]></title>
         <id>https://www.y3pm.com/post/lemon-video/</id>
@@ -351,42 +387,6 @@ StatCounter是一个网站流量分析工具，主要提供网页浏览器的使
 客户C：改了半天，连单件设置运费，多件免邮的功能都没有。<br>
 <img src="https://www.y3pm.com/post-images/1622885084517.png" alt="" loading="lazy"></p>
 <p>基于此，对整个流程进行了梳理，以方便开发时使用。具体流程如下：这世界上，本就没有完美的系统。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[餐饮点餐订餐小程序订单号规则设计]]></title>
-        <id>https://www.y3pm.com/post/order-id/</id>
-        <link href="https://www.y3pm.com/post/order-id/">
-        </link>
-        <updated>2019-03-03T09:20:09.000Z</updated>
-        <summary type="html"><![CDATA[<p>近期在做一套餐饮订餐和外卖系统，对订单号系统进行了特别设计。跟商城类的订单系统不同，餐饮订餐需要有两套订单号规则：一个是普通的订单号，一个是易于服务员叫号的订单号。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>近期在做一套餐饮订餐和外卖系统，对订单号系统进行了特别设计。跟商城类的订单系统不同，餐饮订餐需要有两套订单号规则：一个是普通的订单号，一个是易于服务员叫号的订单号。</p>
-<!-- more -->
-<h2 id="订单号常见的几种方式">订单号常见的几种方式：</h2>
-<p>利用数据库主键值产生一个自增长的订单号（订单号即数据表的主键）<br>
-日期+自增长数字的订单号（比如：2012040110235662）<br>
-产生随机的订单号(65865325365966)<br>
-字母+数字字符串式，字母有包含特别意义，C02356652</p>
-<h2 id="订单命名的几种规则">订单命名的几种规则：</h2>
-<p>不能出现重复；<br>
-要足够安全，不能通过订单号推测出公司的运营信息；<br>
-不能大量使用随机数，订单量较大检测订单号重复时容易出现问题；<br>
-防止并发，过度依赖时间的话，高并发时容易重复。<br>
-位数不能过长，有时候客服介入的话，报订单很麻烦。<br>
-尽量使用纯数字的订单号，类似上面，容易出现发音问题。<br>
-规则加上基于我们的业务形式，制定了一套订单号规则，仅供参考：</p>
-<h2 id="餐饮管理系统订单号规则">餐饮管理系统订单号规则</h2>
-<h3 id="店面id规则">店面ID规则：</h3>
-<p>区号（去首0，补全3位，逆序）+ 品牌ID（2位）+3位数字（自增）。</p>
-<p>示例：120 12 345 说明：略</p>
-<h3 id="订单号规则">订单号规则：</h3>
-<p>业务类型（堂食1，外卖2，外带3）+ 店面ID（8位）+ Unix时间戳（去掉前2位，8位）+用户ID（取后4位），共21位。 示例：1120 1234 5516 8567 64444，缺点是有点长了。</p>
-<p>说明： 时间戳：2019/3/4 15:47:56 &gt; 1551685676，取后8位：51685676，时间戳约每3.2年重复一次。</p>
-<h3 id="易于每日使用的简化定单号">易于每日使用的简化定单号：</h3>
-<p>堂食单号： T+翻台次数+桌台ID（1-3位）。 示例：T2002 说明：略</p>
-<p>外带单号： D+小时一+小时自增+小时二。 示例：D028 说明：略</p>
-<p>外卖单号： W+小时一+小时自增+小时二。 示例：W139 说明：略</p>
 ]]></content>
     </entry>
 </feed>

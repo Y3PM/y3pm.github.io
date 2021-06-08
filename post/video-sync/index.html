@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.y3pm.com/favicon.ico?v=1623133273072">
+<link rel="shortcut icon" href="https://www.y3pm.com/favicon.ico?v=1623144207863">
 <link rel="stylesheet" href="https://www.y3pm.com/styles/main.css">
 
 
@@ -21,7 +21,8 @@
     <meta name="description" content="这个问题，是我们在处理数据大屏时遇到的一个技术问题。跟相关的负责人和工程师沟通多次，一直没能解决这个问题。 作为产品经理，做产品的时候也应该想一下如何实现自己想要的东西，并在关键时刻协助完成项目。
 
 问题背景
-两台不同的电脑，偶尔联网，大部..." />
+
+两台不同的电脑，偶尔联网，大..." />
     <meta name="keywords" content="Python,开发" />
   </head>
   <body>
@@ -31,7 +32,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.y3pm.com">
-        <img src="https://www.y3pm.com/images/avatar.png?v=1623133273072" class="site-logo">
+        <img src="https://www.y3pm.com/images/avatar.png?v=1623144207863" class="site-logo">
         <h1 class="site-title">Y3.PM</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -102,24 +103,30 @@
             <div class="post-content" v-pre>
               <p>这个问题，是我们在处理数据大屏时遇到的一个技术问题。跟相关的负责人和工程师沟通多次，一直没能解决这个问题。 作为产品经理，做产品的时候也应该想一下如何实现自己想要的东西，并在关键时刻协助完成项目。</p>
 <!-- more -->
-<p>问题背景<br>
-两台不同的电脑，偶尔联网，大部分时间不能联网；<br>
-大屏共6X2个屏幕，以2X2的方式组成三个大屏，其中1、2由A电脑控制，3由B电脑控制；<br>
-三个大屏分别展示三个不同的网页，每个网页都加载了一个相同的视频作为背景动效；<br>
-三个网页由人工打开，打开时间不固定；<br>
-解决方案<br>
-由问题4可以知道每次打开网页时需要自动设定视频进度。<br>
-视频的时长是固定的，共80s；<br>
-只要保证两台电脑上，在同一个时间能获取或生成同一个数值即可；<br>
-跟时间关联的，就用时间来解决就可以了。<br>
-具体方法<br>
-本来用Python写了一个示例的，不知扔哪儿了……</p>
-<p>两台电脑联网，自动更新时间，确保时间是同步的；<br>
-打开页面时，获取计算机当前时间，输出单位为秒；<br>
-对总时间进行进行取余计算，“总时间%视频时长”；<br>
-将得到的余数，设置为视频的当前播放进度。</p>
-<p>在肉眼可见的范围，消除了视频不同步的问题。 附上一张不相干的产品原型，跨部门要数据真的是很难……<br>
-<img src="https://www.y3pm.com/post-images/1622881241554.png" alt="" loading="lazy"></p>
+<h3 id="问题背景">问题背景</h3>
+<ol>
+<li>两台不同的电脑，偶尔联网，大部分时间不能联网；</li>
+<li>大屏共 6X2 个屏幕，以 2X2 的方式组成三个大屏，其中 1、2 由 A 电脑控制，3 由 B 电脑控制；</li>
+<li>三个大屏分别展示三个不同的网页，每个网页都加载了一个相同的视频作为背景动效；</li>
+<li>三个网页由人工打开，打开时间不固定；</li>
+</ol>
+<h3 id="解决方案">解决方案</h3>
+<ul>
+<li>由问题 4 可以知道每次打开网页时需要自动设定视频进度。</li>
+<li>视频的时长是固定的，共 80s；</li>
+<li>只要保证两台电脑上，在同一个时间能获取或生成同一个数值即可；</li>
+</ul>
+<p>跟时间关联的，就用时间来解决就可以了。</p>
+<h3 id="具体方法">具体方法</h3>
+<p>本来用 Python 写了一个示例的，不知扔哪儿了……</p>
+<ol>
+<li>两台电脑联网，自动更新时间，确保时间是同步的；</li>
+<li>打开页面时，获取计算机当前时间，输出单位为秒；</li>
+<li>对总时间进行进行取余计算，“总时间%视频时长”；</li>
+<li>将得到的余数，设置为视频的当前播放进度。</li>
+</ol>
+<p>在肉眼可见的范围，消除了视频不同步的问题。 附上一张不相干的产品原型，跨部门要数据真的是很难……</p>
+<figure data-type="image" tabindex="1"><img src="https://www.y3pm.com/post-images/1622881241554.png" alt="" loading="lazy"></figure>
 
             </div>
             

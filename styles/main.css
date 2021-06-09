@@ -759,39 +759,69 @@ a {
   margin: 4px 8px;
 }
 
+      .sidebar {
+        width: 260px;
+      }
+      .main-container {
+        margin-left: 260px;
+      }
+    
       .post-item .right .feature-container {
         border-radius: 8px;
       }
     
-      /* 通用样式 */
+      /* 自定义通用样式开始 */
 body {
-    font-family: /*西文*/-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Helvetica Neue,Helvetica,Arial,/*中文*/PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Source Han Sans CN,sans-serif;
+  font-family: /*西文*/-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Helvetica Neue,Helvetica,Arial,/*中文*/PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Source Han Sans CN,sans-serif;
     background: rgba(252, 245, 237, 0.1);
 }
-a {
-    color: rgba(0,0,0,0.8)
+
+/* 菜单栏样式开始 */
+.sidebar .top-container .site-title {
+    color:#FFF;
 }
-/* 列表页样式 */
-.post-item .left .post-abstract {
-    color: rgba(0,0,0,0.75);
-    line-height: 160%;
+.sidebar .bottom-container {
+    text-align: center;
+}
+.sidebar .top-container .site-logo:hover {
+    box-shadow: 0 0 60px rgba(255, 225, 80, 0.4);
+    transition: all .6s ease;
+}
+.sidebar .top-container .site-title:hover, .sidebar .top-container .site-nav:hover{
+    color:#E79C00;
+}
+/* 列表页样式开始 */
+.post-item .left .post-title:hover, .next-post .post-title:hover {
+    color:#E79C00;
+    text-shadow: 0 1px 2px #FFF;
+}
+.post-item .left, .next-post h3 {
+    position: relative;
+}
+.post-item .left .post-title:hover:before, .next-post .post-title:hover:before {
+    visibility: visible;
+    width: calc(100% + 1em);
+}
+.post-item .left .post-title:before, .next-post .post-title:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1em;
+    top: .5em;
+    left: -.5em;
+    z-index: -1;
+    background-color: rgba(255, 177, 27, .04);
+    visibility: hidden;
+    transition: all .6s ease;
+    border-radius: 0.5em;
 }
 
-/* 详情页样式 */
-.post-detail .post-content {
-    padding-top: 3em;
+/* 详情页面样式开始 */
+.post-detail .post-content em, .post-detail .post-content blockquote p  {
+    color:#36563C;
 }
-.post-detail .post-content h2 {
-    padding-top: 1.5em;
-}
-.post-detail .post-content h3 {
-    padding-top: 1.5em;
-}
-.post-detail .post-content h4 {
-    padding-top: 1.5em;
-}
-.post-detail .post-content p {
-    text-align: justify;
+.post-detail, .post-item .left {
+    letter-spacing: 0.5px;
 }
 .post-detail .post-content ul {
     position: relative;
@@ -799,7 +829,7 @@ a {
 .post-detail .post-content ul li {
     list-style: none;
 }
-.post-detail .post-content ul li:before {
+.post-detail .post-content ul li:before{
     content: "▪";
     color: #FC6E19;
     left: 8px;
@@ -812,24 +842,149 @@ a {
 }
 .post-detail .post-content ol li {
     counter-increment: li;
-}
-.post-detail .post-content ol li::before {
+ }
+.post-detail .post-content ol li:before {
     content: counter(li);
     color: #FC6E19;
     left: 8px;
     position: absolute;
     text-align: right; 
     direction: rtl;
+ }
+.post-detail .post-content a  {
+    color: #36563C !important;
+    border-bottom: 1px dashed #36563C !important;
+}
+.post-detail .post-content a:hover  {
+    color: #E79C00 !important;
+    border-bottom: 1px dashed #E79C00 !important;
+}
+.pagination-container .prev, .pagination-container .next {
+    border-radius: 5px;
+}
+.pagination-container .prev:hover, .pagination-container .next:hover {
+    color: #FFF;
+    border: 1px solid #E79C00;
+    background-color: #E79C00;
+}
+.post-detail .post-content {
+    padding-top: 3em;
+}
+.post-item .left .post-abstract, .post-detail .post-content {
+    font-weight: 200;
+    text-align: justify;
+}
+.post-item .left .post-date, .post-detail .post-date {
+    font-weight: 100;
+}
+.post-item .right .feature-container, .post-detail .feature-container, .post-detail .post-content img, .post-content video {
+    box-shadow: none;
+    border-radius: 16px;
+}
+.post-detail .feature-container, .post-detail .post-content img, .post-detail .post-date {
+    margin-bottom: 40px;
+}
+.post-detail .post-content h2, .post-detail .post-content h3, .post-detail .post-content h4 {
+    margin-top: 3em !important;
+    margin-bottom: 1em !important;
+}
+.post-item .right .feature-container:hover {
+    box-shadow: 0 0 30px 0 rgba(255, 177, 27, .06);
+    transition: all .3s ease;
+}
+.post-detail .post-content blockquote {
+    background: rgba(54, 86, 60, 0.02);
+    border: none;
+    border-radius: 16px;
+    margin-top: -10px;
+    margin-bottom: 40px;
+}
+.post-detail .post-content blockquote p span {
+    display:block;
+    width:100%;
+    text-align:center;
+}
+.post-detail .post-content ul, .post-detail .post-content ol {
+    padding-left: 50px;
+    margin-bottom: 50px;
 }
 .post-detail .post-content img {
     margin: 0 0 1.5em 0;
     box-shadow: 0 8px 16px 0px rgba(0,0,40,15%);
 }
-.post-detail .post-content blockquote {
-    background: rgba(0, 0, 0, 0.03);
-    border-left: 3px solid #7048e8;
+.post-detail .post-content pre code {
+    background: #36563C;
+    padding: 2.5em 1em 1em;
 }
-.post-detail .post-content blockquote p {
-    color: rgba(0,0,0,0.9);
+.post-detail .post-content pre code:after {
+    color: #E79C00;
+    font-weight:normal;
+    left: 10px;
+    top: 8px;
+}
+.post-detail .post-content p {
+    line-height:180%;
+    font-size: 17px;
+    text-align: justify;
+}
+.post-item .left .post-abstract {
+    font-size: 17px;
+}
+.tag {
+    background: #fcfcfc;
+}
+.tag:hover {
+    background: #E79C00;
+    color: #FFF;
+}
+
+.gt-container a {
+    color: #36563C !important;
+}
+.gt-container a:hover {
+    color: #E79C00 !important;
+}
+.gt-container .gt-svg svg {
+    fill: #36563C !important;
+}
+.gt-container .gt-svg svg:hover {
+    fill: #E79C00 !important;
+}
+.gt-container .gt-btn {
+    border: 1px solid #36563C !important;
+    background-color: #36563C !important;
+}
+.gt-container .gt-btn-preview {
+    color: #36563C !important;
+    background-color: #FFF !important;
+}
+.gt-container .gt-btn:hover, .gt-container .gt-btn-preview:hover {
+    color: #FFF !important;
+    border: 1px solid #E79C00 !important;
+    background-color: #E79C00 !important;
+}
+.gt-container .gt-link-counts:hover, .gt-container .gt-header-controls-tip:hover, .gt-container .gt-link:hover {
+    color: #E79C00 !important;
+    border-bottom: 1px dashed #E79C00 !important;
+}
+.gt-container .gt-header-controls a[target="_blank"]:after {
+    bottom: 10px !important;
+}
+
+hr {
+    height: 1px;
+    margin: 20px 0;
+    border: none;
+    border-bottom: 1px dashed #eee; 
+}
+
+
+@media (max-width: 800px) {
+.sidebar {
+    width: 100%;
+}
+.main-container {
+    margin-left: 0;
+}
 }
     

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.y3pm.com</id>
     <title>Y3.PM</title>
-    <updated>2021-06-08T10:03:29.686Z</updated>
+    <updated>2021-06-09T08:02:53.359Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.y3pm.com"/>
     <link rel="self" href="https://www.y3pm.com/atom.xml"/>
@@ -38,11 +38,11 @@
 <p>按照经验，通过 Tower 还原一下。可能是因为换了个人密钥的原因……只有最新的提交记录。两年前的记录已经无法找到并恢复。一定是我经验太少……求运维的大神给看看，大神说救不了了。。。</p>
 <h2 id="柳暗花明">🎉 柳暗花明</h2>
 <p>没有时光机的备份，没有 iCloud 的备份，没有 Github 的历史保存，Git 大神没辙，Gridea 大神没辙……大概率死翘翘了。就这样无解搁置了一个月……</p>
-<p>再研究研究 Git 吧，这位名叫 NineCreek 的 G 友，我真是太谢谢你了……<br>
-<img src="https://www.y3pm.com/post-images/1623132669550.png" alt="" loading="lazy"></p>
+<p>再研究研究 Git 吧，这位名叫 NineCreek 的 G 友，我真是太谢谢你了……</p>
+<figure data-type="image" tabindex="1"><img src="https://www.y3pm.com/post-images/1623132669550.png" alt="" loading="lazy"></figure>
 <p>竟然在某个时间 Fork 了整个站点！！！果断追过去，下载了下来。</p>
-<p>对比之后，原来 Gridea 只能将生成的 Html 文件放 Github，源文件是没有的。好在文章图片都在，可以一篇一篇的补回来。细想一下，当年 Gridea 刚刚推出时，我这个小博客上过官网的首页推荐，同时也是 G 友们投票最多的站点，应该是这个原因，才被 Fork 的吧。<br>
-<img src="https://www.y3pm.com/post-images/1623133097633.png" alt="" loading="lazy"></p>
+<p>对比之后，原来 Gridea 只能将生成的 Html 文件放 Github，源文件是没有的。好在文章图片都在，可以一篇一篇的补回来。细想一下，当年 Gridea 刚刚推出时，我这个小博客上过官网的首页推荐，同时也是 G 友们投票最多的站点，应该是这个原因，才被 Fork 的吧。</p>
+<figure data-type="image" tabindex="2"><img src="https://www.y3pm.com/post-images/1623133097633.png" alt="" loading="lazy"></figure>
 <h2 id="未来计划">📮 未来计划</h2>
 <p>站点回来了，之前写的一些文章也得慢慢补回来，关于品牌命名，关于酒店行业……</p>
 ]]></content>

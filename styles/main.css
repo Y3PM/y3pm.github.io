@@ -823,6 +823,10 @@ body {
 .post-detail, .post-item .left {
     letter-spacing: 0.5px;
 }
+.post-detail .post-content ul, .post-detail .post-content ol {
+    padding-left: 30px !important;
+    margin-bottom: 1.5em !important;
+}
 .post-detail .post-content ul {
     position: relative;
 }
@@ -871,7 +875,7 @@ body {
     padding-top: 3em;
 }
 .post-item .left .post-abstract, .post-detail .post-content {
-    font-weight: 200;
+    font-weight: 300;
     text-align: justify;
 }
 .post-item .left .post-date, .post-detail .post-date {
@@ -879,7 +883,7 @@ body {
 }
 .post-item .right .feature-container, .post-detail .feature-container, .post-detail .post-content img, .post-content video {
     box-shadow: none;
-    border-radius: 16px;
+    border-radius: 8px;
 }
 .post-detail .feature-container, .post-detail .post-content img, .post-detail .post-date {
     margin-bottom: 40px;
@@ -898,6 +902,7 @@ body {
     border-radius: 16px;
     margin-top: -10px;
     margin-bottom: 40px;
+    font-weight:400;
 }
 .post-detail .post-content blockquote p span {
     display:block;

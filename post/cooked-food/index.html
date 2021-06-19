@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>从 0 开始，策划一个熟食品牌 | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624083974496">
+<link rel="stylesheet" href="https://y3pm.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="民以食为天，食以肉为欢……我瞎编的，鲁迅没说过。两年前，做熟食的朋友找到我，希望能一起合作做一个新的餐饮品牌，于是就有了这个策划案。
+
+俗话说，知己知彼，百战不殆。既然要做基于熟食的餐饮品牌，市场调研还是要搞一下的。写个小爬虫，先去大众点评..." />
+    <meta name="keywords" content="杂集,0-1,Python,视觉设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.com">
+        <img src="https://y3pm.com/images/avatar.png?v=1624083974496" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://www.y3pm.com/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">从 0 开始，策划一个熟食品牌</h2>
+            <div class="post-date">2019-06-29</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.com/post-images/cooked-food.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>民以食为天，食以肉为欢……我瞎编的，鲁迅没说过。两年前，做熟食的朋友找到我，希望能一起合作做一个新的餐饮品牌，于是就有了这个策划案。</p>
+<!-- more -->
+<p>俗话说，知己知彼，百战不殆。既然要做基于熟食的餐饮品牌，市场调研还是要搞一下的。写个小爬虫，先去大众点评看下全济南市 1519 个熟食店真实数据（数据截止 2017 年中）：</p>
+<p>开店前五名：</p>
+<ul>
+<li>圣都熟食 125 家</li>
+<li>紫燕百味鸡 87 家</li>
+<li>绝味鸭脖 48 家</li>
+<li>喜旺食品 44 家</li>
+<li>鲁味斋 28 家；</li>
+</ul>
+<p>口味、环境、服务综合榜：</p>
+<ul>
+<li>北坦杨家干炸里脊 总店</li>
+<li>紫燕百味鸡 朝山街店</li>
+<li>鲁味斋 建设路店</li>
+<li>鲁味斋 文化西路店</li>
+</ul>
+<blockquote>
+<p>在消费者热评榜前十名中，鲁味斋 占据了四席， 紫燕百味鸡  占据了两席。根据评价词汇云，可以明确的看出来口感第一（味道赞）、品质第二（肉类好）、服务第三（服务热情）、环境第四（干净卫生）。嗯，好吃才是硬道理！！！</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.com/post-images/1624082350605.jpg" alt="" loading="lazy"></figure>
+<p>综合评价似乎太范范了，我们把评价最好的店面（点评 4 分以上）的单独分析一下，一共有 17 家店面符合这个条件……只有 1.1%，看起来做好的压力并不大。17 家店面中：</p>
+<ul>
+<li>鲁味斋 8 店达标（创办于 1927 年的老济南品牌）</li>
+<li>紫燕百味鸡 5 店达标 （来自四川）</li>
+<li>北坦杨家干炸里脊总店 唯一的 4.5 分店面</li>
+</ul>
+<p>根据主要竞品的定位，再结合品牌自身的优势：自有中央厨房、获奖名厨、纯中草药卤制，几个合伙人讨论后决定，旗舰品牌的主要定位于打造一款基于熟食的快餐品牌，同时销售熟食和吸引加盟。</p>
+<p>中间就是一起吃遍高分店，坐在一起研究如何把产品做的更好。接下来就可以开始品牌策划了。</p>
+<p><img src="https://y3pm.com/post-images/1624082364284.png" alt="" loading="lazy"><br>
+<span class="img_info">心中若有桃花源，何处不是水云间</span></p>
+<p>鲜卤鲜蔬公司本身拥有一个熟食品牌“桃枝花卤”（因为中央厨房周围一片桃树林……）所以在策划时，仍然以此为主。同时采用：主品牌+次品牌+自有品牌 的多元化发展策略。</p>
+<blockquote>
+<p>主品牌：以旗舰店、形象店为主品牌代表。以购物体验、鲜制卤味、人情味、卤味文化为品牌代言。定位：商场里的特色花卤。</p>
+</blockquote>
+<blockquote>
+<p>次品牌：以社区店为主要品牌代表。用单品、爆品为次品牌代言，如：古法烧鸡、徽记干鸭、脱骨扒蹄。定位：社区餐桌熟食供应。</p>
+</blockquote>
+<blockquote>
+<p>自有品牌：以主品牌为依托，以旗舰店、形象店、社区店为渠道。主推品牌周边产品，如：香料包、香料、卤水汁、周边等。定位：一个有趣好玩的卤味品牌。</p>
+</blockquote>
+<p>起名是个大学问，我们对点评对数据进行了分析，发现很多被多次复用的字，如：香、斋、鼎、味、园、福、卤、宝、聚、鲁，可以看出来，在熟食这个类别上还是以传统为主。有意思的是，我们还找了一帮吃货……来看看他们都叫什么网名：</p>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.com/post-images/1624082393599.png" alt="" loading="lazy"></figure>
+<p>中间经过多轮讨论和商标审验，最终一个品牌和口号胜出：“卤味厨房”+“卤味，正出锅”。内部品牌定位也很直白且目标清晰：“设计精致，日营过万的卤味店”。</p>
+<p>同时，我们对品牌店的“氛围塑造”、“跨界思考”、“口味创新”、“形象展示”、“营销策略”、“新品上架策略”等进行了一系列规划。</p>
+<figure data-type="image" tabindex="3"><img src="https://y3pm.com/post-images/1624082408256.png" alt="" loading="lazy"></figure>
+<p>至此，一个品牌，从定位，到品牌，到运营，再到营销，已经基本上全都规划完毕，接下里就是执行了。从店铺选址、设计、装修，又是另外一个故事了。</p>
+<p>遗憾的是，由于资金等各方面问题，位于中心商圈 500 平的店最终没有开起来。一起来看看最终的主品牌+次品牌+自有品牌的效果图吧。</p>
+<p><img src="https://y3pm.com/post-images/1624082431470.png" alt="" loading="lazy"><br>
+<span class="img_info">主品牌（旗舰品牌）</span></p>
+<p><img src="https://y3pm.com/post-images/1624082442834.png" alt="" loading="lazy"><br>
+<span class="img_info">次品牌（社区品牌）</span></p>
+<p><img src="https://y3pm.com/post-images/1624082458783.jpg" alt="" loading="lazy"><br>
+<span class="img_info">自有品牌（自有品牌）</span></p>
+<p>后期制作了长达 50 页的品牌视觉识别规范，同时基于品牌视觉，给 6 位联合创始人每人设计了一个微信头像，也是蛮有意思的事儿：<br>
+<img src="https://y3pm.com/post-images/1624082474730.png" alt="" loading="lazy"></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.com/tag/GCCZXDTJK/" class="tag">
+                    杂集
+                  </a>
+                
+                  <a href="https://y3pm.com/tag/l5GQSpYchQ/" class="tag">
+                    0-1
+                  </a>
+                
+                  <a href="https://y3pm.com/tag/KLFeJMwU4/" class="tag">
+                    Python
+                  </a>
+                
+                  <a href="https://y3pm.com/tag/u5AngSBqkr/" class="tag">
+                    视觉设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.com/post/toB/">
+                  <h3 class="post-title">
+                    B 端产品的三大发展方向
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

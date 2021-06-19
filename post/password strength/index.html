@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>密码强度规则 | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624083974496">
+<link rel="stylesheet" href="https://y3pm.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="所有的需要注册登录的产品，都需要有密码。但不是所有的密码都需要使用高强度密码，总结了两个简单易用的密码规则，作为参考。
+
+密码强度，指一个密码对抗猜测或是暴力破解的有效程度。一般来说，指一个未授权的访问者得到正确密码的平均尝试次数。密码的强..." />
+    <meta name="keywords" content="产品设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.com">
+        <img src="https://y3pm.com/images/avatar.png?v=1624083974496" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://www.y3pm.com/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">密码强度规则</h2>
+            <div class="post-date">2019-07-26</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.com/post-images/password strength.webp')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>所有的需要注册登录的产品，都需要有密码。但不是所有的密码都需要使用高强度密码，总结了两个简单易用的密码规则，作为参考。</p>
+<!-- more -->
+<p>密码强度，指一个密码对抗猜测或是暴力破解的有效程度。一般来说，指一个未授权的访问者得到正确密码的平均尝试次数。密码的强度和其长度、复杂度及不可预测度有关。强密码可以降低安全漏洞的整体风险，但并不能降低采取其他安全措施的需要。</p>
+<h2 id="简易版密码强度规则">简易版密码强度规则</h2>
+<p>一、密码长度至少8位；密码含有数字&amp;字母；<br>
+二、密码含有符号；<br>
+三、含有字母大小写。</p>
+<p>规则：<br>
+--&gt; 符合2项以上允许注册。<br>
+--&gt; 不符合针对项目进行针对性提示。</p>
+<h2 id="常规版密码强度规则">常规版密码强度规则</h2>
+<p>一、密码长度:<br>
+--&gt; 5 分: 小于等于 4 个字符<br>
+--&gt; 10 分: 5 到 7 字符<br>
+--&gt; 25 分: 大于等于 8 个字符</p>
+<p>二、字母:<br>
+--&gt; 0 分: 没有字母<br>
+--&gt; 10 分: 全都是小（大）写字母<br>
+--&gt; 20 分: 大小写混合字母</p>
+<p>三、数字:<br>
+--&gt; 0分: 没有数字<br>
+--&gt; 10分: 1 个数字<br>
+--&gt; 20分: 大于等于 3个数字</p>
+<p>四、符号:<br>
+--&gt; 0分: 没有符号<br>
+--&gt; 10分: 1个符号<br>
+--&gt; 25分: 大于1个符号</p>
+<p>五、奖励:<br>
+--&gt; 2分: 字母和数字<br>
+--&gt; 3分: 字母、数字和符号<br>
+--&gt; 5分: 大小写字母、数字和符号</p>
+<p>规则:<br>
+--&gt; &gt;= 90: 非常安全<br>
+--&gt; &gt;= 80: 安全（Secure）<br>
+--&gt; &gt;= 70: 非常强<br>
+--&gt; &gt;= 60: 强（Strong）<br>
+--&gt; &gt;= 50: 一般（Average）<br>
+--&gt; &gt;= 25: 弱（Weak）<br>
+--&gt; &gt;= 0: 非常弱</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.com/tag/RMhdZjZP8/" class="tag">
+                    产品设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.com/post/cooked-food/">
+                  <h3 class="post-title">
+                    从 0 开始，策划一个熟食品牌
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

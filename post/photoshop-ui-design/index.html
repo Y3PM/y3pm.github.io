@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624084643601">
+<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624088574656">
 <link rel="stylesheet" href="https://y3pm.com/styles/main.css">
 
 
@@ -40,7 +40,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://y3pm.com">
-        <img src="https://y3pm.com/images/avatar.png?v=1624084643601" class="site-logo">
+        <img src="https://y3pm.com/images/avatar.png?v=1624088574656" class="site-logo">
         <h1 class="site-title">Y3.PM</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -134,15 +134,15 @@
 <h2 id="2-ps-图层命名规范">2. PS 图层命名规范</h2>
 <p>设计师需要养成良好的图层命名习惯，不止要自己看的懂，其他设计师也能一下就能理解，才能方便对设计进行管理。以下设计规范基于 Mac 平台的一款 Slicy 的规范进行设计，后面单独讲解这个切图神器。</p>
 <h3 id="21-直接命名并切图">2.1 直接命名并切图</h3>
-<p><img src="https://y3pm.com/post-images/1622869878577.png" alt="" loading="lazy"><br>
-如图示：可以直接切图的图层或文件夹，命名规范：命名 + 后缀；举例：star1.png</p>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.com/post-images/1622869878577.png" alt="" loading="lazy"></figure>
+<p>如图示：可以直接切图的图层或文件夹，命名规范：命名 + 后缀；举例：star1.png</p>
 <p>还可以为切图进行分类命名，如加前缀 “icon/”，代表的就是图标类的切图，“btn/” 可以代表这是一个按钮类型的切图。这么操作还有一个好处，在某些自动化切图软件中，可以直接将切图结果进行文件夹分类。文件夹会被命名为 icon 或 btn。</p>
 <p>需要提供名分辨率支持的图层文件夹，规范：命名 +@2x + 后缀。举例：star@2x.png</p>
 <h3 id="22-图标尺寸的统一">2.2 图标尺寸的统一</h3>
 <p>图标尺寸的统一，有助于开发过程的简化和后期的修改调整。例如有三个图标，尺寸分别为：12*13，12*14，13*15。在切图时，可以将单个图标统一为 16*16，图标之外的区域用透明填充。</p>
-<p>图标尺寸统一，开发时只要写一个固定尺寸<br>
-<img src="https://y3pm.com/post-images/1622869909825.png" alt="" loading="lazy"><br>
-图标尺寸需要保持一致，为保证统一，可以采用以下方法：</p>
+<p>图标尺寸统一，开发时只要写一个固定尺寸</p>
+<figure data-type="image" tabindex="3"><img src="https://y3pm.com/post-images/1622869909825.png" alt="" loading="lazy"></figure>
+<p>图标尺寸需要保持一致，为保证统一，可以采用以下方法：</p>
 <p>建立文件夹，并在文件夹底部增加一个矩形，命名为 @bounds, 并设置为透明（如图黄色部分）；<br>
 建立文件夹，给文件夹增加一个矢量蒙版位图蒙版，蒙版尺寸设置为需要的尺寸；</p>
 <h3 id="23-常用的切图格式">2.3 常用的切图格式</h3>
@@ -180,60 +180,61 @@
 WEB 端设计尺寸不低于 1024*768，同时需要设定最大尺寸（建议宽度不超过 1440，避免在大显示器上因为宽度适配造成的阅读困难）。</p>
 <h2 id="3-ps-尺寸标注插件-specking">3. PS 尺寸标注插件 Specking</h2>
 <p><img src="https://y3pm.com/post-images/1622869936077.png" alt="" loading="lazy"><br>
-SpecKing 官网：http://www.wuwacorp.com/specking/<br>
-尺寸标注有相当多的软件可以使用，本节主要介绍 Specking。</p>
+<span class="img_info">SpecKing 官网：http://www.wuwacorp.com/specking/ </span></p>
+<p>尺寸标注有相当多的软件可以使用，本节主要介绍 Specking。</p>
 <p>Specking 是款 Photoshop 插件，可以非常方便的在 PS 内对尺寸进行标注。标注方式包括宽度高度标注，距离标注，颜色标注和字体标注，还可以为设计稿打标签。自动生成的标注会被整合在一个图层文件夹，你可以根据需要方便的对图层进行显示和隐藏。</p>
 <p><img src="https://y3pm.com/post-images/1622869956422.png" alt="" loading="lazy"><br>
-帮助文件：http://www.wuwacorp.com/specking/help/</p>
+<span class="img_info">帮助文件：http://www.wuwacorp.com/specking/help/</span></p>
 <p>插件可以很程度上提高工作效率，目前这款插件独立授权的售价是 19$。</p>
 <h2 id="4-ps键切图插件-layercraft">4. PS—键切图插件 Layercraft</h2>
-<p>这款插件可以很方便的把切图导出符合 iOS 和 Android 规范的格式，并能自动缩放尺寸，在 UI 设计时，务必使用矢量设计，配合插件即可做到无损的以格式输出。<br>
-<img src="https://y3pm.com/post-images/1622869986914.png" alt="" loading="lazy"><br>
-官网地址：http://lab.rayps.com/lc/</p>
+<p>这款插件可以很方便的把切图导出符合 iOS 和 Android 规范的格式，并能自动缩放尺寸，在 UI 设计时，务必使用矢量设计，配合插件即可做到无损的以格式输出。</p>
+<p><img src="https://y3pm.com/post-images/1622869986914.png" alt="" loading="lazy"><br>
+<span class="img_info">官网地址：http://lab.rayps.com/lc/</span></p>
 <p>设计时需要基于 1 倍大小设计（目前来说一倍大小可以设置为 @2x 的尺寸），插件提供缩放 200％和 50％来满足高低分辩率的需求。同时还提供透明像素自动裁剪的功能，以减小图片尺寸。新版还提供出路径的选择。插件完全免费，请配合插件管理器 Adobe Extension Manager 使用。</p>
 <p>下载地址：http://7kts35.com5.z0.glb.clouddn.com/LayerCraft.zxp</p>
 <h2 id="5-ps-导出-svg-脚本-pstosvg">5. PS 导出 SVG 脚本 PStoSvg</h2>
 <p>随看技术的发展，iOS、Android、Web 基本上都支持矢量格式的切图了。使用矢量格式的好处就是在不同的尺寸和分辮率下都能有一个优秀的视觉展现，</p>
 <p>目前比较通用的矢量格式就是 svg，以很方便的转换成 pdf、字体等。iOS 客户端目前可以使用 pdf 格式的图标，WEB 支持 svg 和字体图标，Android 支持字体图标（5.0 以上版本支持）</p>
-<p>所以在 PS 中使用矢量绘图和导出 svg 变得很重要。PS 没有自带的导出 svg 的功能，好在有插件和脚本。下面简单介绍下 PS 导出 SVG 格式的脚本：PStoSvg。<br>
-<img src="https://y3pm.com/post-images/1622870009116.png" alt="" loading="lazy"><br>
-http://hackingui.com/design/export-photoshop-layer-to-svg/ 安装方法，下载后拖拽到 Adobe Photoshop/presets/scripts 文件夹下。</p>
+<p>所以在 PS 中使用矢量绘图和导出 svg 变得很重要。PS 没有自带的导出 svg 的功能，好在有插件和脚本。下面简单介绍下 PS 导出 SVG 格式的脚本：PStoSvg。</p>
+<p><img src="https://y3pm.com/post-images/1622870009116.png" alt="" loading="lazy"><br>
+<span class="img_info">http://hackingui.com/design/export-photoshop-layer-to-svg/</span></p>
+<p>安装方法，下载后拖拽到 Adobe Photoshop/presets/scripts 文件夹下。</p>
 <p>使用方法很简单，参考之前的命名方法，将图层者文件夹俞名为 svg，保存 psd 文件，然后点击文件 &gt; 脚本 &gt; Save as SVG 即。</p>
 <p>导出的文件会被命名为 .svg.ai，这是因为没有开启 AI 造成的，打开 Adobe Illustrator 后，再次执行脚本，就能看到 svg 格式的文件了。</p>
 <p>缺点：不支持文件夹内的 svg 导出，不能自行选择导出，需要配合 AI 使用。</p>
-<p>另一款 SVG 插件 Zeick-Photoshop SVG export 4.0，需要付费 $19.99，更好用一些，自行了解：<br>
-<img src="https://y3pm.com/post-images/1622870023943.png" alt="" loading="lazy"><br>
-http://zeick.com/</p>
+<p>另一款 SVG 插件 Zeick-Photoshop SVG export 4.0，需要付费 $19.99，更好用一些，自行了解：</p>
+<p><img src="https://y3pm.com/post-images/1622870023943.png" alt="" loading="lazy"><br>
+<span class="img_info">http://zeick.com/</span></p>
 <p>特点：Vectorshapelayers、GroupOfshapes、Multiplelayersexport、ShapeColor、ShapeGradient(beta)、ShapeStroke(beta)、Coloroverlay(beta)、Gradientoverlay</p>
 <h2 id="6-图片压缩技术及工具-tinypng">6. 图片压缩技术及工具 tinypng</h2>
 <p>下载 APP 安装包访问网站时，除了网络环境，影响加载速率和用户体验的最关键因素就是文件大小了。减小文件大小的方法有很多，大都是采用有损压 (jpg 和 gif) 的方式，压后图片会变得模糊不清，为了解决这些问题，需要使用 png 的无损格式出图，出图后使用 TinyPNG 的图片压技术进行压缩。</p>
 <p>目前提供压缩图片压缩技术的平台挺多，TinyPNG 是目前压缩速度和压率最好的。经过测试试，一张 1.1MB（1072KB）的 png 格式图片，在腾讯智图可以压到 1019KB，而 TinyPNG 可以压到 369KB，压率为 66％。</p>
 <p>在以往的常规使用中，APP 使用的图标类切图，压缩率接近 90％。比如 APP 所有切图为 10MB，压缩后能达到 1MB 以内。减少了 9MB 的大小，从而减小 APP 的尺寸，加快用户下载速度，同时降低服务器流量支出。<br>
 <img src="https://y3pm.com/post-images/1622870038400.png" alt="" loading="lazy"><br>
-官网：https://tinypng.com/</p>
+<span class="img_info">官网：https://tinypng.com/</span></p>
 <p>常规使用流程只需要打开网站 (https://tinypng.com/) 把要压的图片上传，等待压缩完成后下载即可。</p>
 <p>重度使用者，建议购买 Photoshop 插件 ($50)，安装后可以直接通过文件&gt; 导出 &gt; TinyPNG and TinyJPG。结合 photoshop 的动作和批处理功能，对所有图片进行批量压缩和优化，</p>
 <p>插件同时支持 jpg 和 png 格式的压缩，同时可以对图片的尺寸比例进行放。提供 100％、50％、33.33％和 25％四个常用固定比例。</p>
 <h2 id="7-其他辅助设计工具介绍">7. 其他辅助设计工具介绍</h2>
-<p>此部分工具只做简短介绍，详细文档请参考官方使用说明。<br>
-<img src="https://y3pm.com/post-images/1622870055509.gif" alt="" loading="lazy"><br>
-Size Marks：https://github.com/romashamin/Size-Marks-PS</p>
-<p>SizeMarks，免费插件。选中选区，按下快捷键（自行设置）即快速标注尺寸。插件会根据宽高自动选择长边进行标注。比如你画了个 25*30px 的矩形，那么它就以 30px 来标注，如果是正方形，默认为垂直标注。<br>
-<img src="https://y3pm.com/post-images/1622870072425.png" alt="" loading="lazy"><br>
-CutterMan: http://www.cutterman.cn/</p>
+<p>此部分工具只做简短介绍，详细文档请参考官方使用说明。</p>
+<p><img src="https://y3pm.com/post-images/1622870055509.gif" alt="" loading="lazy"><br>
+<span class="img_info">Size Marks：https://github.com/romashamin/Size-Marks-PS</span></p>
+<p>SizeMarks，免费插件。选中选区，按下快捷键（自行设置）即快速标注尺寸。插件会根据宽高自动选择长边进行标注。比如你画了个 25*30px 的矩形，那么它就以 30px 来标注，如果是正方形，默认为垂直标注。</p>
+<p><img src="https://y3pm.com/post-images/1622870072425.png" alt="" loading="lazy"><br>
+<span class="img_info">CutterMan: http://www.cutterman.cn/</span></p>
 <p>CutterMan：收费的国产软件。操作方式类似 Specking。CutterMan 同时提供屏幕实时预览、尺寸标注、切图等软件，部分收费。</p>
 <p>软件类：<br>
 <img src="https://y3pm.com/post-images/1622870091278.png" alt="" loading="lazy"><br>
-马克鳗：http://www.getmarkman.com/</p>
-<p>马克曼：是一款基于 AdobeAiR 平台的一款方便高效的标注工貝，极大节省设计师在设计稿上添加和修改标注的时间，让设计更有爱。支持以种图片格式、设计稿自动刷新、定制标记样式、支持 Retina@2x 图。60RMB 每年。<br>
-<img src="https://y3pm.com/post-images/1622870107035.jpg" alt="" loading="lazy"><br>
-http://cdc.tencent.com/?p=3268</p>
+<span class="img_info">马克鳗：http://www.getmarkman.com/</span></p>
+<p>马克曼：是一款基于 AdobeAiR 平台的一款方便高效的标注工貝，极大节省设计师在设计稿上添加和修改标注的时间，让设计更有爱。支持以种图片格式、设计稿自动刷新、定制标记样式、支持 Retina@2x 图。60RMB 每年。</p>
+<p><img src="https://y3pm.com/post-images/1622870107035.jpg" alt="" loading="lazy"><br>
+<span class="img_info">http://cdc.tencent.com/?p=3268</span></p>
 <p>Dorado：腾讯 CDC 出品的尺寸标注软件。无需安装，更加绿色。</p>
-<p>其他图片压缩工具 此部分不做详细介绍，感兴趣的请自行了解。推荐使用 Tinypng 作为主力压缩工貝。<br>
-<img src="https://y3pm.com/post-images/1622870141119.png" alt="" loading="lazy"></p>
-<p>腾讯智图：http://zhitu.isux.us/<br>
-<img src="https://y3pm.com/post-images/1622870149536.png" alt="" loading="lazy"><br>
-ImageOptim：https://imageoptim.com/</p>
+<p>其他图片压缩工具 此部分不做详细介绍，感兴趣的请自行了解。推荐使用 Tinypng 作为主力压缩工貝。</p>
+<p><img src="https://y3pm.com/post-images/1622870141119.png" alt="" loading="lazy"><br>
+<span class="img_info">腾讯智图：http://zhitu.isux.us/</span></p>
+<p><img src="https://y3pm.com/post-images/1622870149536.png" alt="" loading="lazy"><br>
+<span class="img_info">ImageOptim：https://imageoptim.com/</span></p>
 
             </div>
             

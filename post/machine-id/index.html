@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624084643601">
+<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624088574656">
 <link rel="stylesheet" href="https://y3pm.com/styles/main.css">
 
 
@@ -40,7 +40,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://y3pm.com">
-        <img src="https://y3pm.com/images/avatar.png?v=1624084643601" class="site-logo">
+        <img src="https://y3pm.com/images/avatar.png?v=1624088574656" class="site-logo">
         <h1 class="site-title">Y3.PM</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -123,8 +123,8 @@
 <li>该硬件 ID 唯一，不可重复，与每一台 Android 设备硬件进行绑定；</li>
 <li>该硬件 ID 在软件或系统重装后不会发生变更，以避免造成绑定和授权丢失；</li>
 </ol>
-<p>Google 官方提供了  <a href="https://developer.android.com/training/articles/user-data-ids?hl=zh-cn#kotlin" target="_blank">《唯一标识符最佳做法》</a>的说明。<br>
-在这份官方文档中，Google建议避免使用硬件标识符，但显然不适用与目前的业务场景。但也说明了例外情况，就是：应用必须是设备所有者应用（设备所有者：专为由企业负责的环境而设计），具有特许权限，才能访问不可重置的标识符（包括 IMEI 和序列号）。这样的话，可选的比较有价值的唯一标识可能有以下这些：</p>
+<p>Google 官方提供了  <a href="https://developer.android.com/training/articles/user-data-ids?hl=zh-cn#kotlin" target="_blank">《唯一标识符最佳做法》</a>的说明。</p>
+<p>在这份官方文档中，Google建议避免使用硬件标识符，但显然不适用与目前的业务场景。但也说明了例外情况，就是：应用必须是设备所有者应用（设备所有者：专为由企业负责的环境而设计），具有特许权限，才能访问不可重置的标识符（包括 IMEI 和序列号）。这样的话，可选的比较有价值的唯一标识可能有以下这些：</p>
 <h3 id="device-iddeviceid">Device ID（DeviceId）</h3>
 <p>开发者可以使用系统提供的 TelephonyManager 服务来获取 Device ID，GSM 设备返回的是 IMEI 码，CDMA 设备返回的是 MEID 码或者 ESN 码。非电话设备或者 Device ID 不可用时，返回 null。因为设备支持 4G 全网通，但并不需要插卡使用，所以用不了。</p>
 <h3 id="sim-序列号sim-serial-number">Sim 序列号（Sim Serial Number）</h3>

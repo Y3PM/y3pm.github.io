@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624084643601">
+<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624088574656">
 <link rel="stylesheet" href="https://y3pm.com/styles/main.css">
 
 
@@ -41,7 +41,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://y3pm.com">
-        <img src="https://y3pm.com/images/avatar.png?v=1624084643601" class="site-logo">
+        <img src="https://y3pm.com/images/avatar.png?v=1624088574656" class="site-logo">
         <h1 class="site-title">Y3.PM</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -113,13 +113,13 @@
               <p>近期在做一套商城系统，要开放给不同的商户使用。表面上看起来，运费模板是个很简单的功能，而实际上这涉及到了一个极为复杂的运费逻辑。</p>
 <!-- more -->
 <p>先看下有赞上是如何给商户描述运费模板的逻辑的：</p>
-<h3 id="一-商品关联运费模板">一. 商品关联运费模板</h3>
+<h2 id="一-商品关联运费模板">一. 商品关联运费模板</h2>
 <p>商品关联设置：每件商品，仅可设置一种运费收取方式，即：统一运费，或指定运费模板；<br>
 统一运费：按商品一次计收运费；如，统一运费10元，买家单笔订单购买n件，均只收取10元运费；<br>
 运费模板：选择相应的运费模板，即可指定该商品，可配送至相应区域，并按规则收取相应运费；</p>
-<h3 id="二-运费计算方式">二. 运费计算方式</h3>
+<h2 id="二-运费计算方式">二. 运费计算方式</h2>
 <p>支持商家选择【按商品累加运费】和【组合运费】，默认使用组合运费。</p>
-<h4 id="1按商品累加运费">1.按商品累加运费</h4>
+<h3 id="1按商品累加运费">1.按商品累加运费</h3>
 <blockquote>
 <p>规则：分别计算出来商品使用模板的运费，和统一运费的最大值，再进行累加。</p>
 </blockquote>
@@ -127,7 +127,7 @@
 <p>多种商品，分别设置不同金额的统一运费：以最高运费金额收取。 更新：例如 商品A，B，C的统一运费分别为1元，2元和3元，一期购买这三个商品，则运费为3元。</p>
 <p>不同的商品，设置不同的运费模板：分别计算每个运费模板规则应收运费，再累加计算合计运费； 例如： 商品A（1kg）使用用模板M（首1kg，10块，续2kg，5块），商品B（1kg）使用模板N（首2kg，12块，续1kg，5块），如果购买商品A和B，各2件，则运费=模板M的运费+模板N的运费=（10+5）+（12）=27元。</p>
 <p>统一运费商品，和运费模板商品一同结算：单独计算统一运费商品应收运费，再累加运费模板应收运费； 例如：商品A（1kg）使用模板M（首1件，10块，续2件，5块），商品B（1kg）使用模板N（首2kg，12块，续1kg，5块），商品C和D用统一运费，分别为2元和10元，购买A，B，C和D各两件。 此时运费模板运费（商品A和B）=模板M的运费+模板N的运费=（10+5）+（12）=27元。统一运费（商品A和B）=10元； 则总运费=统一运费+运费模板运费=（10）+（27）=37元。</p>
-<h4 id="2组合运费">2.组合运费</h4>
+<h3 id="2组合运费">2.组合运费</h3>
 <blockquote>
 <p>规则：先将使用统一运费和运费模板的商品分开计算，再取二者较大的值，作为最终运费。</p>
 </blockquote>

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624084643601">
+<link rel="shortcut icon" href="https://y3pm.com/favicon.ico?v=1624088574656">
 <link rel="stylesheet" href="https://y3pm.com/styles/main.css">
 
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://y3pm.com">
-        <img src="https://y3pm.com/images/avatar.png?v=1624084643601" class="site-logo">
+        <img src="https://y3pm.com/images/avatar.png?v=1624088574656" class="site-logo">
         <h1 class="site-title">Y3.PM</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -112,41 +112,57 @@
 <!-- more -->
 <p>密码强度，指一个密码对抗猜测或是暴力破解的有效程度。一般来说，指一个未授权的访问者得到正确密码的平均尝试次数。密码的强度和其长度、复杂度及不可预测度有关。强密码可以降低安全漏洞的整体风险，但并不能降低采取其他安全措施的需要。</p>
 <h2 id="简易版密码强度规则">简易版密码强度规则</h2>
-<p>一、密码长度至少8位；密码含有数字&amp;字母；<br>
-二、密码含有符号；<br>
-三、含有字母大小写。</p>
-<p>规则：<br>
---&gt; 符合2项以上允许注册。<br>
---&gt; 不符合针对项目进行针对性提示。</p>
+<ol>
+<li>密码长度至少8位；密码含有数字&amp;字母；</li>
+<li>密码含有符号；</li>
+<li>含有字母大小写。</li>
+</ol>
+<h3 id="规则">规则：</h3>
+<ul>
+<li>符合2项以上允许注册。</li>
+<li>不符合针对项目进行针对性提示。</li>
+</ul>
 <h2 id="常规版密码强度规则">常规版密码强度规则</h2>
-<p>一、密码长度:<br>
---&gt; 5 分: 小于等于 4 个字符<br>
---&gt; 10 分: 5 到 7 字符<br>
---&gt; 25 分: 大于等于 8 个字符</p>
-<p>二、字母:<br>
---&gt; 0 分: 没有字母<br>
---&gt; 10 分: 全都是小（大）写字母<br>
---&gt; 20 分: 大小写混合字母</p>
-<p>三、数字:<br>
---&gt; 0分: 没有数字<br>
---&gt; 10分: 1 个数字<br>
---&gt; 20分: 大于等于 3个数字</p>
-<p>四、符号:<br>
---&gt; 0分: 没有符号<br>
---&gt; 10分: 1个符号<br>
---&gt; 25分: 大于1个符号</p>
-<p>五、奖励:<br>
---&gt; 2分: 字母和数字<br>
---&gt; 3分: 字母、数字和符号<br>
---&gt; 5分: 大小写字母、数字和符号</p>
-<p>规则:<br>
---&gt; &gt;= 90: 非常安全<br>
---&gt; &gt;= 80: 安全（Secure）<br>
---&gt; &gt;= 70: 非常强<br>
---&gt; &gt;= 60: 强（Strong）<br>
---&gt; &gt;= 50: 一般（Average）<br>
---&gt; &gt;= 25: 弱（Weak）<br>
---&gt; &gt;= 0: 非常弱</p>
+<h3 id="一-密码长度">一、密码长度:</h3>
+<ul>
+<li>5 分: 小于等于 4 个字符</li>
+<li>10 分: 5 到 7 字符</li>
+<li>25 分: 大于等于 8 个字符</li>
+</ul>
+<h3 id="二-字母">二、字母:</h3>
+<ul>
+<li>0 分: 没有字母</li>
+<li>10 分: 全都是小（大）写字母</li>
+<li>20 分: 大小写混合字母</li>
+</ul>
+<h3 id="三-数字">三、数字:</h3>
+<ul>
+<li>0分: 没有数字</li>
+<li>10分: 1 个数字</li>
+<li>20分: 大于等于 3个数字</li>
+</ul>
+<h3 id="四-符号">四、符号:</h3>
+<ul>
+<li>0分: 没有符号</li>
+<li>10分: 1个符号</li>
+<li>25分: 大于1个符号</li>
+</ul>
+<h3 id="五-奖励">五、奖励:</h3>
+<ul>
+<li>2分: 字母和数字</li>
+<li>3分: 字母、数字和符号</li>
+<li>5分: 大小写字母、数字和符号</li>
+</ul>
+<h2 id="规则-2">规则:</h2>
+<ul>
+<li>&gt;= 90: 非常安全</li>
+<li>&gt;= 80: 安全（Secure）</li>
+<li>&gt;= 70: 非常强</li>
+<li>&gt;= 60: 强（Strong）</li>
+<li>&gt;= 50: 一般（Average）</li>
+<li>&gt;= 25: 弱（Weak）</li>
+<li>&gt;= 0: 非常弱</li>
+</ul>
 
             </div>
             

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://y3pm.com</id>
     <title>Y3.PM</title>
-    <updated>2021-07-02T09:47:15.785Z</updated>
+    <updated>2021-07-05T08:29:51.524Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://y3pm.com"/>
     <link rel="self" href="https://y3pm.com/atom.xml"/>
@@ -151,7 +151,7 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>前几天看到一个新闻：Google Chrome 浏览器正测试加入 RSS 订阅功能。文中说“在 Google Reader 被砍八年之后，Google 突然又想起要来用一下 RSS 订阅的功能。” 勾起一些回忆~</p>
 <!-- more -->
-<p>十年前，在鲜果网做视觉设计师，还没有迈过产品的门槛，只有一些简单的产品思维。今天这篇，有点马后炮，还有点恨铁不成钢的意思……大概是因为太喜欢鲜果网了吧，离开两年后，仍然写了个产品规划给鲜果。</p>
+<p>十年前，在鲜果网做视觉设计师，还没有迈过产品的门槛，只有一些简单的产品思维。今天这篇，有点事后诸葛亮，还有点恨铁不成钢的意思……大概是因为太喜欢鲜果网了吧，离开两年后，仍然写了个产品规划给鲜果。</p>
 <h3 id="信息的充裕造成了注意力的匮乏">信息的充裕造成了注意力的匮乏</h3>
 <p>社会科学家赫伯特 · 西蒙于 1971 年写道：</p>
 <blockquote>
@@ -682,6 +682,40 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[用大数据为餐饮加盟行业服务]]></title>
+        <id>https://y3pm.com/post/jia-meng-big-data/</id>
+        <link href="https://y3pm.com/post/jia-meng-big-data/">
+        </link>
+        <updated>2019-12-07T08:00:47.000Z</updated>
+        <summary type="html"><![CDATA[<p>2019年，做熟食连锁的朋友找到我，希望我能从互联网的角度，对整个区域的行业发展以及新产品的定位给予建议，进而规划出一个旗舰品牌店。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>2019年，做熟食连锁的朋友找到我，希望我能从互联网的角度，对整个区域的行业发展以及新产品的定位给予建议，进而规划出一个旗舰品牌店。</p>
+<!-- more -->
+<p>我们采集了互联网上的公开数据，对整个城市的熟食店分布和发展程度进行了调研。基于大数据，我们创新出了一个品牌，从定位、营销、到连锁发展的可行方案。这次的经历，给了我很大启发。</p>
+<blockquote>
+<p>如何利用互联网公开数据，为餐饮加盟者服务？</p>
+</blockquote>
+<h2 id="行业现状">行业现状</h2>
+<p>2017 年，全国餐饮收入 39644 亿元，同比增长了 10.7%，餐饮业规模位列世界第二。据相关数据预测，2020 年中国餐饮市场的规模将达到 5.1 万亿。这说明餐饮行业仍是一座大金矿，尚有巨大的增长空间。</p>
+<p>面对如此巨大的市场，中国为什么没有出现“肯德基”，“麦当劳”这样的品牌。除了供应链和食品安全，主要原因是餐饮连锁化程度远不及美国，中国 90%的品牌没有超过 1000 家门店，而美国则是 90%的品牌超过了 1000 家，前三位的麦当劳、星巴克、赛百味均在全球拥有万家以上的连锁门店。也有数据表明，美国的餐饮连锁比例是 50%，而中国只有 10%。由此来看，虽然中国的餐饮业规模次于美国，但是美国餐饮行业的连锁经营程度和集中化程度却远远领先于中国。</p>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.com/post-images/1625472926403.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>我们认为，中国的餐饮连锁行业将会快速成长，并且逐渐趋于大型连锁和集中化、品牌化。这个趋势给餐饮创业人带来了巨大的机会，加盟餐饮连锁品牌成了很多创业人的首选。</p>
+</blockquote>
+<h2 id="通过大数据为餐饮加盟服务">通过大数据为餐饮加盟服务</h2>
+<p>但我国的餐饮加盟市场，缺乏客观、透明的信息，很多连锁加盟品牌缺乏责任心，给投资者带来了很大的风险。各大招商平台信息质量参差不齐，混乱不堪。基于此，我们希望能用大数据为餐饮加盟行业服务。降低信息不对称给餐饮加盟创业者带来的风险。</p>
+<blockquote>
+<p>我们将通过收集、整理、分析分散在互联网上的数据，从政府监管、品牌实力、营销能力、门店经营、消费口碑、舆情、法律风险等多个维度对加盟品牌进行系统评估。多角度展示加盟品牌的真实面貌，降低或消除加盟过程中的信息不对称。</p>
+</blockquote>
+<p>2007 年我国出台了《商业特许经营管理条例》及《备案管 理办法》、《信息披露管理办法》，由于年限较久，与加盟市场的发展相比，相对滞后。而真实的互联网大数据，会成为加盟者避坑的有力武器。</p>
+<h2 id="加盟行业榜单计算参考">加盟行业榜单计算参考</h2>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.com/post-images/1625473050973.png" alt="" loading="lazy"></figure>
+<p>同时根据多品牌的互联网数据，根据算法进行年度榜单的制定。</p>
+<h2 id="小结">小结</h2>
+<p>项目经历了策划阶段，并完成了肯德基、麦当劳的基础数据采集和分析。结合之前熟食行业的调研，我们认为此方法可以在较大程度上降低加盟主入坑垃圾餐饮品牌的风险。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[密码强度规则]]></title>
         <id>https://y3pm.com/post/password strength/</id>
         <link href="https://y3pm.com/post/password strength/">
@@ -811,143 +845,6 @@
 <span class="img_info">自有品牌（自有品牌）</span></p>
 <p>后期制作了长达 50 页的品牌视觉识别规范，同时基于品牌视觉，给 6 位联合创始人每人设计了一个微信头像，也是蛮有意思的事儿：</p>
 <figure data-type="image" tabindex="4"><img src="https://y3pm.com/post-images/1624082474730.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[B 端产品的三大发展方向]]></title>
-        <id>https://y3pm.com/post/toB/</id>
-        <link href="https://y3pm.com/post/toB/">
-        </link>
-        <updated>2019-06-23T07:02:01.000Z</updated>
-        <summary type="html"><![CDATA[<p>很久以前在网上看到的，在 to C 的产品已经接近饱和的时候，to B 成了一个新的趋势。对于 B 端产品，有那么几个发展方向。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>很久以前在网上看到的，在 to C 的产品已经接近饱和的时候，to B 成了一个新的趋势。对于 B 端产品，有那么几个发展方向。</p>
-<!-- more -->
-<h2 id="一业务平台">一.业务平台</h2>
-<h3 id="垂直业务线">垂直业务线</h3>
-<ul>
-<li>CRM：客户关系管理系统</li>
-</ul>
-<blockquote>
-<p>CRM：Customer Relationship Management，客户关系管理。广义上的 CRM 包括从客户开发、管理、营销、服务的客户全生命周期管理；狭义的 CRM 是指给销售人员使用的销售过程管理软件。</p>
-</blockquote>
-<ul>
-<li>SCM，供应链管理</li>
-</ul>
-<blockquote>
-<p>SCM：Supply Chain Management，供应链管理。广义的 SCM 包括完整的供应商管理、采购管理、仓储和配送管理；狭义的 SCM 指供应商管理。</p>
-</blockquote>
-<ul>
-<li>WMS，仓储管理</li>
-</ul>
-<blockquote>
-<p>WMS：Warehouse Management System，仓储管理系统，用来支持仓库管理业务。</p>
-</blockquote>
-<ul>
-<li>TMS，运输管理</li>
-</ul>
-<blockquote>
-<p>WMS：Warehouse Management System，仓储管理系统，用来支持仓库管理业务。</p>
-</blockquote>
-<ul>
-<li>ERP，企业资源计划管理</li>
-</ul>
-<blockquote>
-<p>ERP：Enterprise Resource Planning，企业资源计划管理。广义的 ERP 是一套庞大复杂的体系，涵盖原材料采购、生产制造、仓储配送管理、财务管理，甚至还包括客户管理、销售管理等；狭义的 ERP 常常被理解成财务系统，或轻量级的进销存系统。</p>
-</blockquote>
-<ul>
-<li>CallCenter，呼叫中心</li>
-</ul>
-<blockquote>
-<p>CallCenter：呼叫中心。广义的呼叫中心包括客服平台与话务平台，涉及软件、硬件、通信这一套完整体系；狭义的呼叫中心是指支持客服进行呼入呼出业务的软件系统，包括客服系统、质检系统、知识库系统等。</p>
-</blockquote>
-<h3 id="基础服务">基础服务</h3>
-<ul>
-<li>Passport，企业客户账号管理体系</li>
-</ul>
-<blockquote>
-<p>Passport：企业客户账号管理体系。对于开展了多个业务的企业，建设一套统一的客户账号管理平台，可以让客户更加顺畅、便捷地体验企业的所有产品和服务。</p>
-</blockquote>
-<ul>
-<li>MDM，主数据管理</li>
-</ul>
-<blockquote>
-<p>MDM：Master Data Management，主数据管理。主数据管理是企业架构设计中非常重要的概念，简单来讲，一家企业应该有且只有一套客户资料存储系统和一套商品信息存储系统，以保证数据管理的一致性。</p>
-</blockquote>
-<ul>
-<li>Auth，权限管理平台</li>
-</ul>
-<blockquote>
-<p>Auth：Authorization Management，权限管理平台。公司的业务人员经常要访问不同的内部业务系统，如果针对每个业务角色在各个业务系统分别设置管理权限，那么管理成本将很高，并且浪费研发资源。常见的做法是通过集中的权限管理平台，把全公司业务系统统管起来。</p>
-</blockquote>
-<ul>
-<li>Org，组织架构管理平台</li>
-</ul>
-<blockquote>
-<p>Org：Organization Management，组织架构管理平台。公司不同的业务团队有各自的管理层级，需要一套系统来统一管理业务团队的组织架构，并且允许其他业务系统获取组织架构数据。</p>
-</blockquote>
-<ul>
-<li>Msg，消息服务</li>
-</ul>
-<blockquote>
-<p>Msg：Message Service，消息服务。对于短信、通知、公告等各个业务系统常见的通用功能模块，条件具备时可以统一建设，避免重复开发。</p>
-</blockquote>
-<ul>
-<li>SSO，单点登录服务</li>
-</ul>
-<blockquote>
-<p>SSO：Single Sign On，单点登录服务。单点登录服务可以让用户只登录一次系统，就能访问所有接入单点登录服务的其他业务系统。单点登录服务是非常重要的业务系统基础服务，可以给用户带来极大的方便。</p>
-</blockquote>
-<h3 id="交易平台">交易平台</h3>
-<ul>
-<li>支付模块</li>
-<li>商品管理模块</li>
-<li>营销管理模块</li>
-<li>订单管理模块</li>
-</ul>
-<h2 id="二协同办公">二.协同办公</h2>
-<ul>
-<li>OA，办公自动化</li>
-</ul>
-<blockquote>
-<p>OA：Office Automation，办公自动化。主要提供资料查询、单据审批等功能，是最基本、最常用的办公软件。</p>
-</blockquote>
-<ul>
-<li>内部IM，内部沟通工具</li>
-</ul>
-<blockquote>
-<p>内部 IM：内部沟通工具，有条件的公司会选择自研，多数公司会选择钉钉、企业微信、Lync（外企常用）等。如果不用内部 IM 会怎样？假设你的公司用微信沟通，工作中建立了多个群组，每当有员工离职时，及时找到他所在的群并在每个群里删掉该员工，就是一件让人崩溃的事情。</p>
-</blockquote>
-<ul>
-<li>HRM，人力资源管理软件</li>
-</ul>
-<blockquote>
-<p>HRM：Human Resource Management，人力资源管理软件，包括招聘、简历管理、入职管理、薪酬管理等功能。</p>
-</blockquote>
-<ul>
-<li>财务管理系统</li>
-</ul>
-<blockquote>
-<p>财务管理系统：这是专业性最强的业务系统，公司一般会采购成熟的财务软件。</p>
-</blockquote>
-<h2 id="三商家管理">三.商家管理</h2>
-<h3 id="商户管理系统">商户管理系统</h3>
-<ul>
-<li>商户入驻</li>
-<li>审核与资质管理</li>
-<li>商户管理中心</li>
-<li>风控与合规管理</li>
-<li>经营报表</li>
-</ul>
-<h3 id="商户自主管理系统">商户自主管理系统</h3>
-<ul>
-<li>商品管理</li>
-<li>订单管理</li>
-<li>售后管理</li>
-<li>广告投放管理</li>
-<li>财务管理</li>
-<li>报表管理</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

@@ -11,19 +11,21 @@
     <title>clock　</title>
     <script src="./calendar.js"></script>
     <style>
+        * {
+          padding: 0;
+          margin: 0;
+        }
         body {
           color: #000000;
           background-color: #ffffff;
           font-family:
 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         }
-
         .page {
           position: fixed;
           width: 100%;
           height: 100%;
         }
-
         .time_container,
         .date_container {
           width: 100%;
@@ -33,35 +35,36 @@
 
         .time_container {
           top: 0;
-          height: 55%;
-        }
-
-        .date_container {
-
+          height: 50%;
+          font-weight: bold;
         }
 
         .time {
-          padding-top: 120px;
-          font-size: 16rem;
+          padding-top: calc(50% - 280px);
+          font-size: 280px;
+          line-height: 100%;
         }
 
-        .date {
-          padding-top: 40px;
-          font-size: 6rem;
+        .date_container {
+          font-size: 120px;
+          line-height: 150%;
+          font-weight: normal;
         }
+        
+
     </style>
 </head>
 
 <body>
     <div class="page">
       <div class="time_container">
-          <div class="time" id="time">11:27</div>
+          <div class="time" id="time"></div>
       </div>
 
       <div class="date_container">
-          <div class="date" id="date">1月10日</div>
-          <div class="date" id="week">星期三</div>
+          <div id="date"></div>
           <div id="solarlunar"></div>
+          <div id="week"></div>
       </div>
       
     </div>
@@ -72,16 +75,51 @@
         date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-        var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
-        var weekList = ['日', '一', '二', '三', '四', '五', '六']
-        var weekString = '星期' + weekList[date.getDay()]
-
         document.getElementById("time").innerHTML = timeString
-        document.getElementById("date").innerHTML = dateString
-        document.getElementById("week").innerHTML = weekString
 
+        // 农历来源：https://blog.jjonline.cn/userInterFace/173.html
         var lunar = calendar.solar2lunar();
-        document.getElementById("solarlunar").innerHTML='农历：'+lunar.lYear + '年' +lunar.IMonthCn+lunar.IDayCn+'，'+lunar.gzYear+'年'+lunar.gzMonth+'月'+lunar.gzDay+'日（'+lunar.Animal+'年）'
+
+        document.getElementById("week").innerHTML = lunar.ncWeek
+
+        // 如果阳历是节日，展示阳历节日
+        if (lunar.festival == null) {
+          document.getElementById("date").innerHTML = lunar.cMonth+'月'+lunar.cDay+'日'
+        }
+        else {
+          document.getElementById("date").innerHTML = lunar.festival
+        }
+
+        // 如果阴历是节日，展示阴历节日
+        if (lunar.lunarFestival == null) {
+          document.getElementById("solarlunar").innerHTML='农历'+lunar.IMonthCn+lunar.IDayCn
+        }
+        else {
+          document.getElementById("solarlunar").innerHTML = lunar.lunarFestival
+        }        
+
+        // lunar.festival 阳历节日
+        // lunar.lunarFestival 阴历节日
+
+        // lunar.Animal: "兔",
+        // lunar.IDayCn: "初十",
+        // lunar.IMonthCn: "九月",
+        // lunar.Term: null,
+        // lunar.astro: "天蝎座",
+        // lunar.cDay: 1,
+        // lunar.cMonth: 11,
+        // lunar.cYear: 1987,
+        // lunar.gzDay: "甲寅",
+        // lunar.gzMonth: "庚戌",
+        // lunar.gzYear: "丁卯",
+        // lunar.isLeap: false,
+        // lunar.isTerm: false,
+        // lunar.isToday: false,
+        // lunar.lDay: 10,
+        // lunar.lMonth: 9,
+        // lunar.lYear: 1987,
+        // lunar.nWeek: 7,
+        // lunar.ncWeek: "星期日"
       }
 
       update()

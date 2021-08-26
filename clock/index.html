@@ -1,129 +1,185 @@
-<!--
- * @Description: 
- * @Author: o(*￣︶￣*)o
- * @Date: 2021-08-19 10:59:50
--->
-
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans">
 <head>
-    <meta charset="utf-8"/>
-    <title>CalenderYYY</title>
-    <script src="./calendar.js"></script>
-    <style>
-        * {
-          padding: 0;
-          margin: 0;
-        }
-        body {
-          color: #000000;
-          background-color: #ffffff;
-          font-family:
--apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        }
-        .page {
-          position: fixed;
-          width: 100%;
-          height: 100%;
-        }
-        .time_container,
-        .date_container {
-          width: 100%;
-          margin: auto;
-          text-align: center;
-        }
+<title>地主家专用日历</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://www.jjonline.cn/Public/Js/calendar.js"></script>
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 150%;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  body > div {
+    width: 100%;
+    clear: both;
+  }
+  #time {
+    font-size: 300px;
+    font-weight: 600;
+    padding-top: 80px;
+  }
 
-        .time_container {
-          top: 0;
-          height: 50%;
-          font-weight: bold;
-        }
+  .dateContainer {
+    font-size: 100px;
+  }
 
-        .time {
-          padding-top: calc(50% - 280px);
-          font-size: 280px;
-          line-height: 100%;
-        }
+  #solarlunar {
+    font-size: 120px;
+  }
 
-        .date_container {
-          font-size: 120px;
-          line-height: 150%;
-          font-weight: normal;
-        }
-        
+  #weather {
+    font-size: 60px;
+    padding-top: 30px;
+    position: absolute;
+    bottom: 180px;
+    border-top: 1px solid #666;
+    font-weight: 200;
+  }
 
-    </style>
+  img {
+    width: 256px;
+    height: 256px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+
+  #wind {
+    width: 256px;
+    height: 256px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+  }
+
+  .weatherContainer {
+    position: fixed;
+    bottom: 0;
+  }
+  .weatherContainer div {
+    float: left;
+    width: 25%;
+    font-size: 50px;
+    border-top: 1px solid #666;
+    border-left: 1px solid #666;
+    margin-left: -1px;
+    line-height: 80px;
+    padding: 20px 0 10px 0;
+    font-weight: 600;
+  }
+  .weatherContainer p {
+    clear: both;
+    width: 100%;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 300;
+  }
+</style>
 </head>
-
 <body>
-    <div class="page">
-      <div class="time_container">
-          <div class="time" id="time"></div>
-      </div>
+  <div id="time"></div>
 
-      <div class="date_container">
-          <div id="date"></div>
-          <div id="solarlunar"></div>
-          <div id="week"></div>
-      </div>
-    </div>
-    
-    <script>
-      function update() {
-        var date = new Date()
-        var utc8DiffMinutes = date.getTimezoneOffset() + 480
-        date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+  <div class="dateContainer">
+    <span id="date"></span>&nbsp;&nbsp;&nbsp;<span id="week"></span>
+  </div>
+  
+  <div id="solarlunar"></div>
 
-        var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-        document.getElementById("time").innerHTML = timeString
+  <div id="weather"></div>
+  <div id="icon"></div>
+  <!-- <div id="wind"></div> -->
 
-        // 农历来源：https://blog.jjonline.cn/userInterFace/173.html
-        var lunar = calendar.solar2lunar();
+  <div class="weatherContainer">
+    <div id="temperature"></div>
+    <div id="AQI"></div>
+    <div id="comfort"></div>
+    <div id="ultraviolet"></div>
+  </div>
 
-        document.getElementById("week").innerHTML = lunar.ncWeek
+  <script>
+    function update() {
+      var date = new Date()
+      var utc8DiffMinutes = date.getTimezoneOffset() + 480
+      date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
-        // 如果阳历是节日，展示阳历节日
-        if (lunar.festival == null) {
-          document.getElementById("date").innerHTML = lunar.cMonth+'月'+lunar.cDay+'日'
-        }
-        else {
-          document.getElementById("date").innerHTML = lunar.festival
-        }
+      var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
+      var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
+      var weekList = ['日', '一', '二', '三', '四', '五', '六']
+      var weekString = '星期' + weekList[date.getDay()]
 
-        // 如果阴历是节日，展示阴历节日
-        if (lunar.lunarFestival == null) {
-          document.getElementById("solarlunar").innerHTML='农历'+lunar.IMonthCn+lunar.IDayCn
-        }
-        else {
-          document.getElementById("solarlunar").innerHTML = lunar.lunarFestival
-        }        
+      document.getElementById("time").innerHTML = timeString
+      document.getElementById("date").innerHTML = dateString
+      document.getElementById("week").innerHTML = weekString
+    }
 
-        // lunar.festival 阳历节日
-        // lunar.lunarFestival 阴历节日
+    update()
+    setInterval("update()", 1 * 60 * 1000)
+  </script>
 
-        // lunar.Animal: "兔",
-        // lunar.IDayCn: "初十",
-        // lunar.IMonthCn: "九月",
-        // lunar.Term: null,
-        // lunar.astro: "天蝎座",
-        // lunar.cDay: 1,
-        // lunar.cMonth: 11,
-        // lunar.cYear: 1987,
-        // lunar.gzDay: "甲寅",
-        // lunar.gzMonth: "庚戌",
-        // lunar.gzYear: "丁卯",
-        // lunar.isLeap: false,
-        // lunar.isTerm: false,
-        // lunar.isToday: false,
-        // lunar.lDay: 10,
-        // lunar.lMonth: 9,
-        // lunar.lYear: 1987,
-        // lunar.nWeek: 7,
-        // lunar.ncWeek: "星期日"
-      }
+  <script type="text/javascript">
+    function getLunar () {
+     var lunar = calendar.solar2lunar();
+     document.getElementById("solarlunar").innerHTML = '农历 ' + lunar.IMonthCn + lunar.IDayCn
+     // $('.solarlunar').html('农历：' + lunar.IMonthCn + lunar.IDayCn);
+    };
+    getLunar()
+    setInterval("getLunar()", 1 * 60 * 1000)
+  </script>
 
-      update()
-      setInterval("update()", 60 * 1000)
-    </script>
+  <script type="text/javascript">
+    function setWeather(){
+        var me = this;
+        $.ajax({
+          url:'http://api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.89,36.6293/weather.json',
+          type:"get",
+          dataType:"jsonp",
+          crossDomain: true,
+          success:function(res){
+            // console.log(res)
+            lifestyle = res.result.forecast_keypoint
+
+            skycon = res.result.realtime.skycon
+            // wind = res.result.realtime.wind.direction
+
+            temperature = res.result.realtime.apparent_temperature + '℃' + '<p>体感温度</p>'
+            air = res.result.realtime.air_quality.description.chn + '<p>空气质量</p>'
+            comfort = res.result.realtime.life_index.comfort.desc + '<p>舒适度</p>'
+            ultraviolet = res.result.realtime.life_index.ultraviolet.desc + '<p>紫外线</p>'
+
+            document.getElementById("icon").innerHTML = '<img src="./img/' + skycon + '.png">';
+
+            // document.getElementById("wind").innerHTML = '<img src="./img/arrow.png" style="transform: rotate(' + wind + 'deg)" />';
+
+            document.getElementById("weather").innerHTML = lifestyle;
+            document.getElementById("temperature").innerHTML = temperature;
+            document.getElementById("AQI").innerHTML = air;
+            document.getElementById("comfort").innerHTML = comfort;
+            document.getElementById("ultraviolet").innerHTML = ultraviolet;
+          }
+        })
+    }
+    setWeather()
+    setInterval("setWeather()", 3 * 60 * 1000)
+  </script>
+
+  <script type="text/javascript">
+    function refresh() {
+    var date = new Date();
+    setTimeout("refresh()", (30 - date.getMinutes()%30)*60000 - date.getSeconds()*1000)
+    document.body.style.backgroundColor = '#000'
+    setTimeout("document.body.style.backgroundColor = '#fff'", 500);
+    }
+    refresh()
+    setInterval("refresh()", 10 * 60 * 1000)
+  </script>
+
 </body>
 </html>

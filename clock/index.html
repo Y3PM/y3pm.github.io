@@ -1,47 +1,73 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-<title>地主家专用日历</title>
+<title>YYY 家的日历</title>
 <meta charset="UTF-8">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://www.jjonline.cn/Public/Js/calendar.js"></script>
 <style type="text/css">
   * {
     margin: 0;
     padding: 0;
     text-align: center;
-    line-height: 150%;
   }
   html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
   }
   body > div {
     width: 100%;
     clear: both;
   }
   #time {
-    font-size: 300px;
+    font-size: 350px;
+    line-height: 550px;
+    height: 500px;
+
     font-weight: 600;
-    padding-top: 80px;
   }
 
   .dateContainer {
-    font-size: 100px;
+    font-size: 120px;
+    line-height: 160px;
+    height: 150px;
+
+    font-weight: 600;
   }
 
   #solarlunar {
-    font-size: 120px;
+    font-size: 80px;
+    line-height: 150px;
+    height: 140px;
+
+    font-weight: 100;
+  }
+  #solarlunar b {
+    font-weight: 600;
+    border-bottom: 5px solid #666;
+  }
+
+  #alert {
+    font-size: 36px;
+    line-height: 140%;
+
+    position: absolute;
+    bottom: 230px;
+    font-weight: 100;
+    width: 94%;
+    background: #000;
+    color: #FFF;
+    padding: 40px 3%;
   }
 
   #weather {
-    font-size: 60px;
-    padding-top: 30px;
+    font-size: 50px;
+    line-height: 100px;
+    height: 100px;
+
+    font-weight: 100;
     position: absolute;
-    bottom: 180px;
+    bottom: 130px;
     border-top: 1px solid #666;
-    font-weight: 200;
   }
 
   img {
@@ -52,35 +78,34 @@
     left: 0px;
   }
 
-  #wind {
-    width: 256px;
-    height: 256px;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-  }
-
   .weatherContainer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
   }
   .weatherContainer div {
     float: left;
     width: 25%;
-    font-size: 50px;
     border-top: 1px solid #666;
     border-left: 1px solid #666;
     margin-left: -1px;
-    line-height: 80px;
-    padding: 20px 0 10px 0;
+  }
+  .weatherContainer span {
+    display: block;
+    font-size: 50px;
+    line-height: 100px;
+    height: 80px;
+
+    width: 100%;
     font-weight: 600;
   }
   .weatherContainer p {
+    font-size: 30px;
+    line-height: 60px;
+    height: 50px;
+
+    font-weight: 100;
     clear: both;
     width: 100%;
-    font-size: 30px;
-    line-height: 50px;
-    font-weight: 300;
   }
 </style>
 </head>
@@ -88,22 +113,40 @@
   <div id="time"></div>
 
   <div class="dateContainer">
-    <span id="date"></span>&nbsp;&nbsp;&nbsp;<span id="week"></span>
+    <span id="date"></span>&nbsp;&nbsp;<span id="week"></span>
   </div>
   
   <div id="solarlunar"></div>
 
+  <div id="alert"></div>
+
   <div id="weather"></div>
-  <div id="icon"></div>
-  <!-- <div id="wind"></div> -->
 
   <div class="weatherContainer">
     <div id="temperature"></div>
-    <div id="AQI"></div>
     <div id="comfort"></div>
+    <div id="AQI"></div>
     <div id="ultraviolet"></div>
   </div>
 
+  <div id="icon"></div>
+
+
+
+  <!-- 清屏机制 -->
+  <script type="text/javascript">
+    function clear() {
+      document.body.style.backgroundColor = '#000'
+      setTimeout("document.body.style.backgroundColor = '#fff'", 500);
+      console.log('-------------------------------------------------------------------')
+    }
+    clear()
+    // setInterval("clear()", 60 * 1000) // 每分钟更新
+  </script>
+
+
+
+  <!-- 定时更新时间、阳历、星期 -->
   <script>
     function update() {
       var date = new Date()
@@ -118,27 +161,23 @@
       document.getElementById("time").innerHTML = timeString
       document.getElementById("date").innerHTML = dateString
       document.getElementById("week").innerHTML = weekString
+      console.log('时间每分钟更新：', timeString, dateString, weekString)
     }
 
     update()
-    setInterval("update()", 1 * 60 * 1000)
+    setInterval("update()", 1 * 60 * 1000) // 每分钟更新
   </script>
 
-  <script type="text/javascript">
-    function getLunar () {
-     var lunar = calendar.solar2lunar();
-     document.getElementById("solarlunar").innerHTML = '农历 ' + lunar.IMonthCn + lunar.IDayCn
-     // $('.solarlunar').html('农历：' + lunar.IMonthCn + lunar.IDayCn);
-    };
-    getLunar()
-    setInterval("getLunar()", 1 * 60 * 1000)
-  </script>
 
+
+  <!-- 定时更新天气 -->
   <script type="text/javascript">
     function setWeather(){
         var me = this;
         $.ajax({
-          url:'http://api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.89,36.6293/weather.json',
+          url:'http://api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.901513,36.635725/weather.json?alert=true',
+          // 接口文档：https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5
+          // 定位：116.89,36.6293, http://www.toolzl.com/tools/gps.html
           type:"get",
           dataType:"jsonp",
           crossDomain: true,
@@ -147,38 +186,88 @@
             lifestyle = res.result.forecast_keypoint
 
             skycon = res.result.realtime.skycon
-            // wind = res.result.realtime.wind.direction
 
-            temperature = res.result.realtime.apparent_temperature + '℃' + '<p>体感温度</p>'
-            air = res.result.realtime.air_quality.description.chn + '<p>空气质量</p>'
-            comfort = res.result.realtime.life_index.comfort.desc + '<p>舒适度</p>'
-            ultraviolet = res.result.realtime.life_index.ultraviolet.desc + '<p>紫外线</p>'
+            try {
+              alert = res.result.alert.content[0].description
+            } catch(e) {
+              alert = ''
+            } finally {}
+
+            temperature = '<span>' + res.result.realtime.apparent_temperature + '<i style="color:#666;font-weight:100;font-size:30px;">℃</i>'+ '</span><p>体感温度</p>'
+            air = '<span>' + res.result.realtime.air_quality.description.chn + '</span><p>空气质量</p>'
+            comfort = '<span>' + res.result.realtime.life_index.comfort.desc + '</span><p>舒适度</p>'
+            ultraviolet = '<span>' + res.result.realtime.life_index.ultraviolet.desc + '</span><p>紫外线</p>'
 
             document.getElementById("icon").innerHTML = '<img src="./img/' + skycon + '.png">';
 
-            // document.getElementById("wind").innerHTML = '<img src="./img/arrow.png" style="transform: rotate(' + wind + 'deg)" />';
+            var warning = document.getElementById("alert")
+            if (alert == "") {
+              warning.style.display = "none";
+            }else{
+              warning.innerHTML = alert;
+            }
 
             document.getElementById("weather").innerHTML = lifestyle;
             document.getElementById("temperature").innerHTML = temperature;
             document.getElementById("AQI").innerHTML = air;
             document.getElementById("comfort").innerHTML = comfort;
             document.getElementById("ultraviolet").innerHTML = ultraviolet;
+
+            console.log('天气三分钟更新：', lifestyle)
+
           }
         })
     }
     setWeather()
-    setInterval("setWeather()", 3 * 60 * 1000)
+    setInterval("setWeather()", 3 * 60 * 1000) // 每3分钟更新天气
   </script>
 
+
+
+  <!-- 定时更新农历 -->
+  <script type="text/javascript">
+    function setLunar(){
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('GET', 'http://api.tianapi.com/txapi/lunar/index?key=587fe86e6d44ffff766288168d656ec7', true);
+        httpRequest.send();
+        
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var res = JSON.parse(httpRequest.responseText);
+                // console.log(res.newslist[0].lubarmonth);
+                lunarYear = res.newslist[0].tiangandizhiyear
+                lunarMonth = res.newslist[0].lubarmonth
+                lunarDay = res.newslist[0].lunarday
+
+                Festival = res.newslist[0].festival
+                lunarFestival = res.newslist[0].lunar_festival
+                lunarJieqi = res.newslist[0].jieqi
+
+                nongli = lunarYear + '年' + lunarMonth + lunarDay + ' ' + '<b>' + lunarJieqi + ' '  + Festival + ' '  + lunarFestival + '</b>'
+
+                document.getElementById("solarlunar").innerHTML = nongli.trim()
+                console.log('农历每整点更新：', nongli.trim())
+            }
+        };
+    }
+    setLunar()
+    // setInterval("setLunar()", 15 * 60 * 1000)
+  </script>
+
+
+
+  <!-- 定时更新机制 -->
   <script type="text/javascript">
     function refresh() {
-    var date = new Date();
-    setTimeout("refresh()", (30 - date.getMinutes()%30)*60000 - date.getSeconds()*1000)
-    document.body.style.backgroundColor = '#000'
-    setTimeout("document.body.style.backgroundColor = '#fff'", 500);
+      var date = new Date();
+      if(date.getMinutes() == '0'){ // 整点更新
+        console.log('整点更新农历和清屏：')
+        setLunar() 
+        clear()
+      }
     }
     refresh()
-    setInterval("refresh()", 30 * 60 * 1000)
+    setInterval("refresh()", 60 * 1000) // 每分钟更新
   </script>
 
 </body>

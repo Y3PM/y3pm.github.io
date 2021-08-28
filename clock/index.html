@@ -57,6 +57,7 @@
     background: #000;
     color: #FFF;
     padding: 40px 3%;
+    display: none;
   }
 
   #weather {
@@ -175,7 +176,7 @@
     function setWeather(){
         var me = this;
         $.ajax({
-          url:'http://api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.901513,36.635725/weather.json?alert=true',
+          url:'//api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.901513,36.635725/weather.json?alert=true',
           // 接口文档：https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5
           // 定位：116.89,36.6293, http://www.toolzl.com/tools/gps.html
           type:"get",
@@ -201,9 +202,8 @@
             document.getElementById("icon").innerHTML = '<img src="./img/' + skycon + '.png">';
 
             var warning = document.getElementById("alert")
-            if (alert == "") {
-              warning.style.display = "none";
-            }else{
+            if (alert != "") {
+              warning.style.display = "block";
               warning.innerHTML = alert;
             }
 
@@ -228,7 +228,7 @@
   <script type="text/javascript">
     function setLunar(){
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('GET', 'http://api.tianapi.com/txapi/lunar/index?key=587fe86e6d44ffff766288168d656ec7', true);
+        httpRequest.open('GET', '//api.tianapi.com/txapi/lunar/index?key=587fe86e6d44ffff766288168d656ec7', true);
         httpRequest.send();
         
         httpRequest.onreadystatechange = function () {

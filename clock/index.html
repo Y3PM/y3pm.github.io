@@ -27,7 +27,7 @@
   }
 
   .dateContainer {
-    font-size: 120px;
+    font-size: 115px;
     line-height: 160px;
     height: 150px;
 
@@ -108,6 +108,25 @@
     clear: both;
     width: 100%;
   }
+
+  i{
+    font-style: normal;
+    color:#666;
+    font-weight:100;
+    font-size:30px;
+  }
+  @keyframes flash {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  b {
+    display: inline-block;
+    position: relative;
+    top: -45px;
+    font-size: 260px;
+    width: 80px;
+    /*animation: flash 1s linear infinite;*/
+  }
 </style>
 </head>
 <body>
@@ -154,7 +173,7 @@
       var utc8DiffMinutes = date.getTimezoneOffset() + 480
       date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
-      var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
+      var timeString = date.getHours() + '<b>:</b>' + ('0' + date.getMinutes()).slice(-2)
       var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
       var weekList = ['日', '一', '二', '三', '四', '五', '六']
       var weekString = '星期' + weekList[date.getDay()]
@@ -194,7 +213,7 @@
               alert = ''
             } finally {}
 
-            temperature = '<span>' + res.result.realtime.apparent_temperature + '<i style="color:#666;font-weight:100;font-size:30px;">℃</i>'+ '</span><p>体感温度</p>'
+            temperature = '<span>' + res.result.realtime.apparent_temperature + '<i>℃</i>'+ '</span><p>体感温度</p>'
             air = '<span>' + res.result.realtime.air_quality.description.chn + '</span><p>空气质量</p>'
             comfort = '<span>' + res.result.realtime.life_index.comfort.desc + '</span><p>舒适度</p>'
             ultraviolet = '<span>' + res.result.realtime.life_index.ultraviolet.desc + '</span><p>紫外线</p>'
@@ -243,10 +262,17 @@
                 lunarFestival = res.newslist[0].lunar_festival
                 lunarJieqi = res.newslist[0].jieqi
 
-                nongli = lunarYear + '年' + lunarMonth + lunarDay + ' ' + '<b>' + lunarJieqi + ' '  + Festival + ' '  + lunarFestival + '</b>'
+                j = lunarJieqi + ' '  + Festival + ' '  + lunarFestival
+                if (j.trim() != "") {
+                  jieri = '&nbsp;<b>' + j.trim() + '</b>'
+                }else{
+                  jieri = ''
+                }
 
-                document.getElementById("solarlunar").innerHTML = nongli.trim()
-                console.log('农历每整点更新：', nongli.trim())
+                nongli = lunarYear + '年' + lunarMonth + lunarDay + jieri
+
+                document.getElementById("solarlunar").innerHTML = nongli
+                console.log('农历每整点更新：', nongli)
             }
         };
     }

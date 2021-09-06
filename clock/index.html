@@ -308,14 +308,14 @@
                 Day = dataDay
               }
 
-              Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气
+              Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气，展示顺序：阴历节日 > 阳历节日 > 节气
 
-              if ( Today == lunarJieqiTime) {
-                jieri = '&nbsp;<b>' + lunarJieqiName + '</b>' // 如果当天是节气
-              } else if (lunarFestival != undefined) {
+              if (lunarFestival != undefined) {
                 jieri = '&nbsp;<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
               } else if (Festival != undefined) {
                 jieri = '&nbsp;<b>' + Festival + '</b>' // 如果当天是阳历节日
+              } else if ( Today == lunarJieqiTime) {
+                jieri = '&nbsp;<b>' + lunarJieqiName + '</b>' // 如果当天是节气
               } else {
                 jieri = '' // 如果当天无节日
               }

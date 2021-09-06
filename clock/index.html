@@ -293,8 +293,6 @@
               Festival = res.data.festivals[0] // 阳历节日
               lunarFestival = res.data.lunar.festivals[0] // 阴历节日
 
-              lunarJieqiTime = res.data.lunar.solarTerms[0].time.split(' ')[0] // 节气时间
-              lunarJieqiName = res.data.lunar.solarTerms[0].name // 节气名称
 
               if (dataMonth < 10) {
                 Month = '0' + dataMonth // 补0
@@ -310,11 +308,21 @@
 
               Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气，展示顺序：阴历节日 > 阳历节日 > 节气
 
+              for ( i = 0; i < Object.keys(res.data.lunar.solarTerms).length; i++ ) {
+                lunarJieqiTime = res.data.lunar.solarTerms[i].time.split(' ')[0] // 节气时间
+                if (lunarJieqiTime == Today){
+                  lunarJieqiName = res.data.lunar.solarTerms[i].name // 节气名称
+                  break
+                } else {
+                  lunarJieqiName = ''
+                }
+              }
+
               if (lunarFestival != undefined) {
                 jieri = '&nbsp;<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
               } else if (Festival != undefined) {
                 jieri = '&nbsp;<b>' + Festival + '</b>' // 如果当天是阳历节日
-              } else if ( Today == lunarJieqiTime) {
+              } else if ( lunarJieqiTime != '') {
                 jieri = '&nbsp;<b>' + lunarJieqiName + '</b>' // 如果当天是节气
               } else {
                 jieri = '' // 如果当天无节日

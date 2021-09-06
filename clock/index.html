@@ -39,6 +39,9 @@
     height: 150px;
     font-weight: 600;
   }
+  #week {
+    margin-left: 0.5em;
+  }
   #solarlunar {
     font-size: 75px;
     line-height: 150px;
@@ -48,6 +51,7 @@
   #solarlunar b {
     font-weight: 600;
     border-bottom: 6px solid #666;
+    margin-left: 0.5em;
   }
 
   #alert {
@@ -122,7 +126,7 @@
   <div id="time"></div>
 
   <div class="dateContainer">
-    <span id="date"></span>&nbsp;&nbsp;<span id="week"></span>
+    <span id="date"></span><span id="week"></span>
   </div>
   
   <div id="solarlunar"></div>
@@ -306,7 +310,7 @@
                 Day = dataDay
               }
 
-              Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气，展示顺序：阴历节日 > 阳历节日 > 节气
+              Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气
 
               for ( i = 0; i < Object.keys(res.data.lunar.solarTerms).length; i++ ) {
                 lunarJieqiTime = res.data.lunar.solarTerms[i].time.split(' ')[0] // 节气时间
@@ -314,16 +318,19 @@
                   lunarJieqiName = res.data.lunar.solarTerms[i].name // 节气名称
                   break
                 } else {
-                  lunarJieqiName = ''
+                  lunarJieqiName = undefined
                 }
               }
 
+              // 节日展示规则：阴历节日 > 节气 > 阳历节日
+              console.log('阴阳历节日节气： ' + '阴历', lunarFestival, '节气', lunarJieqiName, '阳历', Festival)
+
               if (lunarFestival != undefined) {
-                jieri = '&nbsp;<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
+                jieri = '<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
+              } else if ( lunarJieqiName != undefined) {
+                jieri = '<b>' + lunarJieqiName + '</b>' // 如果当天是节气
               } else if (Festival != undefined) {
-                jieri = '&nbsp;<b>' + Festival + '</b>' // 如果当天是阳历节日
-              } else if ( lunarJieqiTime != '') {
-                jieri = '&nbsp;<b>' + lunarJieqiName + '</b>' // 如果当天是节气
+                jieri = '<b>' + Festival + '</b>' // 如果当天是阳历节日
               } else {
                 jieri = '' // 如果当天无节日
               }
@@ -333,8 +340,6 @@
 
               document.getElementById("solarlunar").innerHTML = nongli
               console.log('农历每整点更新：', nongli)
-            } else {
-              document.getElementById("solarlunar").innerHTML = '农历接口错误!'
             }
         };
     }

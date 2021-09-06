@@ -3,7 +3,6 @@
 <head>
 <title>YYY 家的日历</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style type="text/css">
   * {
@@ -235,7 +234,7 @@
 
 
 
-  <!-- 定时更新农历 -->
+  <!-- 定时更新农历一，节日里含“诸葛亮旦”等提示
   <script type="text/javascript">
     function setLunar(){
         var httpRequest = new XMLHttpRequest();
@@ -265,6 +264,69 @@
 
                 document.getElementById("solarlunar").innerHTML = nongli
                 console.log('农历每整点更新：', nongli)
+            }
+        };
+    }
+    setLunar()
+    // setInterval("setLunar()", 15 * 60 * 1000)
+  </script>
+  -->
+
+  <!-- 定时更新农历二，某工程师接口，全面但可能会下线 -->
+  <script type="text/javascript">
+    function setLunar(){
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('GET', '//api.timelessq.com/time', true); // 接口来源：https://www.timelessq.com/article/detail/9，某天的：?datetime=2021-10-1
+        httpRequest.send();
+        
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+              var res = JSON.parse(httpRequest.responseText);
+              Year = res.data.year // 阳历年份
+              dataMonth = res.data.month // 阳历月份
+              dataDay = res.data.day //阳历日
+
+              lunarYear = res.data.lunar.cyclicalYear //阴历年份
+              lunarMonth = res.data.lunar.cnMonth //阴历月份
+              lunarDay = res.data.lunar.cnDay //阴历日
+
+              Festival = res.data.festivals[0] // 阳历节日
+              lunarFestival = res.data.lunar.festivals[0] // 阴历节日
+
+              lunarJieqiTime = res.data.lunar.solarTerms[0].time.split(' ')[0] // 节气时间
+              lunarJieqiName = res.data.lunar.solarTerms[0].name // 节气名称
+
+              if (dataMonth < 10) {
+                Month = '0' + dataMonth // 补0
+              } else {
+                Month = dataMonth
+              }
+
+              if (dataDay < 10) {
+                Day = '0' + dataDay // 补0
+              } else {
+                Day = dataDay
+              }
+
+              Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气
+
+              if ( Today == lunarJieqiTime) {
+                jieri = '&nbsp;<b>' + lunarJieqiName + '</b>' // 如果当天是节气
+              } else if (lunarFestival != undefined) {
+                jieri = '&nbsp;<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
+              } else if (Festival != undefined) {
+                jieri = '&nbsp;<b>' + Festival + '</b>' // 如果当天是阳历节日
+              } else {
+                jieri = '' // 如果当天无节日
+              }
+
+              nongli = lunarYear + '年' + lunarMonth + lunarDay + jieri
+              // console.log(nongli)
+
+              document.getElementById("solarlunar").innerHTML = nongli
+              console.log('农历每整点更新：', nongli)
+            } else {
+              document.getElementById("solarlunar").innerHTML = '农历接口错误!'
             }
         };
     }

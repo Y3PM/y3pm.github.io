@@ -120,6 +120,33 @@
     font-weight:100;
     font-size:30px;
   }
+  #birthday {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+  }
+  #birthday div {
+    float: right;
+    margin-left: 20px;
+  }
+  #birthdayIcon {
+    width: 60px;
+    height: 60px;
+    background: url(./img/birthday.png) center center no-repeat;
+    background-size: 58px;
+    display: none;
+  }
+  #solarBirthday, #lunarBirthday {
+    font-size: 30px;
+    line-height: 60px;
+    height: 60px;
+    color: #FFF;
+    background: #000;
+    padding: 0 20px;
+    border-radius: 10px;
+    display: none;
+  }
 </style>
 </head>
 <body>
@@ -143,6 +170,12 @@
   </div>
 
   <div id="icon"></div>
+
+  <div id="birthday">
+    <div id="lunarBirthday"></div>
+    <div id="solarBirthday"></div>
+    <div id="birthdayIcon"></div>
+  </div>
 
 
 
@@ -203,7 +236,7 @@
             try {
               alert = res.result.alert.content[0].description.split("布")[1]
             } catch(e) {
-              alert = ''
+              alert = undefined
             } finally {}
 
             temperature = '<span>' + res.result.realtime.apparent_temperature + '<i>℃</i>'+ '</span><p>体感温度</p>'
@@ -214,7 +247,7 @@
             document.getElementById("icon").innerHTML = '<img src="./img/' + skycon + '.png">';
 
             var warning = document.getElementById("alert")
-            if (alert != "") {
+            if (alert != undefined) {
               warning.innerHTML = alert;
               warning.style.display = "block";
             } else {
@@ -340,12 +373,40 @@
 
               document.getElementById("solarlunar").innerHTML = nongli
               console.log('农历每整点更新：', nongli)
+
+              // 生日提示
+              solarDay = dataMonth + '-' + dataDay
+              lunarDay = res.data.lunar.month + '-' + res.data.lunar.day
+              $.getJSON("birthday.json", function(data) {
+
+                // console.log(data.lunar[lunarDay], data.solar[solarDay])
+                if (data.solar[solarDay] != undefined) {
+                  document.getElementById("solarBirthday").innerHTML = data.solar[solarDay]
+                  solarBirthday.style.display = "block";
+                } else {
+                  solarBirthday.style.display = "none";
+                }
+
+                if (data.lunar[lunarDay] != undefined) {
+                  document.getElementById("lunarBirthday").innerHTML = data.lunar[lunarDay]
+                  lunarBirthday.style.display = "block";
+                } else {
+                  lunarBirthday.style.display = "none";
+                }
+
+                if (data.solar[solarDay] != undefined || data.lunar[lunarDay] != undefined) {
+                  birthdayIcon.style.display = "block";
+                } else {
+                  birthdayIcon.style.display = "none";
+                }
+              })
             }
         };
     }
     setLunar()
     // setInterval("setLunar()", 15 * 60 * 1000)
   </script>
+
   <!-- 其他接口
   古籍名句：https://api.tianapi.com/txapi/gjmj/index?key=587fe86e6d44ffff766288168d656ec7
   励志古言：http://api.tianapi.com/txapi/lzmy/index?key=587fe86e6d44ffff766288168d656ec7

@@ -14,6 +14,10 @@
     height: 100%;
     width: 100%;
   }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
   body > div {
     width: 100%;
     clear: both;
@@ -183,7 +187,7 @@
   <script type="text/javascript">
     function clear() {
       document.body.style.backgroundColor = '#000'
-      setTimeout("document.body.style.backgroundColor = '#fff'", 500);
+      setTimeout("document.body.style.backgroundColor = '#FFF'", 500);
       console.log('-------------------------------------------------------------------')
     }
     clear()
@@ -356,7 +360,7 @@
               }
 
               // 节日展示规则：阴历节日 > 节气 > 阳历节日
-              console.log('阴阳历节日节气： ' + '阴历', lunarFestival, '节气', lunarJieqiName, '阳历', Festival)
+              console.log('节日每整点更新： ' + '阴历', lunarFestival, '节气', lunarJieqiName, '阳历', Festival)
 
               if (lunarFestival != undefined) {
                 jieri = '<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
@@ -413,6 +417,7 @@
   ONE一个：http://api.tianapi.com/txapi/one/index?key=587fe86e6d44ffff766288168d656ec7
   健康小提示：http://api.tianapi.com/txapi/healthtip/index?key=587fe86e6d44ffff766288168d656ec7
   优美诗句：http://api.tianapi.com/txapi/verse/index?key=587fe86e6d44ffff766288168d656ec7
+  网易云热评：http://api.tianapi.com/txapi/hotreview/index?key=587fe86e6d44ffff766288168d656ec7
   -->
 
 

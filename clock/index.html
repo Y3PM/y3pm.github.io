@@ -228,7 +228,7 @@
       document.getElementById("time").innerHTML = timeString
       document.getElementById("date").innerHTML = dateString
       document.getElementById("week").innerHTML = weekString
-      console.log('时间每分钟更新：', timeString, dateString, weekString)
+      console.log('时间已更新：', timeString, dateString, weekString)
     }
 
     update()
@@ -253,6 +253,11 @@
             lifestyle = res.result.forecast_keypoint
 
             skycon = res.result.realtime.skycon
+            if(! window.localStorage){
+              alert("浏览器不支持使用本地缓存！");
+            } else {
+              localStorage.setItem("skycon", skycon);
+            }
 
             try {
               alert = res.result.alert.content[0].description.split("布")[1]
@@ -281,13 +286,20 @@
             document.getElementById("comfort").innerHTML = comfort;
             document.getElementById("ultraviolet").innerHTML = ultraviolet;
 
-            console.log('天气三分钟更新：', lifestyle)
-
+            console.log('天气已更新：', lifestyle)
           }
         })
     }
     setWeather()
-    setInterval("setWeather()", 3 * 60 * 1000) // 每3分钟更新天气
+
+    sky = localStorage.getItem("skycon")
+    if (sky.search('CLEAR') != -1 || sky.search('PARTLY') != -1) {
+      upTime = 15 // 如果是晴天或多云，降低天气更新频率
+    } else {
+      upTime = 3 // 默认三分钟更新一次天气
+    }
+
+    setInterval("setWeather()", upTime * 60 * 1000) // 每3~15分钟更新天气，以节省电量
   </script>
 
 
@@ -377,7 +389,7 @@
               }
 
               // 节日展示规则：阴历节日 > 节气 > 阳历节日
-              console.log('节日每整点更新： ' + '阴历', lunarFestival, '节气', lunarJieqiName, '阳历', Festival)
+              // console.log('节日已更新： ' + '阴历', lunarFestival, '节气', lunarJieqiName, '阳历', Festival)
 
               if (lunarFestival != undefined) {
                 jieri = '<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
@@ -393,7 +405,7 @@
               // console.log(nongli)
 
               document.getElementById("solarlunar").innerHTML = nongli
-              console.log('农历每整点更新：', nongli)
+              console.log('农历已更新：', nongli)
 
               // 生日提示
               solarDay = dataMonth + '-' + dataDay
@@ -438,14 +450,17 @@
   -->
 
 
-  <!-- 定时更新机制 -->
+  <!-- 定时更新农历和清屏 -->
   <script type="text/javascript">
     function refresh() {
       var date = new Date();
-      if(date.getMinutes() == '0'){ // 整点更新
-        console.log('整点更新农历和清屏：')
-        setLunar() 
+      if(date.getHours() % 3 == '0' && date.getMinutes() == '0'){ // 每3小时刷新屏幕
+        console.log('执行清屏操作')
         clear()
+      }
+      if(date.getHours() == '0' && date.getMinutes() == '0'){ // 0点更新，可节省电量
+        console.log('执行农历更新')
+        setLunar()
       }
     }
     refresh()

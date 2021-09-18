@@ -200,22 +200,16 @@
 
 
 
-  <!-- 清屏机制 -->
   <script type="text/javascript">
-    function clear() {
+    function clear() { // 清屏机制
       document.body.style.backgroundColor = '#000'
       setTimeout("document.body.style.backgroundColor = '#FFF'", 500);
       console.log('-------------------------------------------------------------------')
     }
-    // clear()
-    // setInterval("clear()", 60 * 1000) // 每分钟更新
-  </script>
 
+// ----------------------------------------------------------- //
 
-
-  <!-- 定时更新时间、阳历、星期 -->
-  <script>
-    function update() {
+    function update() { //定时更新时间、阳历、星期
       var date = new Date()
       var utc8DiffMinutes = date.getTimezoneOffset() + 480
       date.setMinutes(date.getMinutes() + utc8DiffMinutes)
@@ -231,15 +225,12 @@
       console.log('时间已更新：', timeString, dateString, weekString)
     }
 
-    update()
+    update() // 页面加载时显示时间
     setInterval("update()", 1 * 60 * 1000) // 每分钟更新
-  </script>
+  
+// ----------------------------------------------------------- //
 
-
-
-  <!-- 定时更新天气 -->
-  <script type="text/javascript">
-    function setWeather(){
+    function setWeather(){ //定时更新天气
         var me = this;
         $.ajax({
           url:'//api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.901513,36.635725/weather.json?alert=true',
@@ -290,7 +281,7 @@
           }
         })
     }
-    setWeather()
+    setWeather() // 页面加载时更新天气
 
     sky = localStorage.getItem("skycon")
     if (sky.search('CLEAR') != -1 || sky.search('PARTLY') != -1) {
@@ -300,51 +291,46 @@
     }
 
     setInterval("setWeather()", upTime * 60 * 1000) // 每3~15分钟更新天气，以节省电量
-  </script>
+  
+// ----------------------------------------------------------- //
 
-
-
-  <!-- 定时更新农历一，节日里含“诸葛亮旦”等提示
-  <script type="text/javascript">
-    function setLunar(){
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open('GET', '//api.tianapi.com/txapi/lunar/index?key=587fe86e6d44ffff766288168d656ec7', true);
-        httpRequest.send();
+    // function setLunar(){ //定时更新农历一，节日里含“诸葛亮旦”等提示
+    //     var httpRequest = new XMLHttpRequest();
+    //     httpRequest.open('GET', '//api.tianapi.com/txapi/lunar/index?key=587fe86e6d44ffff766288168d656ec7', true);
+    //     httpRequest.send();
         
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-                var res = JSON.parse(httpRequest.responseText);
-                // console.log(res.newslist[0].lubarmonth);
-                lunarYear = res.newslist[0].tiangandizhiyear
-                lunarMonth = res.newslist[0].lubarmonth
-                lunarDay = res.newslist[0].lunarday
+    //     httpRequest.onreadystatechange = function () {
+    //         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+    //             var res = JSON.parse(httpRequest.responseText);
+    //             // console.log(res.newslist[0].lubarmonth);
+    //             lunarYear = res.newslist[0].tiangandizhiyear
+    //             lunarMonth = res.newslist[0].lubarmonth
+    //             lunarDay = res.newslist[0].lunarday
 
-                Festival = res.newslist[0].festival
-                lunarFestival = res.newslist[0].lunar_festival
-                lunarJieqi = res.newslist[0].jieqi
+    //             Festival = res.newslist[0].festival
+    //             lunarFestival = res.newslist[0].lunar_festival
+    //             lunarJieqi = res.newslist[0].jieqi
 
-                j = lunarJieqi + ' '  + Festival + ' '  + lunarFestival
-                if (j.trim() != "") {
-                  jieri = '&nbsp;<b>' + j.trim() + '</b>'
-                }else{
-                  jieri = ''
-                }
+    //             j = lunarJieqi + ' '  + Festival + ' '  + lunarFestival
+    //             if (j.trim() != "") {
+    //               jieri = '&nbsp;<b>' + j.trim() + '</b>'
+    //             }else{
+    //               jieri = ''
+    //             }
 
-                nongli = lunarYear + '年' + lunarMonth + lunarDay + jieri
+    //             nongli = lunarYear + '年' + lunarMonth + lunarDay + jieri
 
-                document.getElementById("solarlunar").innerHTML = nongli
-                console.log('农历每整点更新：', nongli)
-            }
-        };
-    }
-    setLunar()
+    //             document.getElementById("solarlunar").innerHTML = nongli
+    //             console.log('农历每整点更新：', nongli)
+    //         }
+    //     };
+    // }
+    // setLunar()
     // setInterval("setLunar()", 15 * 60 * 1000)
-  </script>
-  -->
-
-  <!-- 定时更新农历二，某工程师接口，全面但可能会下线 -->
-  <script type="text/javascript">
-    function setLunar(){
+ 
+// ----------------------------------------------------------- //
+  
+    function setLunar(){ //定时更新农历二，某工程师接口，全面但可能会下线
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('GET', '//api.timelessq.com/time', true); // 接口来源：https://www.timelessq.com/article/detail/9，某天的：?datetime=2021-10-1
         httpRequest.send();
@@ -407,7 +393,7 @@
               document.getElementById("solarlunar").innerHTML = nongli
               console.log('农历已更新：', nongli)
 
-              // 生日提示
+              // 自定义生日提示
               solarDay = dataMonth + '-' + dataDay
               lunarDay = res.data.lunar.month + '-' + res.data.lunar.day
               $.getJSON("birthday.json", function(data) {
@@ -436,35 +422,28 @@
             }
         };
     }
-    setLunar()
-    // setInterval("setLunar()", 15 * 60 * 1000)
-  </script>
+    setLunar() // 加载页面时显示农历
 
-  <!-- 其他接口
-  古籍名句：https://api.tianapi.com/txapi/gjmj/index?key=587fe86e6d44ffff766288168d656ec7
-  励志古言：http://api.tianapi.com/txapi/lzmy/index?key=587fe86e6d44ffff766288168d656ec7
-  ONE一个：http://api.tianapi.com/txapi/one/index?key=587fe86e6d44ffff766288168d656ec7
-  健康小提示：http://api.tianapi.com/txapi/healthtip/index?key=587fe86e6d44ffff766288168d656ec7
-  优美诗句：http://api.tianapi.com/txapi/verse/index?key=587fe86e6d44ffff766288168d656ec7
-  网易云热评：http://api.tianapi.com/txapi/hotreview/index?key=587fe86e6d44ffff766288168d656ec7
-  -->
+// ----------------------------------------------------------- //
 
-
-  <!-- 定时更新农历和清屏 -->
-  <script type="text/javascript">
-    function refresh() {
+    function refresh() { // 定时更新农历和清屏
       var date = new Date();
-      if(date.getHours() % 3 == '0' && date.getMinutes() == '0'){ // 每3小时刷新屏幕
-        console.log('执行清屏操作')
+      if(date.getHours() % 6 == 0 && date.getMinutes() == 0){ // 每6小时整点执行
+        console.log('执行清屏和农历更新')
         clear()
-      }
-      if(date.getHours() == '0' && date.getMinutes() == '0'){ // 0点更新，可节省电量
-        console.log('执行农历更新')
         setLunar()
       }
     }
-    refresh()
-    setInterval("refresh()", 60 * 1000) // 每分钟更新
+    refresh() // 加载时执行一次
+    setInterval("refresh()", 60 * 1000) // 每分钟尝试更新农历和清屏
+
+  // 其他可使用的接口
+  // 古籍名句：https://api.tianapi.com/txapi/gjmj/index?key=587fe86e6d44ffff766288168d656ec7
+  // 励志古言：http://api.tianapi.com/txapi/lzmy/index?key=587fe86e6d44ffff766288168d656ec7
+  // ONE一个：http://api.tianapi.com/txapi/one/index?key=587fe86e6d44ffff766288168d656ec7
+  // 健康小提示：http://api.tianapi.com/txapi/healthtip/index?key=587fe86e6d44ffff766288168d656ec7
+  // 优美诗句：http://api.tianapi.com/txapi/verse/index?key=587fe86e6d44ffff766288168d656ec7
+  // 网易云热评：http://api.tianapi.com/txapi/hotreview/index?key=587fe86e6d44ffff766288168d656ec7
   </script>
 
 </body>

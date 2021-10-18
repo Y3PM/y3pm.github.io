@@ -5,6 +5,14 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style type="text/css">
+  @font-face {
+    font-family: timeFont;
+    src: url(./img/D-DINCB.ttf);
+  }
+  @font-face {
+    font-family: numFont;
+    src: url(./img/D-DINC.ttf);
+  }
   * {
     margin: 0;
     padding: 0;
@@ -23,22 +31,21 @@
     clear: both;
   }
   #time {
-    font-size: 350px;
+    font-family: timeFont;
+    font-size: 400px;
     line-height: 550px;
     height: 500px;
-
-    font-weight: 600;
+    letter-spacing: 5px;
   }
   #time b {
     display: inline-block;
     position: relative;
-    top: -45px;
+    top: -75px;
     font-size: 260px;
     width: 80px;
-    margin-left: -7px
   }
   .dateContainer {
-    font-size: 120px;
+    font-size: 110px;
     line-height: 160px;
     height: 150px;
     font-weight: 600;
@@ -72,20 +79,39 @@
     font-weight: bold;
   }
 
+  .sun {
+    height: 100px;
+    line-height: 100px;
+    font-size: 50px;
+    position: absolute;
+    bottom: 260px;
+    font-family: numFont;
+  }
+  #sunrise {
+    margin-right: 1.5em;
+    background: url(./img/sunrise.png) left center no-repeat;
+    background-size: 0.75em;
+    padding-left: 1em;
+  }
+  #sunset {
+    background: url(./img/sunset.png) left center no-repeat;
+    background-size: 0.75em;
+    padding-left: 1em;
+  }
+
   #alert {
     font-size: 36px;
-    line-height: 140%;
+    line-height: 160%;
     position: absolute;
-    bottom: 300px;
+    bottom: 230px;
     font-weight: 100;
-    width: 82%;
+    width: 92%;
     background: #000;
     color: #FFF;
-    padding: 30px 3%;
-    left: 6%;
-    border-radius: 30px;
+    padding: 30px 4%;
     text-align: justify;
-    display: none;
+    display: none; 
+    z-index: 9999;
   }
   #weather {
     font-size: 50px;
@@ -135,11 +161,11 @@
     clear: both;
     width: 100%;
   }
-  i{
+  .weatherContainer i{
     font-style: normal;
-    color:#666;
     font-weight:100;
     font-size:30px;
+    margin-left: 10px;
   }
   #birthday {
     position: absolute;
@@ -174,10 +200,16 @@
   <div id="time"></div>
 
   <div class="dateContainer">
-    <span id="date"></span><span id="week"></span>
+    <span id="date"></span>
+    <span id="week"></span>
   </div>
   
   <div id="solarlunar"></div>
+
+  <div class="sun">
+    <span id="sunrise"></span>
+    <span id="sunset"></span>
+  </div>
 
   <div id="alert"></div>
 
@@ -188,6 +220,7 @@
     <div id="comfort"></div>
     <div id="AQI"></div>
     <div id="ultraviolet"></div>
+    <!-- <div id="carWashing"></div> -->
   </div>
 
   <div id="icon"></div>
@@ -258,8 +291,11 @@
 
             temperature = '<span>' + res.result.realtime.apparent_temperature + '<i>℃</i>'+ '</span><p>体感温度</p>'
             air = '<span>' + res.result.realtime.air_quality.description.chn + '</span><p>空气质量</p>'
-            comfort = '<span>' + res.result.realtime.life_index.comfort.desc + '</span><p>舒适度</p>'
+            comfort = '<span>' + res.result.realtime.life_index.comfort.desc + '</span><p>感冒' + res.result.daily.life_index.coldRisk[1].desc + '</p>'
             ultraviolet = '<span>' + res.result.realtime.life_index.ultraviolet.desc + '</span><p>紫外线</p>'
+            carWashing = '<span>' + res.result.daily.life_index.carWashing[1].desc + '</span><p>洗车指数</p>'
+            sunrise = res.result.daily.astro[1].sunrise.time // 日出时间
+            sunset = res.result.daily.astro[1].sunset.time // 日落时间
 
             document.getElementById("icon").innerHTML = '<img src="./img/' + skycon + '.png">';
 
@@ -276,6 +312,9 @@
             document.getElementById("AQI").innerHTML = air;
             document.getElementById("comfort").innerHTML = comfort;
             document.getElementById("ultraviolet").innerHTML = ultraviolet;
+            document.getElementById("sunrise").innerHTML = sunrise;
+            document.getElementById("sunset").innerHTML = sunset;
+            // document.getElementById("carWashing").innerHTML = carWashing; // 暂不展示洗车指数
 
             console.log('天气已更新：', lifestyle)
           }
@@ -284,49 +323,14 @@
     setWeather() // 页面加载时更新天气
 
     sky = localStorage.getItem("skycon")
-    if (sky.search('CLEAR') != -1 || sky.search('PARTLY') != -1) {
-      upTime = 15 // 如果是晴天或多云，降低天气更新频率
+    if (sky.search('RAIN') != -1 || sky.search('SNOW') != -1) {
+      upTime = 10 // 雨雪天气天气更新频率
     } else {
-      upTime = 3 // 默认三分钟更新一次天气
+      upTime = 30 // 其他天气更新时间，含雾霾、沙尘
     }
 
     setInterval("setWeather()", upTime * 60 * 1000) // 每3~15分钟更新天气，以节省电量
   
-// ----------------------------------------------------------- //
-
-    // function setLunar(){ //定时更新农历一，节日里含“诸葛亮旦”等提示
-    //     var httpRequest = new XMLHttpRequest();
-    //     httpRequest.open('GET', '//api.tianapi.com/txapi/lunar/index?key=587fe86e6d44ffff766288168d656ec7', true);
-    //     httpRequest.send();
-        
-    //     httpRequest.onreadystatechange = function () {
-    //         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-    //             var res = JSON.parse(httpRequest.responseText);
-    //             // console.log(res.newslist[0].lubarmonth);
-    //             lunarYear = res.newslist[0].tiangandizhiyear
-    //             lunarMonth = res.newslist[0].lubarmonth
-    //             lunarDay = res.newslist[0].lunarday
-
-    //             Festival = res.newslist[0].festival
-    //             lunarFestival = res.newslist[0].lunar_festival
-    //             lunarJieqi = res.newslist[0].jieqi
-
-    //             j = lunarJieqi + ' '  + Festival + ' '  + lunarFestival
-    //             if (j.trim() != "") {
-    //               jieri = '&nbsp;<b>' + j.trim() + '</b>'
-    //             }else{
-    //               jieri = ''
-    //             }
-
-    //             nongli = lunarYear + '年' + lunarMonth + lunarDay + jieri
-
-    //             document.getElementById("solarlunar").innerHTML = nongli
-    //             console.log('农历每整点更新：', nongli)
-    //         }
-    //     };
-    // }
-    // setLunar()
-    // setInterval("setLunar()", 15 * 60 * 1000)
  
 // ----------------------------------------------------------- //
   
@@ -422,7 +426,7 @@
             }
         };
     }
-    setLunar() // 加载页面时显示农历
+    setLunar() // 加载页面时显示农历及生日
 
 // ----------------------------------------------------------- //
 
@@ -438,12 +442,8 @@
     setInterval("refresh()", 60 * 1000) // 每分钟尝试更新农历和清屏
 
   // 其他可使用的接口
-  // 古籍名句：https://api.tianapi.com/txapi/gjmj/index?key=587fe86e6d44ffff766288168d656ec7
-  // 励志古言：http://api.tianapi.com/txapi/lzmy/index?key=587fe86e6d44ffff766288168d656ec7
-  // ONE一个：http://api.tianapi.com/txapi/one/index?key=587fe86e6d44ffff766288168d656ec7
-  // 健康小提示：http://api.tianapi.com/txapi/healthtip/index?key=587fe86e6d44ffff766288168d656ec7
-  // 优美诗句：http://api.tianapi.com/txapi/verse/index?key=587fe86e6d44ffff766288168d656ec7
-  // 网易云热评：http://api.tianapi.com/txapi/hotreview/index?key=587fe86e6d44ffff766288168d656ec7
+  // 今日油价：https://apis.juhe.cn/gnyj/query?key=517127af670fae7bf7a510af63b2ef96
+  // 双色球：http://apis.juhe.cn/lottery/query?lottery_id=ssq&key=06dfbf39e03bda90743c979058cdc516
   </script>
 
 </body>

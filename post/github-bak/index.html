@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>网站内容丢失与恢复记录 | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="折腾了一个月，虽然丢失了未发布的几篇文章，但终于恢复了个人网页。小博客通过 Gridea 撰写，然后发布到 Github Page 上。事情的开始是这样的……
+
+🍎️ 折腾 MacOS
+
+自从 MacOS Big Sur 发布，就按耐不住..." />
+    <meta name="keywords" content="杂记" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">网站内容丢失与恢复记录</h2>
+            <div class="post-date">2021-06-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/github-bak.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>折腾了一个月，虽然丢失了未发布的几篇文章，但终于恢复了个人网页。小博客通过 Gridea 撰写，然后发布到 Github Page 上。事情的开始是这样的……</p>
+<!-- more -->
+<h2 id="️-折腾-macos">🍎️ 折腾 MacOS</h2>
+<blockquote>
+<p>自从 MacOS Big Sur 发布，就按耐不住想要试用的想法。在一番考察之后，“果断”的升级到了 Beta 版。</p>
+</blockquote>
+<p>一般来说，新发布的系统多少都有一些问题。作为产品经理常用的 Axure 出现缩放异常。。。计划使用虚拟机来进行这部分的工作，而虚拟机发现无法正常联网。。用了一段时间发现太难受了，但还是忍到了正式版发布。</p>
+<p>我的“桌面和文档”文件，是一直存储于 iCloud 的。但 Gridea 的文件夹是放在下载文件夹的（因为 iCloud 同步时会出现重复文件问题）。于是就用时光机备份了系统，顺手就在线重装了正式发布的 Big Sur。</p>
+<h2 id="️-时光机穿越而去">🚀️ 时光机穿越而去</h2>
+<blockquote>
+<p>小白认为：无论怎么折腾电脑，Github 的文件是不会变的，而且有时光机兜底，不会出问题。</p>
+</blockquote>
+<p>现实情况是，在新系统重装之后，并没有第一时间恢复“下载”文件夹，毕竟里面大部分是临时文件。</p>
+<p>终于有一天，要去开会，顺手拔了 Mac 的外接 Hub，系统弹出硬盘推出的提示，心里咯噔一下。。。果然，因为没有安全推出硬盘，又碰巧时光机正在备份系统，硬盘挂了。。备份无。</p>
+<h2 id="github-小白之全丢了">💀 Github 小白之……全丢了</h2>
+<blockquote>
+<p>小白认为：多大点事儿，不是还有 Github 嘛。</p>
+</blockquote>
+<p>重新下载安装了 Gridea，根据以往使用 Github 的经验，通过 Tower 把 Github 的文件下载到了文档文件夹。重新配置 Gridea，将文件目录设置到刚下好的文件下。</p>
+<p>有个小异常，Gridea 显示只有两篇默认文章。。。小白觉得，因为没有同步嘛，同步一下就好了！</p>
+<p>然后……同步完成之后，站点就只剩下两篇默认文章，所有内容全丢了。。。好吧，这是 Gridea 的同步机制有问题。</p>
+<h2 id="️️-淡定淡定">❄️️ 淡定淡定</h2>
+<blockquote>
+<p>小白认为：Github 有记录的，再恢复下就好了。</p>
+</blockquote>
+<p>按照经验，通过 Tower 还原一下。可能是因为换了个人密钥的原因……只有最新的提交记录。两年前的记录已经无法找到并恢复。一定是我经验太少……求运维的大神给看看，大神说救不了了。。。</p>
+<h2 id="柳暗花明">🎉 柳暗花明</h2>
+<p>没有时光机的备份，没有 iCloud 的备份，没有 Github 的历史保存，Git 大神没辙，Gridea 大神没辙……大概率死翘翘了。就这样无解搁置了一个月……</p>
+<p>再研究研究 Git 吧，这位名叫 NineCreek 的 G 友，我真是太谢谢你了……</p>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.github.io/post-images/1623132669550.png" alt="" loading="lazy"></figure>
+<p>竟然在某个时间 Fork 了整个站点！！！果断追过去，下载了下来。</p>
+<p>对比之后，原来 Gridea 只能将生成的 Html 文件放 Github，源文件是没有的。好在文章图片都在，可以一篇一篇的补回来。细想一下，当年 Gridea 刚刚推出时，我这个小博客上过官网的首页推荐，同时也是 G 友们投票最多的站点，应该是这个原因，才被 Fork 的吧。</p>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.github.io/post-images/1623133097633.png" alt="" loading="lazy"></figure>
+<h2 id="未来计划">📮 未来计划</h2>
+<p>站点回来了，之前写的一些文章也得慢慢补回来……</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/hiVAaNL03/" class="tag">
+                    杂记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/new-brand/">
+                  <h3 class="post-title">
+                    如何给品牌起一个好名字？
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,146 @@
+{
+	"Version":"1.0",
+	"Author":"Y3",
+	"Wechat":"fansmaker",
+	"default":"x-web-search://?{query}",
+
+	"app":"itms-apps://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term={query}",
+
+	"bd":"https://www.baidu.com/s?wd={query}",
+	"baidu":"https://www.baidu.com/s?wd={query}",
+	"百度":"https://www.baidu.com/s?wd={query}",
+
+	"bb":"https://search.bilibili.com/all?keyword={query}",
+	"bili":"https://search.bilibili.com/all?keyword={query}",
+	"bilibili":"https://search.bilibili.com/all?keyword={query}",
+	"哔哩哔哩":"https://search.bilibili.com/all?keyword={query}",
+
+	"360":"https://www.so.com/s?q={query}",
+
+	"bbb":"https://dribbble.com/search?q={query}",
+
+	"bk":"https://baike.baidu.com/search?word={query}",
+	"百科":"https://baike.baidu.com/search?word={query}",
+	"baike":"https://baike.baidu.com/search?word={query}",
+
+	"bt":"https://skrbt1.xyz/search?keyword={query}",
+	"xz":"https://skrbt1.xyz/search?keyword={query}",
+	"下载":"https://www.bturl.pw/search/{query}_ctime_1.html",
+
+	"cl":"https://www.ciliwiki.com/search/{query}-1.html",
+	"磁力":"https://www.ciliwiki.com/search/{query}-1.html.html",
+
+	"dy":"http://www.movierightaway.com/?movie_name={query}",
+	"电影":"http://www.movierightaway.com/?movie_name={query}",
+
+	"cp":"https://www.xiachufang.com/search/?keyword={query}",
+	"菜谱":"https://www.xiachufang.com/search/?keyword={query}",
+
+	"csdn":"https://so.csdn.net/so/search/s.do?q={query}",
+
+	"db":"https://www.douban.com/search?source=suggest&q={query}",
+	"豆瓣":"https://www.douban.com/search?source=suggest&q={query}",
+
+	"fy":"https://cn.bing.com/dict/search?q={query}",
+	"翻译":"https://cn.bing.com/dict/search?q={query}",
+
+	"g":"https://www.google.com/search?q={query}",
+	"谷歌":"https://www.google.com/search?q={query}",
+	"google":"https://www.google.com/search?q={query}",
+
+	"git":"https://github.com/search?q={query}",
+	"github":"https://github.com/search?q={query}",
+
+	"jd":"https://search.jd.com/Search?keyword={query}&enc=utf-8",
+	"京东":"https://search.jd.com/Search?keyword={query}&enc=utf-8",
+
+	"jj":"https://sharecuts.cn/search?q={query}",
+	"捷径":"https://sharecuts.cn/search?q={query}",
+
+	"jjh":"https://jiejinghe.com/search?query={query}",
+	"捷径盒":"https://jiejinghe.com/search?query={query}",
+
+	"js":"https://www.jianshu.com/search?q={query}",
+	"简书":"https://www.jianshu.com/search?q={query}",
+
+	"lib":"http://124.128.244.210:8080/opac/search?&q={query}",
+
+	"mba":"https://wiki.mbalib.com/wiki/Special:Search?search={query}",
+
+	"mj":"http://www.ttzmz.vip/index.php/search/index.html?keyword={query}&range=0",
+	"美剧":"http://www.ttzmz.vip/index.php/search/index.html?keyword={query}&range=0",
+
+	"pan":"http://www.58wangpan.com/search/kw{query}",
+	"yun":"http://www.58wangpan.com/search/kw{query}",
+	"百度云":"http://www.58wangpan.com/search/kw{query}",
+	"百度盘":"http://www.58wangpan.com/search/kw{query}",
+	"百度云盘":"http://www.58wangpan.com/search/kw{query}",
+
+	"qy":"https://www.qichacha.com/search?key={query}",
+	"企业":"https://www.qichacha.com/search?key={query}",
+	"qichacha":"https://www.qichacha.com/search?key={query}",
+	"企查查":"https://www.qichacha.com/search?key={query}",
+
+	"rar":"https://rarbgprx.org/torrents.php?search={query}",
+
+	"rr":"http://www.yyetss.com/Search/index/?s_keys={query}",
+	"renren":"http://www.yyetss.com/Search/index/?s_keys={query}",
+	"人人美剧":"http://www.yyetss.com/Search/index/?s_keys={query}",
+
+	"sj":"http://www.ip138.com:8080/search.asp?action=mobile&mobile={query}",
+	"手机":"http://www.ip138.com:8080/search.asp?action=mobile&mobile={query}",
+	"手机归属":"http://www.ip138.com:8080/search.asp?action=mobile&mobile={query}",
+	"手机归属地":"http://www.ip138.com:8080/search.asp?action=mobile&mobile={query}",
+
+	"tt":"https://m.ttkmj.net/?s={query}",
+	"天天":"https://m.ttkmj.net/?s={query}",
+	"天天美剧":"https://m.ttkmj.net/?s={query}",
+
+	"tb":"https://s.taobao.com/search?q={query}",
+	"淘宝":"https://s.taobao.com/search?q={query}",
+	"taobao":"https://s.taobao.com/search?q={query}",
+
+	"tm":"https://list.tmall.com/search_product.htm?q={query}",
+	"天猫":"https://list.tmall.com/search_product.htm?q={query}",
+	"tmall":"https://list.tmall.com/search_product.htm?q={query}",
+
+	"wb":"https://s.weibo.com/weibo/{query}",
+	"微博":"https://s.weibo.com/weibo/{query}",
+
+	"wiki":"https://zh.wikipedia.org/w/index.php?search={query}",
+	"维基":"https://zh.wikipedia.org/w/index.php?search={query}",
+	"维基百科":"https://zh.wikipedia.org/w/index.php?search={query}",
+
+	"wk":"https://wenku.baidu.com/search?word={query}&org=0",
+	"文库":"https://wenku.baidu.com/search?word={query}&org=0",
+	"百度文库":"https://wenku.baidu.com/search?word={query}&org=0",
+
+	"ws":"https://qnmlgb.tech/search?q={query}",
+
+	"we":"x-web-search://?{query}%20site:wemp.app",
+
+	"wx":"https://weixin.sogou.com/weixin?type=2&query={query}",
+	"微信":"https://weixin.sogou.com/weixin?type=2&query={query}",
+
+	"who":"https://whois.aliyun.com/whois/domain/{query}",
+
+    "xl":"https://www.xl720.com/?s={query}",
+    "迅雷":"https://www.xl720.com/?s={query}",
+
+	"yt":"https://www.youtube.com/results?search_query={query}",
+	"youtube":"https://www.youtube.com/results?search_query={query}",
+
+	"z":"https://www.amazon.cn/s?k={query}",
+	"amazon":"https://www.amazon.cn/s?k={query}",
+	"亚马逊":"https://www.amazon.cn/s?k={query}",
+
+	"zh":"https://www.zhihu.com/search?type=content&q={query}",
+	"知乎":"https://www.zhihu.com/search?type=content&q={query}",
+	"zhihu":"https://www.zhihu.com/search?type=content&q={query}",
+
+	"zm":"https://subhd.com/search0/{query}",
+	"sub":"https://subhd.com/search0/{query}",
+	"字幕":"https://subhd.com/search0/{query}",
+	
+	"help":"http://ue.iald.cn/shortcut/help.php",
+}

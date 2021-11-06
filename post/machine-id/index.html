@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>如何为 Android 设备生成唯一的硬件 ID？ | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="最近在开发一款新的硬件，之前的老款自助设备发生过几次人脸识别授权丢失的问题，原因是硬件配置发生了变化。为什么以可变配置作为硬件ID的生成已无从可考，新的智能硬件应该规避掉类似问题。
+
+设备概况
+系统为 Android 10，支持蓝牙、WiF..." />
+    <meta name="keywords" content="产品设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">如何为 Android 设备生成唯一的硬件 ID？</h2>
+            <div class="post-date">2020-12-29</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/machine-id.webp')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>最近在开发一款新的硬件，之前的老款自助设备发生过几次人脸识别授权丢失的问题，原因是硬件配置发生了变化。为什么以可变配置作为硬件ID的生成已无从可考，新的智能硬件应该规避掉类似问题。</p>
+<!-- more -->
+<h2 id="设备概况">设备概况</h2>
+<p>系统为 Android 10，支持蓝牙、WiFi、以太网、支持 4G 全网通，其他重要信息就不一一说明了。</p>
+<h2 id="使用场景要求">使用场景要求</h2>
+<ol>
+<li>该硬件 ID 在设备初始化完成后，通过专用软件自动进行在线注册；</li>
+<li>注册成功后，回显硬件 ID 以及 KEY 用于授权，可选打印并粘贴到设备上；</li>
+</ol>
+<h2 id="硬件-id-要求">硬件 ID 要求</h2>
+<ol>
+<li>该硬件 ID 唯一，不可重复，与每一台 Android 设备硬件进行绑定；</li>
+<li>该硬件 ID 在软件或系统重装后不会发生变更，以避免造成绑定和授权丢失；</li>
+</ol>
+<p>Google 官方提供了  <a href="https://developer.android.com/training/articles/user-data-ids?hl=zh-cn#kotlin" target="_blank">《唯一标识符最佳做法》</a>的说明。</p>
+<p>在这份官方文档中，Google建议避免使用硬件标识符，但显然不适用与目前的业务场景。但也说明了例外情况，就是：应用必须是设备所有者应用（设备所有者：专为由企业负责的环境而设计），具有特许权限，才能访问不可重置的标识符（包括 IMEI 和序列号）。这样的话，可选的比较有价值的唯一标识可能有以下这些：</p>
+<h3 id="device-iddeviceid">Device ID（DeviceId）</h3>
+<p>开发者可以使用系统提供的 TelephonyManager 服务来获取 Device ID，GSM 设备返回的是 IMEI 码，CDMA 设备返回的是 MEID 码或者 ESN 码。非电话设备或者 Device ID 不可用时，返回 null。因为设备支持 4G 全网通，但并不需要插卡使用，所以用不了。</p>
+<h3 id="sim-序列号sim-serial-number">Sim 序列号（Sim Serial Number）</h3>
+<p>当设备上装有 Sim 卡并且可用时，返回该值。手机未装 Sim 卡或者不可用时，返回 null。也用不了。</p>
+<h3 id="设备序列号serial-number-sn">设备序列号（Serial Number, SN）</h3>
+<p>硬件序列，在 Android 2.2 以上可以通过 android.os.Build.SERIAL 获得序列号。在一些没有电话功能的设备会提供，某些手机上也可能提供（所以就是经常会返回 Unknown）。比较稳定的设备硬件标识符。看起来基本可用。</p>
+<h3 id="android-id">Android ID</h3>
+<p>在设备首次启动时，系统会随机生成一个 64 位的数字，并把这个数字以 16 进制字符串的形式保存下来，这个 16 进制的字符串就是 ANDROID_ID，当设备被 wipe 后该值会被重置。Android ID 的生成不依赖硬件，刷机或者升级系统（这个没验证过）都会改变 Android ID。所以不可用。。。</p>
+<h3 id="mac-地址mac-address">Mac 地址（Mac Address）</h3>
+<p>WLAN Mac 地址和 Bluetooth Mac 地址都是与硬件相关的唯一号码，其中 WLAN Mac 地址经常被作为参数来生成设备标识，但是在 Android 6.0（iOS 7）以后，官方以保护用户隐私为由关闭了获取 Mac 地址的接口，调用获取的方法会统一返回 02:00:00:00:00:00。新款硬件支持蓝牙和有线网络，官方不建议，那再看看其他方案……</p>
+<h3 id="build-信息">Build 信息</h3>
+<p>android.os.Build 类包含了很多设备信息，包括系统版本号、手机型号等硬件软件信息，具体内容参考 Android 获取手机制作商，系统版本等，缺点是重复率很高，而且系统升级等不属于更换设备的操作可能会修改到其中的内容，所以只能作为生成设备 ID 的辅助参数。</p>
+<p>跟踪硬件层次上的设备建议使用硬件的标识符，比如设备ID(DeviceId)、Mac 地址、设备序列号（SN）或者设备的品牌，型号名等，这些值在用户擦除数据或者恢复出厂设置后也不会改变。同样的，为了提升稳定性及排除单一标识符所存在的缺陷，我们使用多个标识符拼接，然后通过 UUID 或者 MD5 算法计算得出我们需要的设备标识符。</p>
+<p>综上所述，使用 设备序列号 和 Mac 地址是比较适用于当前业务场景的。为了不暴露设备的具体信息，同时有利于输入，计划使用生成的设备标识符到服务器换取设备的 SN 和 Key。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/RMhdZjZP8/" class="tag">
+                    产品设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/hr/">
+                  <h3 class="post-title">
+                    《人人都要成为管理者》学习记录
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

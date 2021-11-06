@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>产品原型太多，版本更新太快的解决方案 | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="从 2012 年正式从事互联网产品设计以来，发现每个企业都有大量的项目要做，相应的也产生了大量的产品文档。在 2015 年之前，一直使用“金山网盘”对各种文档进行团队协作和同步。原因很简单，产品负责人更新了文件，所有人电脑上都可以自动同步更..." />
+    <meta name="keywords" content="产品设计,Axure" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">产品原型太多，版本更新太快的解决方案</h2>
+            <div class="post-date">2018-01-01</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/protype-nav.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>从 2012 年正式从事互联网产品设计以来，发现每个企业都有大量的项目要做，相应的也产生了大量的产品文档。在 2015 年之前，一直使用“金山网盘”对各种文档进行团队协作和同步。原因很简单，产品负责人更新了文件，所有人电脑上都可以自动同步更新。</p>
+<!-- more -->
+<p>在一波网盘整顿过后，原来的方法就行不通了。再后来使用 SVN，跟开发协作还可以，跟设计协作起来学习成本太高了。在摸索了一年之后，形成了现在的产品原型导航实施方案。</p>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.github.io/post-images/1622881051199.png" alt="" loading="lazy"></figure>
+<ol>
+<li>主要框架分为侧栏和内容栏两个区域；</li>
+<li>通过侧栏对原型进行导航；</li>
+<li>原型导航的源码使用的静态网页；</li>
+<li>将相关的网页通过 FTP 提交到服务器上；</li>
+<li>有条件的话，绑定一个二级域名，比如：ux.domain.com；</li>
+</ol>
+<blockquote>
+<p>有了这个导航页面，可以很方便的在各个原型之间切换，同时可以将设计稿以及相关的研发规范进行有效整合。</p>
+</blockquote>
+<p>接下来的工作，就是产品负责维护好相关的域名和内容，其他成员直接访问域名即可。因为使用的静态网页，比较容易出现外部人员也可以无限制访问的情况。如果服务器支持，可以加入加密功能，对产品原型进行保护。</p>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.github.io/post-images/1622881073655.png" alt="" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/RMhdZjZP8/" class="tag">
+                    产品设计
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/e09PBB4N6L/" class="tag">
+                    Axure
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/Axure-library/">
+                  <h3 class="post-title">
+                    Axure Library，提升产品设计效率的必经之路
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

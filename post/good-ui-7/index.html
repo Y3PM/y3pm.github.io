@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>提升用户体验的 77 个交互设计方法（七） | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="翻译了那么多，总结起来就是一句话：Don't make me think。有一本书的名字就叫《不要让我思考》，要知道人们都是趋利避害的，不要给用户带来不必要的困扰和麻烦。
+
+61. 试着及时反馈用户的操作和状态（提升转化率，提升易用性）
+
+..." />
+    <meta name="keywords" content="交互设计,UX,UI" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">提升用户体验的 77 个交互设计方法（七）</h2>
+            <div class="post-date">2017-05-11</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/good-ui-7.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>翻译了那么多，总结起来就是一句话：Don't make me think。有一本书的名字就叫《不要让我思考》，要知道人们都是趋利避害的，不要给用户带来不必要的困扰和麻烦。</p>
+<!-- more -->
+<h2 id="61-试着及时反馈用户的操作和状态提升转化率提升易用性">61. 试着及时反馈用户的操作和状态（提升转化率，提升易用性）</h2>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.github.io/post-images/1622879553465.png" alt="" loading="lazy"></figure>
+<p>当我们执行一个任务时，我们希望知道它是不是已经成功，反馈让用户的操作形成一个闭环。沉默会带来不确定性，它真的有效吗? 按钮真的按下了吗? 我应该再试一次吗? 及时的反馈回答了所有这些问题。一个成功的交互流程，反馈是一个非常有价值和必要的部分。</p>
+<h2 id="62-提供可预期的目标提升转化率提升易用性">62. 提供可预期的目标（提升转化率，提升易用性）</h2>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.github.io/post-images/1622879571372.png" alt="" loading="lazy"></figure>
+<p>用户总是带着某种意图去操作的。拥有一个可以正确预测的用户界面，会带来更多的微笑和转化。示例中，一个Cheese的菜单里却包含了Apple，他们属于两个不同的分类。（PS：感兴趣的还可以搜一下：Amazon 反应速度超快的下拉菜单）</p>
+<h2 id="63-在页面中使用适当的留白提升转化率提升易用性">63. 在页面中使用适当的留白（提升转化率，提升易用性）</h2>
+<figure data-type="image" tabindex="3"><img src="https://y3pm.github.io/post-images/1622879726427.png" alt="" loading="lazy"></figure>
+<p>留白可以使内容或数据更加易读。当元素间稍微分开时，它们可以被用户单独感知。使用留白的一种常见方式是在一个项目周围添加额外的空白。另一方面，如果没有足够的空白填充，元素就会模糊成无法区分的整体。因此，当涉及可读性时，留白会有帮助。</p>
+<h2 id="64-尝试给用户讲一个故事提升转化率-提升易用性有效性-12">64. 尝试给用户讲一个故事（提升转化率、提升易用性，有效性 - 12%）</h2>
+<figure data-type="image" tabindex="4"><img src="https://y3pm.github.io/post-images/1622879746719.png" alt="" loading="lazy"></figure>
+<p>讲故事是最古老的交流方式，可以在登陆页面、应用程序和各种 UI 交互中使用。一个基本的故事包含一些简单的元素，比如角色，以及一些出现的问题和冲突。故事会让人觉得好像有过类似的经历，从而引发更多的情感反应。另外，故事令人难忘。</p>
+<h2 id="65-不要说谎提升转化率提升易用性有效性-6">65. 不要说谎（提升转化率，提升易用性，有效性 + 6%）</h2>
+<figure data-type="image" tabindex="5"><img src="https://y3pm.github.io/post-images/1622879774295.png" alt="" loading="lazy"></figure>
+<p>成为真实的人，是让你的产品更加值得信赖的一种方法。用一些快乐的人的图片，或者是没有理由的微笑，可能是破坏信任的第一步。另一个经常引起怀疑的是产品评论，评论有好的有坏的，而不是只有闪亮的评论。最后，精确的非整数也可以被认为更可信。（译注：有时候错别字会让评论更加真实。）</p>
+<h2 id="66-尝试逐渐的减少信息提升转化率提升易用性">66. 尝试逐渐的减少信息（提升转化率，提升易用性）</h2>
+<figure data-type="image" tabindex="6"><img src="https://y3pm.github.io/post-images/1622879788423.png" alt="" loading="lazy"></figure>
+<p>当用户学会使用你的平台或应用程序时，随着时间的推移，开始时重要的功能变得更容易或不重要。例如，图标标签可能会被隐藏，因为图标的含义已经被用户理解。当人们已经学会使用，即可进入渐进的信息减少模式。</p>
+<h2 id="67-以用户为中心提升转化率提升易用性有效性-11">67. 以用户为中心（提升转化率，提升易用性，有效性 -11%）</h2>
+<figure data-type="image" tabindex="7"><img src="https://y3pm.github.io/post-images/1622879800414.png" alt="" loading="lazy"></figure>
+<p>把用户的利益放在最前面，从而建立产品的影响力。包括从 “我” 到“你”的转换，倾听他人以及真正对他人感兴趣。以用户为中心需要表现在产品的语言和交互中。支持用户自身的利益能带来额外的可信度。有时候，从别人的角度来看待和讲述事情(即使它并没有立即带来好处)，可能会产生一种建设性的提议，让每个人受益。</p>
+<h2 id="68-试着使用上下文解释而不是假设用户都了解提升转化率提升易用性有效性-39">68. 试着使用上下文解释，而不是假设用户都了解（提升转化率，提升易用性，有效性 +3.9%）</h2>
+<figure data-type="image" tabindex="8"><img src="https://y3pm.github.io/post-images/1622879928158.png" alt="" loading="lazy"></figure>
+<p>有些事情对我们来说可能是显而易见的，但对别人却不是。使用上下文解释来消除这种不确定性，有很多种方法：表明索取信息的原因、可接受的内容的示例或者在哪里可以找到需要的信息。但是，在使用这种上下文描述时，要记住的一点是，在表单字段中不要使用它们作为占位符文本。</p>
+<h2 id="69-尝试简洁的文字表达提升转化率提升易用性有效性-09">69. 尝试简洁的文字表达（提升转化率，提升易用性，有效性 +0.9%）</h2>
+<figure data-type="image" tabindex="9"><img src="https://y3pm.github.io/post-images/1622879944460.png" alt="" loading="lazy"></figure>
+<p>用短句和更简单的词汇来表达你的意思。写完初稿后，看看是否能将内容简化一下。只展示核心信息可以在传达意图的同时而不失去别人的注意力。</p>
+<h2 id="70-尝试使用响应式布局提升转化率提升易用性">70. 尝试使用响应式布局（提升转化率，提升易用性）</h2>
+<figure data-type="image" tabindex="10"><img src="https://y3pm.github.io/post-images/1622879964404.png" alt="" loading="lazy"></figure>
+<p>页面可以双向滑动就像通过钥匙孔看地图一样，是一种认知和使用上的负担。解决这个问题的方法之一是使用响应式布局，这样就能自动适配不同的屏幕形状和大小。（译注：一种新的流式布局正在流行。）</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/jXbkzb_DA/" class="tag">
+                    交互设计
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/o5ZqGIdgeM/" class="tag">
+                    UX
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/d6EN5ajgd/" class="tag">
+                    UI
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/good-ui-6/">
+                  <h3 class="post-title">
+                    提升用户体验的 77 个交互设计方法（六）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

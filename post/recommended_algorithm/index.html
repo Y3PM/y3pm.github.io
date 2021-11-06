@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>怎么做基于推荐算法的信息流产品？ | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="前段时间在知乎学习了《了解信息流产品和内容推荐算法》，收获蛮多。对其中重要的部分进行了整理，这篇文章就是主要内容的摘要，附带课件。
+
+从目前移动互联网的大环境来看，信息流是最能带来商业价值的产品形态之一。信息流推荐算法的今日头条，已经估值超..." />
+    <meta name="keywords" content="数据分析,产品设计" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">怎么做基于推荐算法的信息流产品？</h2>
+            <div class="post-date">2019-06-12</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/recommended_algorithm.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>前段时间在知乎学习了<a href="https://www.zhihu.com/lives/911597815757672448" target="_blank">《了解信息流产品和内容推荐算法》</a>，收获蛮多。对其中重要的部分进行了整理，这篇文章就是主要内容的摘要，附带课件。</p>
+<!-- more -->
+<p>从目前移动互联网的大环境来看，信息流是最能带来商业价值的产品形态之一。信息流推荐算法的今日头条，已经估值超过了200亿美金。图为信息流推荐算法简化框架：</p>
+<figure data-type="image" tabindex="1"><img src="https://y3pm.github.io/post-images/1624081795705.jpg" alt="" loading="lazy"></figure>
+<h3 id="对用户的价值">⏱ 对用户的价值：</h3>
+<ul>
+<li>便捷阅读</li>
+<li>海量信息</li>
+<li>新鲜及时</li>
+<li>个人兴趣</li>
+</ul>
+<h3 id="商业价值">💵 商业价值：</h3>
+<ul>
+<li>类似搜索广告（网易-头条）</li>
+<li>产品产生粘性（2 千万-1.2 亿）</li>
+<li>用户时长增加（40-70 分钟）</li>
+<li>广告曝光增加</li>
+<li>广告营收增加（50-150 亿）</li>
+</ul>
+<h3 id="如何推荐内容">🧐 如何推荐内容：</h3>
+<ul>
+<li>人工运营：新闻价值判断、突发新闻、热点预测、时效性和策划</li>
+<li>算法推荐：预估 CTR、个性化匹配、学习、聚合，适合长尾内容</li>
+<li>海量内容，适合采用人工运营+算法推荐。</li>
+</ul>
+<p>图为一个内容推荐算法的示例：</p>
+<figure data-type="image" tabindex="2"><img src="https://y3pm.github.io/post-images/1624081811795.jpg" alt="" loading="lazy"></figure>
+<h3 id="算法模型分流">🌊 算法模型分流：</h3>
+<ul>
+<li>70% 给稳定模型</li>
+<li>10% 给实验模型 A</li>
+<li>10% 给实验模型 B</li>
+<li>10% 给式样模型 C</li>
+</ul>
+<h3 id="算法模型评测指标">🚀 算法模型评测指标：</h3>
+<ul>
+<li>准确率：推荐列表中，多少文章是用户读过的（训练集/测试集）。8/20=40%</li>
+<li>召回率：推荐列表中，用户读过的文章占用户阅读记录总数的比例。8/10=80%</li>
+<li>覆盖率：推荐列表中，推荐文章占文章库总数的比例。20/100=20%</li>
+</ul>
+<blockquote>
+<p>举例：文章总量为 100，用户实际看了 10 篇文章。最终实验模型推荐了 20 篇文章，用户看过的有 8篇。准确率为 40%，召回率为 80%，覆盖率为 20%</p>
+</blockquote>
+<h3 id="核心业务指标">📮 核心业务指标：</h3>
+<ul>
+<li>UV 转化率：阅读 UV/曝光 UV，反应多少比例的曝光用户转化为阅读用户。</li>
+<li>PV 转化率：阅读 PV/曝光 PV，反应违章的平均转化情况。</li>
+<li>人均篇数：阅读 PV/阅读 UV，反应内容消费深度。</li>
+<li>人均阅读时长：阅读总时长/阅读 UV，反应内容消费深度。</li>
+</ul>
+<h3 id="️-影响推荐算法的因素">⚙️ 影响推荐算法的因素：</h3>
+<h4 id="是否有强大的内容库">👉 是否有强大的内容库：</h4>
+<ol>
+<li>多样性：图文、图片、短视频、直播、问答；</li>
+<li>数量：每日入库量级超过 50W，可推荐集 20W；</li>
+<li>质量：正规媒体文章、大 V 自媒体文章、专题专栏等深度文章；</li>
+<li>时效性：突发事件一小时内入库，微博具有最好的时效性；</li>
+</ol>
+<h4 id="是否有好的交互视觉交互视觉会影响用户为内容的预期">👉 是否有好的交互视觉，交互视觉会影响用户为内容的预期：</h4>
+<ol>
+<li>风格和内容要匹配；</li>
+<li>留白减少 10%，UV 转化率提高 5%；</li>
+<li>刷新速度减少 500ms，UV 转化率提高 5%；</li>
+</ol>
+<h4 id="是否对业务参数进行了优化">👉 是否对业务参数进行了优化：</h4>
+<ol>
+<li>参数调优更多是一种艺术，而不是技术。</li>
+<li>频道列表和顺序，新用户频道调整。（是否可以根据地域进行频道调整？）</li>
+<li>下拉刷新更新条目数。今日头条首次 15 条，后续 8 条；</li>
+<li>新闻条目小字信息。今日头条来源+评论数+下发时间；</li>
+</ol>
+<h4 id="数据上报会极大的影响推荐的准确度和策略选择">👉 数据上报，会极大的影响推荐的准确度和策略选择：</h4>
+<ol>
+<li>数据要全面；</li>
+<li>数据量要大；</li>
+<li>数据上报准确。</li>
+</ol>
+<blockquote>
+<p>上报规范：时机、阈值、去重；<br><br>
+上报内容：条目曝光、点击、详情页停留时长、列表/专题页时长上报、详情页/专题/视频完成度上报。</p>
+</blockquote>
+<h4 id="冷启动策略">👉 冷启动策略：</h4>
+<ol>
+<li>地点、热点、设备</li>
+<li>其他（手机厂商）：安装应用、用户搜索等等</li>
+</ol>
+<h4 id="探索与发现">👉 探索与发现：</h4>
+<ol>
+<li>当用户有新的行为时，画像实时更新；</li>
+<li>过去的特征画像进行时间衰减，逐渐降权；</li>
+<li>在推荐列表中增加探索性的内容（Fix）</li>
+</ol>
+<h4 id="是否有好的算法模型">👉 是否有好的算法模型：</h4>
+<ol>
+<li>算法模型来源：大公司交流、学术界论文、自建模型</li>
+<li>更重要的是算法人员对业务的理解</li>
+<li>算法模型 》编码实现、性能问题、实验效果、参数调优、维护成本、模型迭代、其他问题 》实际应用</li>
+</ol>
+<h3 id="用户画像体系">🎭 用户画像体系：</h3>
+<p>用户主动、推送刺激 》数据挖掘 》生成画像</p>
+<ol>
+<li>一级类目的制定不能轻易改变，对算法影响较大；</li>
+<li>用推送验证画像准确性，如果画像准确，点击率在20%；</li>
+<li>一级类目每周更新，二级类目和标签实时更新；</li>
+<li>负反馈、搜索数据较少，但对画像影响较大；</li>
+</ol>
+<p>图为用户画像的结构和内容偏好示例：</p>
+<figure data-type="image" tabindex="3"><img src="https://y3pm.github.io/post-images/1624081834948.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://y3pm.github.io/post-images/1624081845058.png" alt="" loading="lazy"></figure>
+<h3 id="相关领域">🗿 相关领域：</h3>
+<ul>
+<li>内容库：</li>
+</ul>
+<blockquote>
+<p>内容接入 》内容下发 》后台管理 》自媒体 》过滤去重 》文本分析 》情感分析 》内容分级</p>
+</blockquote>
+<ul>
+<li>用户画像：</li>
+</ul>
+<blockquote>
+<p>标签创建 》标签测试 》标签分级 》数据上报 》数据处理 》数据挖掘</p>
+</blockquote>
+<ul>
+<li>短视频：</li>
+</ul>
+<blockquote>
+<p>内容接入 》内容下发 》数据分析 》运营策略 》算法策略 》视频广告</p>
+</blockquote>
+<ul>
+<li>搜索：</li>
+</ul>
+<blockquote>
+<p>召回策略 》搜索界面 》数据分析 》排序策略 》搜索热词 》搜索广告</p>
+</blockquote>
+<ul>
+<li>信息流广告：</li>
+</ul>
+<blockquote>
+<p>收入分成 》流量分配 》筛选策略 》性能优化 》界面优化 》eCPM 优化</p>
+</blockquote>
+<h3 id="️-如何进入信息流领域">⛳️ 如何进入信息流领域：</h3>
+<ul>
+<li>
+<p>研究自媒体平台：</p>
+<ol>
+<li>研究下发策略；</li>
+<li>研究管理后台；</li>
+<li>研究数据统计；</li>
+</ol>
+</li>
+<li>
+<p>从内容运营切入：</p>
+<ol>
+<li>研究推送文案；</li>
+<li>研究推送数据；</li>
+<li>研究专题策划；</li>
+</ol>
+</li>
+<li>
+<p>如何做产品：</p>
+<ol>
+<li>了解推荐流程；</li>
+<li>使用各种应用；</li>
+<li>研究各种内容；</li>
+</ol>
+</li>
+</ul>
+<h3 id="推荐书籍">📚 推荐书籍：</h3>
+<p>《推荐系统实践》、《这就是搜索引擎 核心技术详解》、《计算广告》</p>
+<h3 id="课件下载">🏄 课件下载：</h3>
+<p>整理了下 Live 的课件，下载地址：<a href="https://pan.baidu.com/s/1a1dC66Ey2GSpW19UP2N-jw" target="_blank">百度云盘</a>  密码:z1cy</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/Ez1AAcM-V/" class="tag">
+                    数据分析
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/RMhdZjZP8/" class="tag">
+                    产品设计
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/duo-story/">
+                  <h3 class="post-title">
+                    你有多久没给宝宝讲故事了？
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

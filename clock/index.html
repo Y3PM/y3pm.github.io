@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>YYY 家的日历</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+  @font-face {
+    font-family: timeFont;
+    src: url(./img/D-DINCB.ttf);
+  }
+  @font-face {
+    font-family: numFont;
+    src: url(./img/D-DINC.ttf);
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  body > div {
+    width: 100%;
+    clear: both;
+  }
+  #time {
+    font-family: timeFont;
+    font-size: 400px;
+    line-height: 550px;
+    height: 500px;
+    letter-spacing: 5px;
+  }
+  #time b {
+    display: inline-block;
+    position: relative;
+    top: -75px;
+    font-size: 260px;
+    width: 80px;
+  }
+  .dateContainer {
+    font-size: 110px;
+    line-height: 160px;
+    height: 150px;
+    font-weight: 600;
+  }
+  #week {
+    margin-left: 0.5em;
+  }
+  #solarlunar {
+    font-size: 75px;
+    line-height: 150px;
+    height: 140px;
+    font-weight: 100;
+  }
+  #solarlunar b {
+    font-weight: 600;
+    border-bottom: 6px solid #666;
+    margin-left: 0.5em;
+  }
+  #solarlunar em {
+    display: inline-block;
+    font-style: normal;
+    font-size: 0.4em;
+    background: #000;
+    color: #FFF;
+    writing-mode: ;
+    width: 30px;
+    line-height: 100%;
+    border-radius: 16px;
+    padding: 11px;
+    margin-right: 16px;
+    font-weight: bold;
+  }
+
+  .sun {
+    height: 100px;
+    line-height: 100px;
+    font-size: 50px;
+    position: absolute;
+    bottom: 260px;
+    font-family: numFont;
+  }
+  #sunrise {
+    margin-right: 1.5em;
+    background: url(./img/sunrise.png) left center no-repeat;
+    background-size: 0.75em;
+    padding-left: 1em;
+  }
+  #sunset {
+    background: url(./img/sunset.png) left center no-repeat;
+    background-size: 0.75em;
+    padding-left: 1em;
+  }
+
+  #alert {
+    font-size: 36px;
+    line-height: 160%;
+    position: absolute;
+    bottom: 230px;
+    font-weight: 100;
+    width: 92%;
+    background: #000;
+    color: #FFF;
+    padding: 30px 4%;
+    text-align: justify;
+    display: none; 
+    z-index: 9999;
+  }
+  #weather {
+    font-size: 50px;
+    line-height: 100px;
+    height: 100px;
+    font-weight: 100;
+    position: absolute;
+    bottom: 130px;
+    border-top: 1px solid #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 94%;
+    padding: 0 3%;
+  }
+  img {
+    width: 256px;
+    height: 256px;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .weatherContainer {
+    position: absolute;
+    bottom: 0;
+  }
+  .weatherContainer div {
+    float: left;
+    width: 25%;
+    border-top: 1px solid #666;
+    border-left: 1px solid #666;
+    margin-left: -1px;
+  }
+  .weatherContainer span {
+    display: block;
+    font-size: 50px;
+    line-height: 100px;
+    height: 80px;
+    width: 100%;
+    font-weight: 600;
+  }
+  .weatherContainer p {
+    font-size: 30px;
+    line-height: 60px;
+    height: 50px;
+    font-weight: 100;
+    clear: both;
+    width: 100%;
+  }
+  .weatherContainer i{
+    font-style: normal;
+    font-weight:100;
+    font-size:30px;
+    margin-left: 10px;
+  }
+  #birthday {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+  }
+  #birthday div {
+    float: right;
+    margin-left: 20px;
+  }
+  #birthdayIcon {
+    width: 60px;
+    height: 60px;
+    background: url(./img/birthday.png) center center no-repeat;
+    background-size: 58px;
+    display: none;
+  }
+  #solarBirthday, #lunarBirthday {
+    font-size: 30px;
+    line-height: 60px;
+    height: 60px;
+    color: #FFF;
+    background: #000;
+    padding: 0 20px;
+    border-radius: 10px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div id="time"></div>
+
+  <div class="dateContainer">
+    <span id="date"></span>
+    <span id="week"></span>
+  </div>
+  
+  <div id="solarlunar"></div>
+
+  <div class="sun">
+    <span id="sunrise"></span>
+    <span id="sunset"></span>
+  </div>
+
+  <div id="alert"></div>
+
+  <div id="weather"></div>
+
+  <div class="weatherContainer">
+    <div id="temperature"></div>
+    <div id="comfort"></div>
+    <div id="AQI"></div>
+    <div id="ultraviolet"></div>
+    <!-- <div id="carWashing"></div> -->
+  </div>
+
+  <div id="icon"></div>
+
+  <div id="birthday">
+    <div id="lunarBirthday"></div>
+    <div id="solarBirthday"></div>
+    <div id="birthdayIcon"></div>
+  </div>
+
+
+
+  <script type="text/javascript">
+    function clear() { // 清屏机制
+      document.body.style.backgroundColor = '#000'
+      setTimeout("document.body.style.backgroundColor = '#FFF'", 500);
+      console.log('-------------------------------------------------------------------')
+    }
+
+// ----------------------------------------------------------- //
+
+    function update() { //定时更新时间、阳历、星期
+      var date = new Date()
+      var utc8DiffMinutes = date.getTimezoneOffset() + 480
+      date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+
+      var timeString = date.getHours() + '<b>:</b>' + ('0' + date.getMinutes()).slice(-2)
+      var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
+      var weekList = ['日', '一', '二', '三', '四', '五', '六']
+      var weekString = '星期' + weekList[date.getDay()]
+
+      document.getElementById("time").innerHTML = timeString
+      document.getElementById("date").innerHTML = dateString
+      document.getElementById("week").innerHTML = weekString
+      console.log('时间已更新：', timeString, dateString, weekString)
+    }
+
+    update() // 页面加载时显示时间
+    setInterval("update()", 1 * 60 * 1000) // 每分钟更新
+  
+// ----------------------------------------------------------- //
+
+    function setWeather(){ //定时更新天气
+        var me = this;
+        $.ajax({
+          url:'//api.caiyunapp.com/v2.5/eiepwDUYKcPbWFgp/116.901513,36.635725/weather.json?alert=true',
+          // 接口文档：https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5
+          // 定位：116.89,36.6293, http://www.toolzl.com/tools/gps.html
+          type:"get",
+          dataType:"jsonp",
+          crossDomain: true,
+          success:function(res){
+            // console.log(res)
+            lifestyle = res.result.forecast_keypoint
+
+            skycon = res.result.realtime.skycon
+            if(! window.localStorage){
+              alert("浏览器不支持使用本地缓存！");
+            } else {
+              localStorage.setItem("skycon", skycon);
+            }
+
+            try {
+              alert = res.result.alert.content[0].description.split("布")[1]
+            } catch(e) {
+              alert = undefined
+            } finally {}
+
+            temperature = '<span>' + res.result.realtime.apparent_temperature + '<i>℃</i>'+ '</span><p>体感温度</p>'
+            air = '<span>' + res.result.realtime.air_quality.description.chn + '</span><p>空气质量</p>'
+            comfort = '<span>' + res.result.realtime.life_index.comfort.desc + '</span><p>感冒' + res.result.daily.life_index.coldRisk[1].desc + '</p>'
+            ultraviolet = '<span>' + res.result.realtime.life_index.ultraviolet.desc + '</span><p>紫外线</p>'
+            carWashing = '<span>' + res.result.daily.life_index.carWashing[1].desc + '</span><p>洗车指数</p>'
+            sunrise = res.result.daily.astro[1].sunrise.time // 日出时间
+            sunset = res.result.daily.astro[1].sunset.time // 日落时间
+
+            document.getElementById("icon").innerHTML = '<img src="./img/' + skycon + '.png">';
+
+            var warning = document.getElementById("alert")
+            if (alert != undefined) {
+              warning.innerHTML = alert;
+              warning.style.display = "block";
+            } else {
+              warning.style.display = "none";
+            }
+
+            document.getElementById("weather").innerHTML = lifestyle;
+            document.getElementById("temperature").innerHTML = temperature;
+            document.getElementById("AQI").innerHTML = air;
+            document.getElementById("comfort").innerHTML = comfort;
+            document.getElementById("ultraviolet").innerHTML = ultraviolet;
+            document.getElementById("sunrise").innerHTML = sunrise;
+            document.getElementById("sunset").innerHTML = sunset;
+            // document.getElementById("carWashing").innerHTML = carWashing; // 暂不展示洗车指数
+
+            console.log('天气已更新：', lifestyle)
+          }
+        })
+    }
+    setWeather() // 页面加载时更新天气
+
+    sky = localStorage.getItem("skycon")
+    if (sky.search('RAIN') != -1 || sky.search('SNOW') != -1) {
+      upTime = 10 // 雨雪天气天气更新频率
+    } else {
+      upTime = 30 // 其他天气更新时间，含雾霾、沙尘
+    }
+
+    setInterval("setWeather()", upTime * 60 * 1000) // 每3~15分钟更新天气，以节省电量
+  
+ 
+// ----------------------------------------------------------- //
+  
+    function setLunar(){ //定时更新农历二，某工程师接口，全面但可能会下线
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('GET', '//api.timelessq.com/time', true); // 接口来源：https://www.timelessq.com/article/detail/9，某天的：?datetime=2021-10-1
+        httpRequest.send();
+        
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+              var res = JSON.parse(httpRequest.responseText);
+              Year = res.data.year // 阳历年份
+              dataMonth = res.data.month // 阳历月份
+              dataDay = res.data.day //阳历日
+
+              lunarYear = '<em>' + res.data.lunar.cyclicalYear + '</em>' //阴历年份
+              lunarMonth = res.data.lunar.cnMonth //阴历月份
+              lunarDay = res.data.lunar.cnDay //阴历日
+
+              Festival = res.data.festivals[0] // 阳历节日
+              lunarFestival = res.data.lunar.festivals[0] // 阴历节日
+
+
+              if (dataMonth < 10) {
+                Month = '0' + dataMonth // 补0
+              } else {
+                Month = dataMonth
+              }
+
+              if (dataDay < 10) {
+                Day = '0' + dataDay // 补0
+              } else {
+                Day = dataDay
+              }
+
+              Today = Year + '-' + Month + '-' + Day // 用于判断当天是否是节气
+
+              for ( i = 0; i < Object.keys(res.data.lunar.solarTerms).length; i++ ) {
+                lunarJieqiTime = res.data.lunar.solarTerms[i].time.split(' ')[0] // 节气时间
+                if (lunarJieqiTime == Today){
+                  lunarJieqiName = res.data.lunar.solarTerms[i].name // 节气名称
+                  break
+                } else {
+                  lunarJieqiName = undefined
+                }
+              }
+
+              // 节日展示规则：阴历节日 > 节气 > 阳历节日
+              // console.log('节日已更新： ' + '阴历', lunarFestival, '节气', lunarJieqiName, '阳历', Festival)
+
+              if (lunarFestival != undefined) {
+                jieri = '<b>' + lunarFestival + '</b>' // 如果当天是阴历节日
+              } else if ( lunarJieqiName != undefined) {
+                jieri = '<b>' + lunarJieqiName + '</b>' // 如果当天是节气
+              } else if (Festival != undefined) {
+                jieri = '<b>' + Festival + '</b>' // 如果当天是阳历节日
+              } else {
+                jieri = '' // 如果当天无节日
+              }
+
+              nongli = lunarYear + lunarMonth + lunarDay + jieri
+              // console.log(nongli)
+
+              document.getElementById("solarlunar").innerHTML = nongli
+              console.log('农历已更新：', nongli)
+
+              // 自定义生日提示
+              solarDay = dataMonth + '-' + dataDay
+              lunarDay = res.data.lunar.month + '-' + res.data.lunar.day
+              $.getJSON("birthday.json", function(data) {
+
+                // console.log(data.lunar[lunarDay], data.solar[solarDay])
+                if (data.solar[solarDay] != undefined) {
+                  document.getElementById("solarBirthday").innerHTML = data.solar[solarDay]
+                  solarBirthday.style.display = "block";
+                } else {
+                  solarBirthday.style.display = "none";
+                }
+
+                if (data.lunar[lunarDay] != undefined) {
+                  document.getElementById("lunarBirthday").innerHTML = data.lunar[lunarDay]
+                  lunarBirthday.style.display = "block";
+                } else {
+                  lunarBirthday.style.display = "none";
+                }
+
+                if (data.solar[solarDay] != undefined || data.lunar[lunarDay] != undefined) {
+                  birthdayIcon.style.display = "block";
+                } else {
+                  birthdayIcon.style.display = "none";
+                }
+              })
+            }
+        };
+    }
+    setLunar() // 加载页面时显示农历及生日
+
+// ----------------------------------------------------------- //
+
+    function refresh() { // 定时更新农历和清屏
+      var date = new Date();
+      if(date.getHours() % 6 == 0 && date.getMinutes() == 0){ // 每6小时整点执行
+        console.log('执行清屏和农历更新')
+        clear()
+        setLunar()
+      }
+    }
+    refresh() // 加载时执行一次
+    setInterval("refresh()", 60 * 1000) // 每分钟尝试更新农历和清屏
+
+  // 其他可使用的接口
+  // 今日油价：https://apis.juhe.cn/gnyj/query?key=517127af670fae7bf7a510af63b2ef96
+  // 双色球：http://apis.juhe.cn/lottery/query?lottery_id=ssq&key=06dfbf39e03bda90743c979058cdc516
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>代理IP的高匿、匿名、透明有何区别 | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="在对数据进行采集的时候，经常遇到有反爬能力的站点，比如大家喜闻乐爬的12306、大众点评等等。这时候就需要挂上代理来进行采集（大众点评的反爬是做的最🐂的……）。
+
+IP的高匿、匿名、透明，是针对隐藏用户请求数据而言，例如：隐藏IP地址，隐..." />
+    <meta name="keywords" content="Python,开发" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">代理IP的高匿、匿名、透明有何区别</h2>
+            <div class="post-date">2018-05-19</div>
+            
+              <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/proxy-ip.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>在对数据进行采集的时候，经常遇到有反爬能力的站点，比如大家喜闻乐爬的12306、大众点评等等。这时候就需要挂上代理来进行采集（大众点评的反爬是做的最🐂的……）。</p>
+<!-- more -->
+<p>IP的高匿、匿名、透明，是针对隐藏用户请求数据而言，例如：隐藏IP地址，隐藏踪迹等。使用什么级别的最合适呢？</p>
+<pre><code class="language-JSON">{
+	remote_addr: &quot;139.59.17.117:8080&quot;,
+	http_via: &quot;null&quot;,
+	client_ip: &quot;null&quot;,
+	http_x_forwarded_for: &quot;null&quot;
+}
+</code></pre>
+<p>访问网络，一共有五种方式：无代理、透明、普通匿名、欺骗匿名、高匿（Elite）。五种方式及判断原理如下：</p>
+<h2 id="无代理">无代理</h2>
+<ul>
+<li>REMOTE_ADDR = 您的真实 IP</li>
+<li>HTTP_VIA = 没数值或不显示</li>
+<li>HTTP_X_FORWARDED_FOR = 没数值或不显示</li>
+</ul>
+<h2 id="透明代理">透明代理</h2>
+<ul>
+<li>REMOTE_ADDR = 最后一个代理服务器 IP</li>
+<li>HTTP_VIA = 代理服务器 IP</li>
+<li>HTTP_X_FORWARDED_FOR = 您的真实 IP，经过多个代理服务器时，这个值类似：123.57.78.101, 120.24.177.48, 47.88.76.11</li>
+</ul>
+<h2 id="普通匿名">普通匿名</h2>
+<ul>
+<li>REMOTE_ADDR = 最后一个代理服务器 IP</li>
+<li>HTTP_VIA = 代理服务器 IP</li>
+<li>HTTP_X_FORWARDED_FOR = 代理服务器 IP，经过多个代理服务器时，这个值类似：123.57.78.101, 120.24.177.48, 47.88.76.11</li>
+</ul>
+<h2 id="欺骗匿名">欺骗匿名</h2>
+<ul>
+<li>REMOTE_ADDR = 最后一个代理服务器 IP</li>
+<li>HTTP_VIA = 代理服务器IP</li>
+<li>HTTP_X_FORWARDED_FOR = 随机的 IP，经过多个代理服务器时，这个值类似：123.57.78.101, 120.24.177.48, 47.88.76.11</li>
+</ul>
+<h2 id="高匿elite">高匿(Elite)</h2>
+<ul>
+<li>REMOTE_ADDR = 代理服务器 IP</li>
+<li>HTTP_VIA = 没数值或不显示</li>
+<li>HTTP_X_FORWARDED_FOR = 没数值或不显示</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://y3pm.github.io/tag/KLFeJMwU4/" class="tag">
+                    Python
+                  </a>
+                
+                  <a href="https://y3pm.github.io/tag/NwQziEaLqu/" class="tag">
+                    开发
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://y3pm.github.io/post/regular-expression/">
+                  <h3 class="post-title">
+                    开发人员不得不知的正则表达式
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

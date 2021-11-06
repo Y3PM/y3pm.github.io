@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>开发 | Y3.PM</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://y3pm.github.io/favicon.ico?v=1636163540430">
+<link rel="stylesheet" href="https://y3pm.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139853328-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139853328-1');
+</script>
+
+
+    <meta name="description" content="👨‍💻 产品 | 设计 | 数据">
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://y3pm.github.io">
+        <img src="https://y3pm.github.io/images/avatar.png?v=1636163540430" class="site-logo">
+        <h1 class="site-title">Y3.PM</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      👨‍💻 产品 | 设计 | 数据
+    </div>
+    <div class="site-footer">
+      💬 Wechat: FansMaker | <a class="rss" href="https://y3pm.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 开发</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/wechat-changelog/">
+                  <h2 class="post-title">微信更新日志RSS订阅源</h2>
+                </a>
+                <div class="post-date">
+                  2019-05-28
+                </div>
+                <div class="post-abstract">
+                  <p>用来了解最新的微信技术，包含三个RSS：微信基础库更新 + 微信开发者工具更新 + 微信云开发更新。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/wechat-changelog/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/wechat-changelog.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/develop-summary/">
+                  <h2 class="post-title">某个项目的研发全流程总结会</h2>
+                </a>
+                <div class="post-date">
+                  2019-05-24
+                </div>
+                <div class="post-abstract">
+                  <p>一个网站项目阶段性任务结束，简单做了个PPT，总结了下项目中遇到的各种问题。虽不是项目的主要负责人，但还是希望团队成员能从中总结经验、吸取教训，不断的提升自己的能力。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/develop-summary/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/develop-summary.jpeg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/shortcut-jinan-bus/">
+                  <h2 class="post-title">《济南实时公交》捷径开发记录</h2>
+                </a>
+                <div class="post-date">
+                  2019-01-20
+                </div>
+                <div class="post-abstract">
+                  <p>一个小小的公交捷径，从需求到迭代，将产品从需求、到开发迭代的流程提现的淋漓尽致。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/shortcut-jinan-bus/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/shortcut-jinan-bus.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/Thor/">
+                  <h2 class="post-title">手机上的抓包神器 Thor 使用教程</h2>
+                </a>
+                <div class="post-date">
+                  2019-01-06
+                </div>
+                <div class="post-abstract">
+                  <p>为了搞点数据，有时候需要通过多种方式进行数据采集和抓包。Mac 上的抓包神器是 Charles，有时候电脑不在身边就比较麻烦。这时候就该手机抓包工具上场了。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/Thor/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/Thor.jpeg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/check-list/">
+                  <h2 class="post-title">给交互设计、视觉设计和前端开发的自查表</h2>
+                </a>
+                <div class="post-date">
+                  2018-11-24
+                </div>
+                <div class="post-abstract">
+                  <p>在开发流程中，经常遇到产品不够细致、设计体验不足、前端 Bug 频出的情况。要想得到一个满分产品，从产品到设计到研发是一个不断加分的过程。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/check-list/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/check-list.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/proxy-ip/">
+                  <h2 class="post-title">代理IP的高匿、匿名、透明有何区别</h2>
+                </a>
+                <div class="post-date">
+                  2018-05-19
+                </div>
+                <div class="post-abstract">
+                  <p>在对数据进行采集的时候，经常遇到有反爬能力的站点，比如大家喜闻乐爬的12306、大众点评等等。这时候就需要挂上代理来进行采集（大众点评的反爬是做的最🐂的……）。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/proxy-ip/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/proxy-ip.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/regular-expression/">
+                  <h2 class="post-title">开发人员不得不知的正则表达式</h2>
+                </a>
+                <div class="post-date">
+                  2018-05-08
+                </div>
+                <div class="post-abstract">
+                  <p>在使用Python进行数据采集的时候，经常需要用到正则表达式。合理使用可以极大的提高效率。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/regular-expression/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/regular-expression.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://y3pm.github.io/post/video-sync/">
+                  <h2 class="post-title">没网没服务器，在多台电脑上实现视频同步播放</h2>
+                </a>
+                <div class="post-date">
+                  2018-01-17
+                </div>
+                <div class="post-abstract">
+                  <p>这个问题，是我们在处理数据大屏时遇到的一个技术问题。跟相关的负责人和工程师沟通多次，一直没能解决这个问题。 作为产品经理，做产品的时候也应该想一下如何实现自己想要的东西，并在关键时刻协助完成项目。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://y3pm.github.io/post/video-sync/">
+                  <div class="feature-container" style="background-image: url('https://y3pm.github.io/post-images/video-sync.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
